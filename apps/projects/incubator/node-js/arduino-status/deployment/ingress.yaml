@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging-nginx
+  name: arduino-status
+  namespace: arduino-status
+spec:
+  tls:
+  - hosts:
+    - arduino.kubelize.com
+    secretName: arduino-status-secret
+  ingressClassName: nginx
+  rules:
+  - host: arduino.kubelize.com
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: arduino-status
+            port:
+              number: 3000

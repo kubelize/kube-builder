@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-testpage
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/execved/homelab
+      path: apps/projects/incubator/webservers/nginx-testpage/deployment
+      targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: nginx-testpage

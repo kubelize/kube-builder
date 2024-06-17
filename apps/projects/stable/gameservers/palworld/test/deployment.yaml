@@ -1,0 +1,60 @@
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: palserver
+    namespace: palworld
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: palserver
+    template:
+      metadata:
+        labels:
+          app: palserver
+      spec:
+        initContainers:
+        - name: set-ownership
+          image: busybox
+          command: ["chown", "-R", "1000:1000", "/home/steam/Steam/steamapps/common/PalServer"]
+          volumeMounts:
+          - mountPath: /home/steam/Steam/steamapps/common/PalServer
+            name: data
+        containers:
+        - image: kubelize/palworld-server:0.0.1
+          imagePullPolicy: Always
+          name: palserver
+          command: ["/bin/bash", "-c"]
+          args:
+            - "tail -f /dev/null"
+          ports:
+          - containerPort: 8211
+            name: gameport
+            protocol: UDP
+          - containerPort: 25575
+            name: rconport
+            protocol: TCP
+          resources:
+            limits:
+              cpu: "3"
+              memory: 12Gi
+            requests:
+              cpu: "2"
+              memory: 8Gi
+          securityContext:
+            capabilities:
+              drop:
+              - ALL
+            runAsNonRoot: true
+            runAsUser: 1000
+            allowPrivilegeEscalation: false
+            seccompProfile:
+              type: RuntimeDefault
+          volumeMounts:
+          - mountPath: /home/steam/Steam/steamapps/common/PalServer
+            name: data
+        securityContext: {}
+        volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: palworld-data

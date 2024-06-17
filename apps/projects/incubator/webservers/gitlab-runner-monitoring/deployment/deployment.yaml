@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: runner-monitoring
+  name: runner-monitoring
+  labels:
+    app: runner-monitoring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: runner-monitoring
+  template:
+    metadata:
+      labels:
+        app: runner-monitoring
+    spec:
+      containers:
+       - name: runner-monitoring
+         image: kubelize/runner-monitoring:0.1.2
+         imagePullPolicy: Always
+         ports:
+          - containerPort: 3000
+            name: http
+         volumeMounts:
+         - name: gitlab-runner-monitoring-script
+           mountPath: /home/runner-monitoring/gitlab-runner-monitoring.sh
+           subPath: gitlab-runner-monitoring.sh
+           readOnly: true
+         resources:
+           limits:
+             cpu: 1000m
+             memory: 1Gi
+           requests:
+             cpu: 1000m
+             memory: 1Gi
+         securityContext:
+           runAsUser: 1000
+           runAsGroup: 1000
+           runAsNonRoot: true
+           allowPrivilegeEscalation: false
+      volumes:
+      - name: gitlab-runner-monitoring-script
+        configMap:
+          name: gitlab-runner-monitoring-script

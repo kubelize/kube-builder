@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bootstrap
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/malahayatii/homelab
+      path: clusters/dev/reservoir
+      targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd

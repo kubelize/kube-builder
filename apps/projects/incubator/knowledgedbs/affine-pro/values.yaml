@@ -1,0 +1,280 @@
+# Default values for affine-pro.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+web:
+  replicaCount: 1
+  image:
+    repository: ghcr.io/toeverything/affine-graphql
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: "stable"
+  imagePullSecrets: []
+  nameOverride: ""
+  fullnameOverride: ""
+  podAnnotations: {}
+  podLabels: {}
+  podSecurityContext: {}
+    # fsGroup: 2000
+  securityContext: {}
+    # capabilities:
+    #   drop:
+    #   - ALL
+    # readOnlyRootFilesystem: true
+    # runAsNonRoot: true
+    # runAsUser: 1000
+  service:
+    type: ClusterIP
+    port: 3010
+    idkport: 5555
+  secretName: web-env
+  resources: {}
+    # We usually recommend not to specify default resources and to leave this as a conscious
+    # choice for the user. This also increases chances charts run on environments with little
+    # resources, such as Minikube. If you do want to specify resources, uncomment the following
+    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+    #   cpu: 100m
+    #   memory: 128Mi
+  livenessProbe:
+    httpGet:
+      path: /
+      port: http
+  readinessProbe:
+    httpGet:
+      path: /
+      port: http
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 100
+    targetCPUUtilizationPercentage: 80
+    # targetMemoryUtilizationPercentage: 80
+  storage:
+    name: web-claim
+    accessMode: "ReadWriteOnce"
+    storageClassName: "kubevirt-hostpath-provisioner"
+    capacity: "5Gi"
+    annotations:
+      kubevirt.io/provisionOnNode: "prod-svc-270224"
+  # Additional volumes on the output Deployment definition.
+  volumes:
+    - name: web-data
+      persistentVolumeClaim:
+        claimName: web-claim
+  # - name: foo
+  #   secret:
+  #     secretName: mysecret
+  #     optional: false
+  # Additional volumeMounts on the output Deployment definition.
+  volumeMounts:
+    - name: web-data
+      mountPath: /root/.affine
+  # - name: foo
+  #   mountPath: "/etc/foo"
+  #   readOnly: true
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+
+postgres:
+  replicaCount: 1
+  image: 
+    repository: postgres
+    pullPolicy: IfNotPresent
+    tag: "16"
+  imagePullSecrets: []
+  nameOverride: ""
+  fullnameOverride: ""
+  podAnnotations: {}
+  podLabels: {}
+  podSecurityContext: {}
+    # fsGroup: 2000
+  securityContext: {}
+    # capabilities:
+    #   drop:
+    #   - ALL
+    # readOnlyRootFilesystem: true
+    # runAsNonRoot: true
+    # runAsUser: 1000  
+  service:
+    type: ClusterIP
+    port: 5432
+  secretName: "postgres-env"
+  resources: {}
+    # We usually recommend not to specify default resources and to leave this as a conscious
+    # choice for the user. This also increases chances charts run on environments with little
+    # resources, such as Minikube. If you do want to specify resources, uncomment the following
+    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+    #   cpu: 100m
+    #   memory: 128Mi
+  livenessProbe:
+    exec:
+      command:
+        - /bin/sh
+        - -c
+        - exec pg_isready -U "affine" -h 127.0.0.1 -p 5432
+    # httpGet:
+    #   path: /
+    #   port: postg-default
+  readinessProbe:
+    exec:
+      command:
+        - /bin/sh
+        - -c
+        - exec pg_isready -U "affine" -h 127.0.0.1 -p 5432
+  # httpGet:
+  #   path: /
+  #   port: postg-default
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 100
+    targetCPUUtilizationPercentage: 80
+    # targetMemoryUtilizationPercentage: 80
+  storage:
+    name: postgres-claim
+    accessMode: "ReadWriteOnce"
+    storageClassName: "kubevirt-hostpath-provisioner"
+    capacity: "5Gi"
+    annotations:
+      kubevirt.io/provisionOnNode: "prod-svc-270224"
+  # Additional volumes on the output Deployment definition.
+  volumes:
+    - name: postgres-data
+      persistentVolumeClaim:
+        claimName: postgres-claim
+  # - name: foo
+  #   secret:
+  #     secretName: mysecret
+  #     optional: false
+  # Additional volumeMounts on the output Deployment definition.
+  volumeMounts:
+    - name: postgres-data
+      mountPath: /var/lib/postgresql/data
+  # - name: foo
+  #   mountPath: "/etc/foo"
+  #   readOnly: true
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+
+redis:
+  replicaCount: 1
+  image: 
+    repository: redis
+    pullPolicy: IfNotPresent
+    tag: "7"
+  imagePullSecrets: []
+  nameOverride: ""
+  fullnameOverride: ""
+  podAnnotations: {}
+  podLabels: {}
+  podSecurityContext: {}
+    # fsGroup: 2000
+  securityContext: {}
+    # capabilities:
+    #   drop:
+    #   - ALL
+    # readOnlyRootFilesystem: true
+    # runAsNonRoot: true
+    # runAsUser: 1000  
+  service:
+    type: ClusterIP
+    port: 6379
+  secretName: "redis-env"
+  resources: {}
+    # We usually recommend not to specify default resources and to leave this as a conscious
+    # choice for the user. This also increases chances charts run on environments with little
+    # resources, such as Minikube. If you do want to specify resources, uncomment the following
+    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+    #   cpu: 100m
+    #   memory: 128Mi
+  livenessProbe:
+    exec:
+      command:
+       - /bin/sh
+       - -c
+       - redis-cli üing
+  # httpGet:
+  #   path: /
+  #   port: redis-default
+  readinessProbe:
+    exec:
+      command:
+       - /bin/sh
+       - -c
+       - redis-cli üing
+    # httpGet:
+    #   path: /
+    #   port: redis-default
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 100
+    targetCPUUtilizationPercentage: 80
+    # targetMemoryUtilizationPercentage: 80
+  storage:
+    name: redis-claim
+    accessMode: "ReadWriteOnce"
+    storageClassName: "kubevirt-hostpath-provisioner"
+    capacity: "5Gi"
+    annotations:
+      kubevirt.io/provisionOnNode: "prod-svc-270224"
+  # Additional volumes on the output Deployment definition.
+  volumes:
+    - name: redis-data
+      persistentVolumeClaim:
+        claimName: redis-claim
+  # - name: foo
+  #   secret:
+  #     secretName: mysecret
+  #     optional: false
+  # Additional volumeMounts on the output Deployment definition.
+  volumeMounts:
+    - name: redis-data
+      mountPath: /data
+  # - name: foo
+  #   mountPath: "/etc/foo"
+  #   readOnly: true
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}  
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Automatically mount a ServiceAccount's API credentials?
+  automount: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+ingress:
+    enabled: false
+    className: ""
+    annotations: {}
+      # kubernetes.io/ingress.class: nginx
+      # kubernetes.io/tls-acme: "true"
+    hosts:
+      - host: chart-example.local
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls: []
+    #  - secretName: chart-example-tls
+    #    hosts:
+    #      - chart-example.local

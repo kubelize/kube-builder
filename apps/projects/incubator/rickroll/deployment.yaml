@@ -1,0 +1,39 @@
+# rickroll deployment using docker image modem7/docker-rickroll
+# deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: roll-deployment
+  labels:
+    app: roll
+  namespace: roll
+spec:
+  template:
+    metadata:
+      name: roll-pod
+      labels:
+        app: roll
+    spec:
+      containers:
+        - name: roll
+          image: modem7/docker-rickroll
+          ports:
+            - containerPort: 8080
+  replicas: 2
+  selector:
+    matchLabels:
+      app: roll
+---
+# service
+apiVersion: v1
+kind: Service
+metadata:
+  name: roll-ingress-svc
+  namespace: roll
+spec:
+  selector:
+      app: roll
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

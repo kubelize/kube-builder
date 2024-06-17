@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubevirt-hostpath-provisioner
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/kubelize/reservoir
+      path: apps/operators/incubator/storage/kubevirt-hpp/deployment
+      targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kubevirt-hostpath-provisioner

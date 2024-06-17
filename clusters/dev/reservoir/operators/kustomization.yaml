@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  # operators stable
+  - ../../../../apps/operators/stable/connectivity/cert-manager/
+  - ../../../../apps/operators/stable/connectivity/metallb/
+  - ../../../../apps/addons/metallb-config/address-pools/site-dhe/
+  - ../../../../apps/addons/metallb-config/l2advertisement/
+  - ../../../../apps/operators/stable/connectivity/ingress-nginx/
+  - ../../../../apps/operators/stable/observability/renovate/
+
+  # operators incubator
+  - ../../../../apps/operators/incubator/observability/uptime-kuma/
+  - ../../../../apps/operators/incubator/security/sealed-secrets-controller/

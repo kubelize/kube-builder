@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: debian-modify-pvc
+  labels:
+    app: debian-modify-pvc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: debian-modify-pvc
+  template:
+    metadata:
+      labels:
+        app: debian-modify-pvc
+    spec:
+      containers:
+      - name: debian
+        image: debian:latest
+        command: ["/bin/sleep", "infinity"]  # Keeps the container running
+        volumeMounts:
+        - name: pvc-volume
+          mountPath: /data  # Mount point for the PVC
+      volumes:
+      - name: pvc-volume
+        persistentVolumeClaim:
+          claimName: conan-exiles-data # Name of your existing PVC

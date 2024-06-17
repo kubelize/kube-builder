@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: insurgency-sandstorm-server
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: insurgency-sandstorm
+  source:
+    repoURL: https://moffoso.github.io/helm-charts/
+    targetRevision: 0.1.0
+    chart: insurgency-sandstorm-server
+    helm:
+      parameters: []
+      values: |
