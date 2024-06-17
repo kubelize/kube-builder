@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: rei-nginx-claim
+  namespace: rei-nginx
+  annotations: 
+    kubevirt.io/provisionOnNode: prod-svc-270224
+spec:
+  storageClassName: kubevirt-hostpath-provisioner
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi

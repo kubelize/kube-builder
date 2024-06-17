@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: arduino-status
+  name: arduino-status
+  labels:
+    app: arduino-status
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: arduino-status
+  template:
+    metadata:
+      labels:
+        app: arduino-status
+    spec:
+      containers:
+       - name: arduino-status
+         image: kubelize/node-js-m121:0.0.1
+         imagePullPolicy: Always
+         ports:
+          - containerPort: 80
+            name: http
+         resources:
+           limits:
+             cpu: 1000m
+             memory: 1Gi
+           requests:
+             cpu: 1000m
+             memory: 1Gi 

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rei-nginx
+  namespace: rei-nginx
+spec:
+  selector:
+    app: rei-nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

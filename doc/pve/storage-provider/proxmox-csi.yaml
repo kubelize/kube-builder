@@ -1,0 +1,6 @@
+clusters:
+  - url: https://10.130.5.80:8006/api2/json
+    insecure: false
+    token_id: "kubernetes-csi@pve!csi"
+    token_secret: "a8266eca-bd47-4d50-a401-e1e17ae84a25"
+    region: Region-1

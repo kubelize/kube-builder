@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: arduino-status-nodeport
+  namespace: arduino-status
+spec:
+  selector:
+    app: arduino-status
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: NodePort

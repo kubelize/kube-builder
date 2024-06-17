@@ -1,0 +1,33 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: rei-nginx-sync
+  namespace: rei-nginx
+spec:
+  schedule: "0 1 * * *"  # Cron expression for running every 5 minutes
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: rei-nginx
+        spec:
+          containers:
+          - name: rei-nginx-sync
+            image: kubelize/rsync:0.0.1
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: rei-nginx-data
+              mountPath: /tmp/website
+            - name: sync-cm
+              mountPath: /usr/local/bin/rsync.sh
+              subPath: rsync.sh
+            command: ["/bin/bash", "/usr/local/bin/rsync.sh"]  # Specify the command to run the script
+          volumes:
+          - name: rei-nginx-data
+            hostPath:
+              path: /media/kubevirt-hpp/pvc-6e04ad4c-7b48-4fba-b407-99d900f26662
+          - name: sync-cm
+            configMap:
+              name: sync-script
+          restartPolicy: OnFailure

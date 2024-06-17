@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tetragon
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: tetragon
+  source:
+    repoURL: https://helm.cilium.io
+    targetRevision: 1.1.0
+    chart: tetragon
+    helm:
+      parameters: []

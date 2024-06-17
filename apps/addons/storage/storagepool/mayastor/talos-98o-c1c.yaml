@@ -1,0 +1,8 @@
+apiVersion: "openebs.io/v1beta1"
+kind: DiskPool
+metadata:
+  name: mayastor-talos-98o-c1c
+  namespace: mayastor
+spec:
+  node: talos-98o-c1c
+  disks: ["/dev/sdb"]

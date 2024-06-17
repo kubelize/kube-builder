@@ -1,0 +1,8 @@
+apiVersion: "openebs.io/v1beta1"
+kind: DiskPool
+metadata:
+  name: mayastor-talos-2g3-qfw
+  namespace: mayastor
+spec:
+  node: talos-2g3-qfw
+  disks: ["/dev/sda"]

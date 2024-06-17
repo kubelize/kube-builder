@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod-nginx
+  name: rei-nginx
+  namespace: rei-nginx
+spec:
+  tls:
+  - hosts:
+    - tales.kubelize.com
+    secretName: rei-nginx-tls
+  ingressClassName: nginx
+  rules:
+  - host: tales.kubelize.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: rei-nginx
+            port:
+              number: 80

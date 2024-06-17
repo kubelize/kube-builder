@@ -1,0 +1,182 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gitlab-runner-monitoring-script
+  namespace: runner-monitoring
+data:
+  gitlab-runner-monitoring.sh: |-
+    #!/bin/bash
+
+    #################################
+    # To use this script for other  #
+    # runners, just change the name #
+    # of the project_name variable. #
+    # Since they're all in the same #
+    # API, this should be able to   #
+    # make them distinguishable     #
+    #################################
+
+
+    #!!!!token doesnt need to be defined, as it's injected as an envvar by kubernetes!!!!#
+    source token.conf
+
+
+    # initiate counters for statuses
+    inactive_counter=0
+    down_counter=0
+
+    # install jq if it isn't on the device already
+    if ! command -v jq >/dev/null 2>&1; then 
+      apt update && apt install jq -y
+    fi
+
+
+    ### Change the name of the project here - this is how the runners will be discerned from one another ### e.g. k40 runners have k40 in their description, gelan runners have gelan in their description etc ###
+    project_name="k40"
+    ###
+
+    # get the IDs of all runners that contain the name of the chosen project within their description (e.g. gelan, k40, etc.)
+    runner_of_proj=$(curl -s --header "PRIVATE-TOKEN: $token" "https://git.bedag.cloud/api/v4/runners" | jq --arg project_name "$project_name" '.[] | select(.description | contains($project_name)) | .id')
+
+    # get the amount of runners picked out above
+    amount_runners=$(echo $runner_of_proj | wc -w | awk '{print $1}')
+
+    # get runner status (if they're active or not)
+
+    output_active=""
+    output_status=""
+    active_runners=""
+    status_runners=""
+
+    for runner in $runner_of_proj; do
+
+      # check for "active" value
+      active="$(curl -s --header "PRIVATE-TOKEN: $token" "https://git.bedag.cloud/api/v4/runners" | jq --arg runner "$runner" '.[] | select(.id == ($runner | tonumber)) | .active') "
+      output_active+="$active"
+
+      if [[ $active != "true " ]]; then
+        inactive_counter=$((inactive_counter + 1))
+        active_runners+="0 "
+      else
+        active_runners+="1 "
+      fi
+
+      # check for "status" value
+      status="$(curl -s --header "PRIVATE-TOKEN: $token" "https://git.bedag.cloud/api/v4/runners" | jq --arg runner "$runner" '.[] | select(.id == ($runner | tonumber)) | .status') "
+      output_status+="$status"
+
+      if [[ $status != *"online"* ]]; then
+        down_counter=$((down_counter + 1))
+        status_runners+="0 "
+      else
+        status_runners+="1 "
+      fi
+
+    done
+
+    # get the runner versions
+
+    version_runners=""
+
+    for runner in $runner_of_proj; do
+
+      version="$(curl -s --header "PRIVATE-TOKEN: $token" "https://git.bedag.cloud/api/v4/runners/$runner" | jq '.version') "
+      version_runners+="$version"
+
+    done
+
+    # get the runner IPs
+
+    ip_runners=""
+
+    for runner in $runner_of_proj; do
+
+      ip="$(curl -s --header "PRIVATE-TOKEN: $token" "https://git.bedag.cloud/api/v4/runners/$runner" | jq '.ip_address') "
+      ip_runners+="$ip"
+
+    done
+
+    # get the runner description
+
+    description_runners=""
+
+    for runner in $runner_of_proj; do
+
+      description="$(curl -s --header "PRIVATE-TOKEN: $token" "https://git.bedag.cloud/api/v4/runners/$runner" | jq '.description') "
+      description_runners+="$description"
+
+    done
+
+
+    # prepare message sent by the api
+
+    message=""
+
+    for ((i = 1; i <= amount_runners; i++)); do
+
+      id_message=$(echo $runner_of_proj | awk -v var="$i" '{ print $var }')
+      active_message=$(echo $active_runners | awk -v var="$i" '{ print $var }')
+      status_message=$(echo $status_runners | awk -v var="$i" '{ print $var }')
+      version_message=$(echo $version_runners | awk -v var="$i" ' { print $var }')
+
+      message+="$id_message, $active_message, $status_message, $version_message\n"
+
+    done
+
+
+    echo "Amount of registered runners: $amount_runners"
+    echo "Amount of runners that aren't active: $inactive_counter"
+    echo "Amount of runners that aren't online: $down_counter"
+    echo -e "$message"
+
+    # define the metrics in a way that prometheus can interpret
+
+    gitlab_runner_amount_of_registered_runners="
+    # HELP gitlab_runner_amount_of_registered_runners Amount of runners that are registered 
+    # TYPE gitlab_runner_amount_of_registered_runners counter 
+    gitlab_runner_amount_of_registered_runners{project:"$project_name"} $amount_runners
+    "
+
+    gitlab_runner_amount_of_inactive_runners="
+    # HELP gitlab_runner_amount_of_inactive_runners Amount of runners that are inactive
+    # TYPE gitlab_runner_amount_of_inactive_runners counter 
+    gitlab_runner_amount_of_inactive_runners{project:"$project_name"} $inactive_counter
+    "
+
+    gitlab_runner_amount_of_down_runners="
+    # HELP gitlab_runner_amount_of_down_runners Amount of runners that are down
+    # TYPE gitlab_runner_amount_of_down_runners counter 
+    gitlab_runner_amount_of_down_runners{project:\""$project_name\""} "$down_counter"
+    "
+
+    gitlab_runner_is_down="
+    # HELP gitlab_runner_is_down Check if this runner is down
+    # TYPE gitlab_runner_is_down boolean 
+    "
+    gitlab_runner_is_active="
+    # HELP gitlab_runner_is_active Checks if this runner is active
+    # TYPE gitlab_runner_is_active boolean
+    "
+
+    for ((i = 1; i <= amount_runners; i++)); do
+
+      id_message=$(echo $runner_of_proj | awk -v var="$i" '{ print $var }')
+      ip_message=$(echo $ip_runners | awk -v var="$i" '{ print $var }')
+      version_message=$(echo $version_runners | awk -v var="$i" '{ print $var }')
+      description_message=$(echo $description_runners | awk -v var="$i" ' { print $var }')
+      active_message=$(echo $active_runners | awk -v var="$i" '{ print $var }')
+      status_message=$(echo $status_runners | awk -v var="$i" '{ print $var }')
+
+      gitlab_runner_is_active+="gitlab_runner_is_active{id:"$id_message",version:"$version_message",ip:"$ip_message",description:"$description_message"} "$active_message"\n"
+      gitlab_runner_is_down+="gitlab_runner_is_down{id:"$id_message",version:"$version_message",ip:"$ip_message",description:"$description_message"} "$status_message"\n"
+
+    done
+
+
+    # create and append to metrics file
+    echo -e "$gitlab_runner_is_active" > /home/runner-monitoring/metrics.txt
+    echo -e "$gitlab_runner_is_down" >> /home/runner-monitoring/metrics.txt
+    echo -e "$gitlab_runner_amount_of_inactive_runners" >> /home/runner-monitoring/metrics.txt
+    echo -e "$gitlab_runner_amount_of_registered_runners" >> /home/runner-monitoring/metrics.txt
+    echo -e "$gitlab_runner_amount_of_down_runners" >> /home/runner-monitoring/metrics.txt
+

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: arm-ripper
+  namespace: arm-ripper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: arm-ripper
+  template:
+    metadata:
+      labels:
+        app: arm-ripper
+    spec:
+      nodeSelector:
+        level: svc
+      tolerations:
+      - key: "stage"
+        operator: "Equal"
+        value: "dev"
+        effect: "NoSchedule"
+      containers:
+      - name: arm-ripper
+        image: 1337server/automatic-ripping-machine:2.6.18
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: arm-data
+          mountPath: /home/arm
+        - name: sr0
+          mountPath: /dev/sr0
+      volumes:
+      - name: arm-data
+        persistentVolumeClaim:
+          claimName: arm-data-pvc
+      - name: sr0
+        hostPath:
+          path: /dev/sr0

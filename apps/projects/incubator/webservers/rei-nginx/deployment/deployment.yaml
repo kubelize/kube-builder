@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: rei-nginx
+  name: rei-nginx
+  labels:
+    app: rei-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rei-nginx
+  template:
+    metadata:
+      labels:
+        app: rei-nginx
+    spec:
+      containers:
+       - name: rei-nginx
+         image: nginx
+         ports:
+          - containerPort: 80
+            name: http
+         volumeMounts:
+          - mountPath: usr/share/nginx/html
+            name: rei-nginx-data
+         resources:
+           limits:
+             cpu: 1000m
+             memory: 1Gi
+           requests:
+             cpu: 1000m
+             memory: 1Gi 
+      volumes:
+       - name: rei-nginx-data
+         persistentVolumeClaim:
+           claimName: rei-nginx-claim 

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sync-script
+data:
+  rsync.sh: |
+    #!/bin/bash
+    GIT_URL="https://github.com/rk-webdesign/tales.git"
+    SOURCE_PATH="/home/rsync/git/tales/website/"
+    git clone $GIT_URL
+    echo "syncing $SOURCE_PATH to destination"
+    rsync -r --delete "$SOURCE_PATH" /tmp/website/
