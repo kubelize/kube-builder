@@ -5,7 +5,7 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: daniel.i.hendricken@gmail.com
+    email: kubelize@kubelize.com
     privateKeySecretRef:
       name: letsencrypt-issuer-nginx-key
     solvers:

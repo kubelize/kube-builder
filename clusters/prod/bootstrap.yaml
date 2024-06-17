@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: metallb-addons
+  name: bootstrap
   namespace: argocd
 spec:
   project: default
   sources:
     - repoURL: https://github.com/malahayatii/homelab
-      path: apps/addons/metallb-config
+      path: clusters/dev/reservoir
       targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
