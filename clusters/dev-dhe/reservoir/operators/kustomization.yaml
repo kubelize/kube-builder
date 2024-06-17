@@ -4,8 +4,6 @@ resources:
   # operators stable
   - ../../../../apps/operators/stable/connectivity/cert-manager/
   - ../../../../apps/operators/stable/connectivity/metallb/
-  - ../../../../apps/addons/metallb-config/address-pools/site-dhe/
-  - ../../../../apps/addons/metallb-config/l2advertisements/
   - ../../../../apps/operators/stable/connectivity/ingress-nginx/
   - ../../../../apps/operators/stable/observability/renovate/
 

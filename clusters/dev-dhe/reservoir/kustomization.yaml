@@ -3,4 +3,5 @@ kind: Kustomization
 resources:
   - operators/
   - projects/
+  - addons/
   # - secrets/
