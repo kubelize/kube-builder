@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: https://github.com/malahayatii/homelab
-      path: clusters/dev/reservoir
-      targetRevision: HEAD
+    - repoURL: https://github.com/kubelize/kube-builder
+      path: clusters/dev-dhe/reservoir
+      targetRevision: dev
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
