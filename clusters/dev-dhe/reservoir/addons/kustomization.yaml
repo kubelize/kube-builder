@@ -4,6 +4,6 @@ resources:
   # operators
   - ../../../../apps/addons/metallb-config/address-pools/site-dhe/
   - ../../../../apps/addons/metallb-config/l2advertisements/
+  - ../../../../apps/addons/issuers/
 
   # projects
-  
