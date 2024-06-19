@@ -23,6 +23,6 @@ docker run \
     --siderolink-wireguard-advertised-addr=10.130.5.188:50180 \
     --advertised-kubernetes-proxy-url=https://omni.kubelize.com:8100/ \
     --auth-auth0-enabled=true \
-    --auth-auth0-domain=kubelize.eu.auth0.com \
-    --auth-auth0-client-id=IZ6LWVoZE7lMCLVXClaEg7hFTFGNBdoc \
+    --auth-auth0-domain=AUTH0-DOMAIN \
+    --auth-auth0-client-id=AUTH0-ID \
     --initial-users=daniel.hendricken@kubelize.com
