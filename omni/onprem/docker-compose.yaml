@@ -1,7 +1,6 @@
-version: '3.8'
 services:
   omni:
-    image: ghcr.io/siderolabs/omni:latest
+    image: ghcr.io/siderolabs/omni:v0.38.0-beta.0-2-g61b0e4c 
     privileged: true
     network_mode: host
     cap_add:
@@ -10,7 +9,7 @@ services:
       - ./etcd:/_out/etcd
       - /etc/letsencrypt/live/omni.kubelize.com/fullchain.pem:/tls.crt
       - /etc/letsencrypt/live/omni.kubelize.com/privkey.pem:/tls.key
-      - ./omni.asc:/omni.asc
+      - $PWD/omni.asc:/omni.asc
     command:
       - --account-id=${OMNI_ACCOUNT_UUID}
       - --name=onprem-omni
@@ -28,6 +27,6 @@ services:
       - --siderolink-wireguard-advertised-addr=10.130.5.188:50180
       - --advertised-kubernetes-proxy-url=https://omni.kubelize.com:8100/
       - --auth-auth0-enabled=true
-      - --auth-auth0-domain=kDOMAIN
-      - --auth-auth0-client-id=ID
+      - --auth-auth0-domain=AUTH0-DOMAIN
+      - --auth-auth0-client-id=AUTH0-ID
       - --initial-users=daniel.hendricken@kubelize.com

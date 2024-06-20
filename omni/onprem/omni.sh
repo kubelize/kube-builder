@@ -6,7 +6,7 @@ docker run \
   -v /etc/letsencrypt/live/omni.kubelize.com/fullchain.pem:/tls.crt \
   -v /etc/letsencrypt/live/omni.kubelize.com/privkey.pem:/tls.key \
   -v $PWD/omni.asc:/omni.asc \
-  ghcr.io/siderolabs/omni:latest \
+  ghcr.io/siderolabs/omni:v0.38.0-beta.0-2-g61b0e4c \
     --account-id=${OMNI_ACCOUNT_UUID} \
     --name=onprem-omni \
     --cert=/tls.crt \
