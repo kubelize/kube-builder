@@ -1,11 +1,11 @@
 kind: Cluster
-name: homelab-dev
+name: dev-dhe
 talos:
   version: v1.7.4
 kubernetes:
   version: 1.30.0
-features:
-  enableWorkloadProxy: true
+# features:
+#   enableWorkloadProxy: true
 patches:
   - name: cni
     file: patches/cni.yaml
@@ -15,7 +15,7 @@ patches:
 ---
 kind: ControlPlane
 machineClass:
-  name: homelab-control-plane
+  name: dhe-control-planes
   size: 2
 patches:
   - name: cilium
@@ -28,8 +28,8 @@ patches:
 kind: Workers
 name: workers
 machineClass:
-  name: homelab-worker
-  size: unlimited
+  name: dhe-workers
+  size: 2
 patches:
   - name: disks
     file: patches/disks.yaml
