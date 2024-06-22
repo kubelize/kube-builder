@@ -118,6 +118,7 @@ spec:
           phpConfigs:
             overwriteprotocol: 'https'
             overwrite.cli.url: 'https://cloud-test.kubelize.com'
+            overwritehost: 'cloud-test.kubelize.com'
           # Default config files
           # IMPORTANT: Will be used only if you put extra configs, otherwise default will come from nextcloud itself
           # Default confgurations can be found here: https://github.com/nextcloud/docker/tree/master/16.0/apache/config
