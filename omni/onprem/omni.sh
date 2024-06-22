@@ -1,0 +1,28 @@
+docker run \
+  --privileged \
+  --net=host \
+  --cap-add=NET_ADMIN \
+  -v $PWD/etcd:/_out/etcd \
+  -v /etc/letsencrypt/live/omni.kubelize.com/fullchain.pem:/tls.crt \
+  -v /etc/letsencrypt/live/omni.kubelize.com/privkey.pem:/tls.key \
+  -v $PWD/omni.asc:/omni.asc \
+  ghcr.io/siderolabs/omni:v0.38.0-beta.0-2-g61b0e4c \
+    --account-id=${OMNI_ACCOUNT_UUID} \
+    --name=onprem-omni \
+    --cert=/tls.crt \
+    --key=/tls.key \
+    --siderolink-api-cert=/tls.crt \
+    --siderolink-api-key=/tls.key \
+    --private-key-source=file:///omni.asc \
+    --event-sink-port=8091 \
+    --bind-addr=0.0.0.0:443 \
+    --siderolink-api-bind-addr=0.0.0.0:8090 \
+    --k8s-proxy-bind-addr=0.0.0.0:8100 \
+    --advertised-api-url=https://omni.kubelize.com/ \
+    --siderolink-api-advertised-url=https://omni.kubelize.com:8090/ \
+    --siderolink-wireguard-advertised-addr=10.130.5.188:50180 \
+    --advertised-kubernetes-proxy-url=https://omni.kubelize.com:8100/ \
+    --auth-auth0-enabled=true \
+    --auth-auth0-domain=AUTH0-DOMAIN \
+    --auth-auth0-client-id=AUTH0-ID \
+    --initial-users=daniel.hendricken@kubelize.com

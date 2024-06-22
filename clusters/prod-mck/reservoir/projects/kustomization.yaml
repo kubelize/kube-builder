@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  # projects stable
+  # - ../../../../apps/projects/stable/gameservers/palworld/
+  # - ../../../../apps/projects/stable/gameservers/minecraft/
+  
+  # projects incubator
+  # - ../../../../apps/projects/incubator/webservers/rei-nginx/
+  # - ../../../../apps/projects/incubator/tools/arm-ripper/
+  # - ../../../../apps/projects/incubator/webservers/nginx-testpage/
+  # - ../../../../apps/projects/incubator/webservers/kubelize-nextra/
+  # - ../../../../apps/projects/stable/gameservers/conan-exiles/
+  # - ../../../../apps/projects/incubator/knowledgedbs/affine-pro/
+  - ../../../../apps/projects/incubator/fileshare/nextcloud/ 

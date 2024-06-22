@@ -8,7 +8,7 @@ spec:
         generators:
           - list:
               elements:
-                - repoURL: https://github.com/malahayatii/homelab.git
+                - repoURL: https://github.com/kubelize/kube-builder.git
                   revision: HEAD
                   repoPath: omni/apps/*/*
           - git:
