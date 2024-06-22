@@ -12,4 +12,4 @@ resources:
   # - ../../../../apps/projects/incubator/webservers/kubelize-nextra/
   # - ../../../../apps/projects/stable/gameservers/conan-exiles/
   # - ../../../../apps/projects/incubator/knowledgedbs/affine-pro/
-  - ../../../../apps/projects/incubator/fileshare/nextcloud/ 
+  - ../../../../apps/projects/incubator/fileshare/nextcloud-prod/ 
