@@ -116,10 +116,6 @@ spec:
           # PHP Configuration files
           # Will be injected in /usr/local/etc/php/conf.d for apache image and in /usr/local/etc/php-fpm.d when nginx.enabled: true
           phpConfigs: {}
-            'trusted_domains' =>
-              array (
-                0 => 'cloud-test.kubelize.com',
-              ),
           # Default config files
           # IMPORTANT: Will be used only if you put extra configs, otherwise default will come from nextcloud itself
           # Default confgurations can be found here: https://github.com/nextcloud/docker/tree/master/16.0/apache/config
