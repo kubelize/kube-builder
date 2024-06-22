@@ -5,12 +5,9 @@ resources:
   - ../../../../apps/operators/stable/connectivity/cert-manager/
   - ../../../../apps/operators/stable/connectivity/metallb/
   - ../../../../apps/operators/stable/connectivity/ingress-nginx/
-  # - ../../../../apps/operators/stable/observability/kubernetes-dashboard/
-  # - ../../../../apps/operators/stable/security/tetragon/
-  # - ../../../../apps/operators/stable/storage/kubevirt-hpp/
-  - ../../../../apps/operators/stable/observability/renovate/
-  # - ../../../../apps/operators/stable/storage/longhorn/
+  # - ../../../../apps/operators/stable/observability/renovate/
+
   # operators incubator
-  # - ../../../../apps/operators/incubator/storage/kubevirt-hpp/
-  - ../../../../apps/operators/incubator/observability/uptime-kuma/
+  # - ../../../../apps/operators/incubator/observability/uptime-kuma/
   - ../../../../apps/operators/incubator/security/sealed-secrets-controller/
+  # - ../../../../apps/operators/incubator/security/teleport/
