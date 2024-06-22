@@ -16,7 +16,7 @@ patches:
 kind: ControlPlane
 machineClass:
   name: dhe-control-planes
-  size: 2
+  size: 3
 patches:
   - name: cilium
     file: patches/cilium.yaml
@@ -29,7 +29,7 @@ kind: Workers
 name: workers
 machineClass:
   name: dhe-workers
-  size: 2
+  size: 3
 patches:
   - name: disks
     file: patches/disks.yaml

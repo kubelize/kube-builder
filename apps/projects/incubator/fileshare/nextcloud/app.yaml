@@ -269,7 +269,7 @@ spec:
           ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
           ##   GKE, AWS & OpenStack)
           ##
-          storageClass: "mayastor-3"
+          storageClass: "longhorn"
 
           ## A manually managed Persistent Volume and Claim
           ## Requires persistence.enabled: true
