@@ -38,8 +38,6 @@ spec:
            nginx.ingress.kubernetes.io/proxy-body-size: 4G
            kubernetes.io/tls-acme: "true"
            cert-manager.io/cluster-issuer: letsencrypt-staging-nginx
-           nginx.ingress.kubernetes.io/enable-cors: "true"
-           nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
            # Keep this in sync with the README.md:
            nginx.ingress.kubernetes.io/server-snippet: |-
              server_tokens off;
@@ -81,7 +79,7 @@ spec:
           # preStopCommand: []
 
         phpClientHttpsFix:
-          enabled: false
+          enabled: true
           protocol: https
 
         nextcloud:
