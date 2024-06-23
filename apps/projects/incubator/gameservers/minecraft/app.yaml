@@ -1,0 +1,71 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: minecraft-server
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: minecraft
+  source:
+    repoURL: https://kubelize.github.io/game-servers/
+    targetRevision: 0.1.1
+    chart: minecraft-server
+    helm:
+      parameters: []
+      values: |
+        # Default Values for the Minecraft Server
+        replicaCount: 1
+        image:
+          repository: itzg/minecraft-server
+          pullPolicy: IfNotPresent
+          # Overrides the image tag whose default is the chart appVersion.
+          tag: "latest"
+        imagePullSecrets: []
+        nameOverride: ""
+        fullnameOverride: ""
+        serviceAccount:
+          # Specifies whether a service account should be created
+          create: true
+          # Annotations to add to the service account
+          annotations: {}
+          # The name of the service account to use.
+          # If not set and create is true, a name is generated using the fullname template
+          name: ""
+        storage:
+          name: "minecraft-server-data"
+          accessMode: "ReadWriteOnce"
+          storageClassName: "longhorn"
+          capacity: "20Gi"
+          annotations: {}
+            # kubevirt.io/provisionOnNode: "prod-svc-270224"
+        podAnnotations: {}
+        podSecurityContext: {}
+          # fsGroup: 2000
+        securityContext: {}
+          # capabilities:
+          #   drop:
+          #   - ALL
+          # readOnlyRootFilesystem: true
+          # runAsNonRoot: true
+          # runAsUser: 1000
+        service:
+          type: LoadBalancer
+          port: 25565
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 2048Mi
+          requests:
+            cpu: 1000m
+            memory: 2048Mi
+        autoscaling:
+          enabled: false
+          minReplicas: 1
+          maxReplicas: 100
+          targetCPUUtilizationPercentage: 80
+          # targetMemoryUtilizationPercentage: 80
+        nodeSelector: {}
+        tolerations: []
+        affinity: {}
