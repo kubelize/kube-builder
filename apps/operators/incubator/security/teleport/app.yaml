@@ -19,3 +19,12 @@ spec:
         proxyListenerMode: multiplex
         acme: true
         acmeEmail: kubelize@kubelize.com
+        kubernetesDiscovery:
+        - types: ["app"]
+          namespaces: ["*"]
+          labels:
+            "teleport.dev/enabled": "true"
+        - types: ["app"]
+          namespaces: ["*"]
+          labels:
+            "teleport.dev/enabled": "on"
