@@ -16,7 +16,7 @@ spec:
       parameters: []
       values: |
         kubeClusterName: dev-dhe
-        proxyAddr: teleport.kubelize.com
+        proxyAddr: teleport.kubelize.com:443
         roles: "kube,app,discovery"
         kubernetesDiscovery:
         - types: ["app"]
