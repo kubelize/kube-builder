@@ -17,6 +17,11 @@ spec:
       values: |
         kubeClusterName: dev-dhe
         proxyAddr: teleport.kubelize.com:443
+        apps:
+        - name: grafana
+          uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
+        - name: argocd
+          uri: http://argocd-server.argocd.svc.cluster.local
         roles: "kube,app,discovery"
         kubernetesDiscovery:
         - types: ["app"]
