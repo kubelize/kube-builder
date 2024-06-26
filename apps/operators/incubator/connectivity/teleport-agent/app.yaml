@@ -25,7 +25,7 @@ spec:
         - name: longhorn
           uri: http://longhorn-frontend.storage.svc.cluster.local
         - name: hubble
-          uri: http://hubble-ui.hubble.svc.cluster.local
+          uri: http://hubble-ui.kube-system.svc.cluster.local
         roles: "kube,app,discovery"
         kubernetesDiscovery:
         - types: ["app"]
