@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgres-keycloak-test
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/kubelize/kube-builder
+      path: apps/operators/incubator/security/keycloak/deployment
+      targetRevision: dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: keycloak-test

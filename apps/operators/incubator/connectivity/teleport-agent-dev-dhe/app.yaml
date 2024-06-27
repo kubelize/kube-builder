@@ -1,0 +1,69 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: teleport-agent
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: teleport-agent
+  source:
+    repoURL: https://charts.releases.teleport.dev
+    targetRevision: 16.0.1
+    chart: teleport-kube-agent
+    helm:
+      parameters: []
+      values: |
+        kubeClusterName: dev-dhe
+        proxyAddr: teleport.kubelize.com:443
+        apps:
+        - name: dev-dhe-grafana
+          uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
+        - name: dev-dhe-argocd
+          uri: http://argocd-server.argocd.svc.cluster.local
+        - name: dev-dhe-longhorn
+          uri: http://longhorn-frontend.storage.svc.cluster.local
+        - name: dev-dhe-hubble
+          uri: http://hubble-ui.kube-system.svc.cluster.local
+        roles: "kube,app,discovery"
+        kubernetesDiscovery:
+        - types: ["app"]
+          namespaces: ["*"]
+          labels:
+            "teleport.dev/enabled": "true"
+        - types: ["app"]
+          namespaces: ["*"]
+          labels:
+            "teleport.dev/enabled": "on"
+        joinTokenSecret:
+          create: false
+        podSecurityPolicy:
+          enabled: false
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 265Mi
+        initSecurityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - all
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 9807
+          seccompProfile:
+            type: RuntimeDefault
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - all
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 9807
+          seccompProfile:
+            type: RuntimeDefault
