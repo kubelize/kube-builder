@@ -1,0 +1,84 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keycloak-test
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: keycloak
+  source:
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 17.3.*
+    chart: keycloak
+    helm:
+      parameters: []
+      values: |
+        auth:
+          adminUser: identity-orchestrator
+          existingSecret: keycloak-admin-credentials
+          passwordSecretKey: password
+        containerSecurityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: false
+        externalDatabase:
+          database: keycloak
+          existingSecret: keycloak-database-credentials
+          existingSecretPasswordKey: postgres-password
+          host: keycloak-postgresql.keycloak.svc.cluster.local
+          port: 16920
+          user: ps_db
+        extraEnvVars:
+        - name: KC_HEALTH_ENABLED
+          value: "true"
+        - name: KC_LOG_LEVEL
+          value: info
+        - name: KC_DB_SCHEMA
+          value: keycloak
+        image:
+          pullPolicy: IfNotPresent
+        ingress:
+          annotations:
+            nginx.ingress.kubernetes.io/proxy-body-size: 750m
+            nginx.ingress.kubernetes.io/proxy-buffer-size: 20k
+            nginx.ingress.kubernetes.io/proxy-connect-timeout: "60"
+            nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+            nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
+          enabled: false
+          hostname: auth-test.bedag.cloud
+          ingressClassName: ci-saas
+          tls: true
+        metrics:
+          enabled: true
+        pdb:
+          create: true
+          minAvailable: 1
+        podLabels:
+          proxy.services.gitops.bedag.ch: enabled
+        podSecurityContext:
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+        postgresql:
+          enabled: false
+        priorityClassName: system-cluster-critical
+        production: true
+        proxy: edge
+        replicaCount: 5
+        topologySpreadConstraints:
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/component: keycloak
+          maxSkew: 1
+          topologyKey: topology.kubernetes.io/region
+          whenUnsatisfiable: ScheduleAnyway
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/component: keycloak
+          maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
