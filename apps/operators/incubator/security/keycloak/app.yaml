@@ -29,7 +29,7 @@ spec:
           database: keycloak
           existingSecret: keycloak-database-credentials
           existingSecretPasswordKey: postgres-password
-          host: keycloak-postgresql.keycloak.svc.cluster.local
+          host: postgres.keycloak-test.svc.cluster.local
           port: 16920
           user: ps_db
         extraEnvVars:
