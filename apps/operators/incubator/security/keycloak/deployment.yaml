@@ -7,7 +7,7 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/kubelize/kube-builder
-      path: apps/operator/incubator/security/postgres-keycloak-test/deployment
+      path: apps/operators/incubator/security/postgres-keycloak-test/deployment
       targetRevision: dev
   destination:
     server: https://kubernetes.default.svc
