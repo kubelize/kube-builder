@@ -11,5 +11,3 @@ spec:
     storage: 10Gi
   accessModes:
     - ReadWriteMany
-  hostPath:
-    path: /data/postgresql
