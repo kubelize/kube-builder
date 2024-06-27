@@ -15,16 +15,16 @@ spec:
     helm:
       parameters: []
       values: |
-        kubeClusterName: dev-dhe
+        kubeClusterName: prod-mck
         proxyAddr: teleport.kubelize.com:443
         apps:
-        - name: grafana
+        - name: prod-mck-grafana
           uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
-        - name: argocd
+        - name: prod-mck-argocd
           uri: http://argocd-server.argocd.svc.cluster.local
-        - name: longhorn
+        - name: prod-mck-longhorn
           uri: http://longhorn-frontend.storage.svc.cluster.local
-        - name: hubble
+        - name: prod-mck-hubble
           uri: http://hubble-ui.kube-system.svc.cluster.local
         roles: "kube,app,discovery"
         kubernetesDiscovery:
