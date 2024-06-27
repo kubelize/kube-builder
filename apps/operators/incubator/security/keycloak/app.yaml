@@ -30,7 +30,7 @@ spec:
           existingSecret: keycloak-database-credentials
           existingSecretPasswordKey: postgres-password
           host: postgres.keycloak-test.svc.cluster.local
-          port: 16920
+          port: 5432
           user: ps_db
         extraEnvVars:
         - name: KC_HEALTH_ENABLED
