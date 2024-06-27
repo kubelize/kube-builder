@@ -22,14 +22,8 @@ spec:
           pullPolicy: IfNotPresent
           pullSecret: ""
 
-        # ### WARNING ###
-        # Minecraft is not horizontally scalable, adjusting this will most likely break your setup.
-        # ### WARNING ###
         replicaCount: 1
 
-        ## Configure resource requests and limits
-        ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
-        ##
         resources:
           requests:
             memory: 512Mi
