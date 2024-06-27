@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: https://github.com/kubelize/reserkube-builder
+    - repoURL: https://github.com/kubelize/kube-builder
       path: apps/operator/incubator/security/postgres-keycloak-test/deployment
       targetRevision: dev
   destination:
