@@ -95,7 +95,7 @@ spec:
           # Sets the initial user's password
           password: ""
           # Name of existing secret with UI password
-          passwordExistingSecret: 
+          passwordExistingSecret: rcon-web-admin-password
           passwordKey: "password"
           # The initial game you wish to control (minecraft / rust / csgo / other)
           game: minecraft
