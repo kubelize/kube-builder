@@ -96,7 +96,7 @@ spec:
           password: ""
           # Name of existing secret with UI password
           passwordExistingSecret: rcon-web-admin-password
-          passwordKey: "password"
+          passwordKey: "rcon-password"
           # The initial game you wish to control (minecraft / rust / csgo / other)
           game: minecraft
           # The display name of the initial server (if unset; defaults to value of RWA_GAME)
