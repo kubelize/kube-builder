@@ -58,7 +58,7 @@ spec:
           wsPort: 4327
 
         ingress:
-          enabled: false
+          enabled: true
           className: ""
           annotations:
             {}
