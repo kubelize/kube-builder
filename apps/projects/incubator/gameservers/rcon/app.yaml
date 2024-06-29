@@ -45,7 +45,7 @@ spec:
           capabilities:
             drop:
               - ALL
-          readOnlyRootFilesystem: false
+          readOnlyRootFilesystem: true
           allowPrivilegeEscalation: false
 
         # This will expose 2 different services - http and websockets
@@ -93,7 +93,7 @@ spec:
           # Sets the initial user's username
           username: admin
           # Sets the initial user's password
-          password: "test"
+          password: ""
           # Name of existing secret with UI password
           passwordExistingSecret: rcon-web-admin-password
           passwordKey: "rcon-password"
