@@ -14,3 +14,4 @@ resources:
   # - ../../../../apps/projects/incubator/knowledgedbs/affine-pro/
   - ../../../../apps/projects/incubator/fileshare/nextcloud-dev/
   - ../../../../apps/projects/incubator/gameservers/minecraft/
+  - ../../../../apps/projects/incubator/gameservers/web-rcon/
