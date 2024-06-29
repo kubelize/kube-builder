@@ -325,7 +325,7 @@ spec:
 
           rcon:
             # If you enable this, make SURE to change your password below.
-            enabled: false
+            enabled: true
             # By default, the container will generate a random password at startup
             # to ensure internal RCON tooling, including a backup container,
             # can be used, but the password is secure.
