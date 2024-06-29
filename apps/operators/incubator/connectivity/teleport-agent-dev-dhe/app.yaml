@@ -30,7 +30,6 @@ spec:
           uri: http://web-rcon-service.web-rcon.svc.cluster.local
           rewrite:
             headers:
-              - "Host: URL"
               - "Connection: Upgrade"
               - "Upgrade: websocket"
         roles: "kube,app,discovery"
