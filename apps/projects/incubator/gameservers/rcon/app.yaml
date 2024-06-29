@@ -33,20 +33,20 @@ spec:
 
         podAnnotations: {}
 
-        podSecurityContext:
-          runAsUser: 0
-          runAsGroup: 3000
-          runAsNonRoot: true
-          fsGroup: 2000
-          seccompProfile:
-            type: RuntimeDefault
+        podSecurityContext: []
+          # runAsUser: 1000
+          # runAsGroup: 3000
+          # runAsNonRoot: true
+          # fsGroup: 2000
+          # seccompProfile:
+          #   type: RuntimeDefault
 
-        securityContext:
-          capabilities:
-            drop:
-              - ALL
-          readOnlyRootFilesystem: false
-          allowPrivilegeEscalation: false
+        securityContext: []
+          # capabilities:
+          #   drop:
+          #     - ALL
+          # readOnlyRootFilesystem: true
+          # allowPrivilegeEscalation: false
 
         # This will expose 2 different services - http and websockets
         # If you want to know why it's separate - ask developer of original project
@@ -89,7 +89,7 @@ spec:
 
         rconWeb:
           # Sets the initial user as an admin
-          isAdmin: false
+          isAdmin: true
           # Sets the initial user's username
           username: admin
           # Sets the initial user's password
