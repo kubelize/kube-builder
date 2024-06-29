@@ -16,6 +16,7 @@ spec:
       containers:
         - name: web-rcon
           image: kubelize/web-rcon:1.0.0
+          imagePullPolicy: always
           ports:
             - containerPort: 8080
           volumeMounts:
