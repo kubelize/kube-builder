@@ -89,7 +89,7 @@ spec:
 
         rconWeb:
           # Sets the initial user as an admin
-          isAdmin: true
+          isAdmin: false
           # Sets the initial user's username
           username: admin
           # Sets the initial user's password
