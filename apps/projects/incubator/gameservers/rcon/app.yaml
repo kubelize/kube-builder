@@ -108,7 +108,7 @@ spec:
           # The password for the initial RCON server to control
           rconPassword: ""
           # Name of existing secret with RCON password
-          rconPasswordExistingSecret:
+          rconPasswordExistingSecret: rcon-minecraft-server-password
           rconPasswordKey: "rcon-password"
           # Prevent the initial user user executing these commands
           restrictCommands: []
