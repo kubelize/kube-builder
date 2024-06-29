@@ -5,5 +5,5 @@ metadata:
 data:
   rcon.yaml: |
     minecraft:
-      address: "minecraft-server-minecraft-rcon.minecraft.svc.cluster.local"
+      address: "minecraft-server-minecraft-rcon.minecraft.svc.cluster.local:25575"
       log: "rcon-minecraft.log"
