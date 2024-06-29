@@ -34,7 +34,7 @@ spec:
         podAnnotations: {}
 
         podSecurityContext:
-          runAsUser: 1000
+          runAsUser: 0
           runAsGroup: 3000
           runAsNonRoot: true
           fsGroup: 2000
