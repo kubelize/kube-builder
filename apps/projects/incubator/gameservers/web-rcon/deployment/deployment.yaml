@@ -15,12 +15,12 @@ spec:
     spec:
       containers:
         - name: web-rcon
-          image: kubelize/web-rcon:0.0.5
+          image: kubelize/web-rcon:0.0.6
           ports:
             - containerPort: 8080
           volumeMounts:
             - name: config-volume
-              mountPath: /home/web-rcon/rcon.yaml
+              mountPath: /home/kubelize/rcon.yaml
               subPath: rcon.yaml
       volumes:
         - name: config-volume
