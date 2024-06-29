@@ -33,7 +33,7 @@ spec:
 
         podAnnotations: {}
 
-        podSecurityContext: []
+        podSecurityContext: {}
           # runAsUser: 1000
           # runAsGroup: 3000
           # runAsNonRoot: true
@@ -41,7 +41,7 @@ spec:
           # seccompProfile:
           #   type: RuntimeDefault
 
-        securityContext: []
+        securityContext: {}
           # capabilities:
           #   drop:
           #     - ALL
