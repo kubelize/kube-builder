@@ -102,7 +102,7 @@ spec:
           # The display name of the initial server (if unset; defaults to value of RWA_GAME)
           serverName: minecraft
           # The initial RCON server to control
-          rconHost: 10.130.5.231
+          rconHost: minecraft-server-minecraft-rcon.minecraft.svc.cluster.local
           # The port number of the initial RCON server to control
           rconPort: 25575
           # The password for the initial RCON server to control
