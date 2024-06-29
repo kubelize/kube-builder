@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: web-rcon
-          image: kubelize/web-rcon:0.0.7
+          image: kubelize/web-rcon:0.0.9
           ports:
             - containerPort: 8080
           volumeMounts:
