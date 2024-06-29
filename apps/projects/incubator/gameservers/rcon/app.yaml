@@ -89,11 +89,11 @@ spec:
 
         rconWeb:
           # Sets the initial user as an admin
-          isAdmin: false
+          isAdmin: true
           # Sets the initial user's username
           username: admin
           # Sets the initial user's password
-          password: ""
+          password: "test"
           # Name of existing secret with UI password
           passwordExistingSecret: rcon-web-admin-password
           passwordKey: "rcon-password"
