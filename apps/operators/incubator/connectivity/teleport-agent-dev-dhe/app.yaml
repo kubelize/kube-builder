@@ -28,6 +28,11 @@ spec:
           uri: http://hubble-ui.kube-system.svc.cluster.local
         - name: dev-dhe-web-rcon
           uri: http://web-rcon-service.web-rcon.svc.cluster.local
+          rewrite:
+            headers:
+              - "Host: URL"
+              - "Connection: Upgrade"
+              - "Upgrade: websocket"
         roles: "kube,app,discovery"
         kubernetesDiscovery:
         - types: ["app"]
