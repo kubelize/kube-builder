@@ -29,9 +29,6 @@ spec:
         - name: dev-dhe-web-rcon
           uri: http://web-rcon.web-rcon.svc.cluster.local
           insecure_skip_verify: true
-          rewrite:
-            headers:
-            - "Host: dev-dhe-web-rcon.teleport.kubelize.com"
         roles: "kube,app,discovery"
         kubernetesDiscovery:
         - types: ["app"]
