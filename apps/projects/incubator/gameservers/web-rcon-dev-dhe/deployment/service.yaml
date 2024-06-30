@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-rcon-service
+spec:
+  selector:
+    app: web-rcon
+  ports:
+    - protocol: TCP
+      port: 443
+      targetPort: 443

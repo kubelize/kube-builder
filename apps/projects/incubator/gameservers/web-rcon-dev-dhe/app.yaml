@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: web-rcon
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/kubelize/kube-builder
+      path: apps/projects/incubator/gameservers/web-rcon-dev-dhe/deployment
+      targetRevision: dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: web-rcon
