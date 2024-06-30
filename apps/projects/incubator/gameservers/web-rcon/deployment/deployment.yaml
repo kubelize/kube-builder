@@ -15,10 +15,10 @@ spec:
     spec:
       containers:
         - name: web-rcon
-          image: kubelize/web-rcon:1.0.0
+          image: kubelize/web-rcon:1.0.1
           imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 443
           volumeMounts:
             - name: config-volume
               mountPath: /home/kubelize/rcon.yaml

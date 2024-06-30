@@ -33,7 +33,8 @@ spec:
             headers:
               - "Connection: Upgrade"
               - "Upgrade: websocket"
-              - "Scheme: ws"
+              - "Host: dev-dhe-web-rcon.teleport.kubelize.com"
+              - "Scheme: wss"
               - "Filename: /ws"
         roles: "kube,app,discovery"
         kubernetesDiscovery:
