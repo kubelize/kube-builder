@@ -27,7 +27,7 @@ spec:
         - name: dev-dhe-hubble
           uri: http://hubble-ui.kube-system.svc.cluster.local
         - name: dev-dhe-web-rcon
-          uri: http://web-rcon-service.web-rcon.svc.cluster.local
+          uri: https://web-rcon-service.web-rcon.svc.cluster.local
           insecure_skip_verify: true
           rewrite:
             headers:
