@@ -29,6 +29,12 @@ spec:
         - name: dev-dhe-web-rcon
           uri: http://web-rcon-service.web-rcon.svc.cluster.local
           insecure_skip_verify: true
+          rewrite:
+            headers:
+              - "Connection: Upgrade"
+              - "Upgrade: websocket"
+              - "Scheme: ws"
+              - "Filename: /ws"
         roles: "kube,app,discovery"
         kubernetesDiscovery:
         - types: ["app"]
