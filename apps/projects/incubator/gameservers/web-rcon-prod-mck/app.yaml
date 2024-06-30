@@ -7,7 +7,7 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/kubelize/kube-builder
-      path: apps/projects/incubator/gameservers/web-rcon/deployment
+      path: apps/projects/incubator/gameservers/web-rcon-prod-mck/deployment
       targetRevision: dev
   destination:
     server: https://kubernetes.default.svc
