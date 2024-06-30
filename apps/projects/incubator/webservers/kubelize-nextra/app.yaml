@@ -35,10 +35,9 @@ spec:
           enabled: false
           name: kubelize-nextra
           accessMode: "ReadWriteOnce"
-          storageClassName: "kubevirt-hostpath-provisioner"
+          storageClassName: "longhorn"
           capacity: "20Gi"
-          annotations:
-            kubevirt.io/provisionOnNode: "prod-svc-270224"
+          annotations: {}
 
         runserver:
           # remove the bottom two lines and uncomment npm --prefix $DST_PATH run dev to start in dev mode

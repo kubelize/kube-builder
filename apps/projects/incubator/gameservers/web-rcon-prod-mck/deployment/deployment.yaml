@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-rcon
+  namespace: web-rcon
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-rcon
+  template:
+    metadata:
+      labels:
+        app: web-rcon
+    spec:
+      containers:
+        - name: web-rcon
+          image: kubelize/web-rcon:1.0.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 443
+          volumeMounts:
+            - name: config-volume
+              mountPath: /home/kubelize/rcon.yaml
+              subPath: rcon.yaml
+      volumes:
+        - name: config-volume
+          configMap:
+            name: rcon-config
