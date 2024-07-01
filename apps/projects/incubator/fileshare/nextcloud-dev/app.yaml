@@ -26,7 +26,7 @@ spec:
           #   - myRegistrKeySecretName
 
         # Number of replicas to be deployed
-        replicaCount: 1
+        replicaCount: 2
 
         ## Allowing use of ingress controllers
         ## ref: https://kubernetes.io/docs/concepts/services-networking/ingress/
