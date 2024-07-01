@@ -10,7 +10,7 @@ spec:
     namespace: jswiki-test
   source:
     repoURL: https://charts.js.wiki
-    targetRevision: 8.10.14
+    targetRevision: 2.2.21
     chart: wiki
     helm:
       parameters: []
