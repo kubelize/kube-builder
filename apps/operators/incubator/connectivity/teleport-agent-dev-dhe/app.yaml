@@ -10,7 +10,7 @@ spec:
     namespace: teleport-agent
   source:
     repoURL: https://charts.releases.teleport.dev
-    targetRevision: 16.0.1
+    targetRevision: 16.0.3
     chart: teleport-kube-agent
     helm:
       parameters: []
@@ -18,6 +18,8 @@ spec:
         kubeClusterName: dev-dhe
         proxyAddr: teleport.kubelize.com:443
         apps:
+        - name: dev-dhe-jswiki-test
+          uri: http://jswiki-test.jswiki-test.svc.cluster.local
         - name: dev-dhe-grafana
           uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
         - name: dev-dhe-argocd
