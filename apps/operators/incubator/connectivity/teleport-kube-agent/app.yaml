@@ -15,6 +15,6 @@ spec:
       path: apps/operators/incubator/connectivity/teleport-kube-agent
       helm:
         valueFiles: []
-    - repoURL: 'https://kubelize/kube-builder
+    - repoURL: https://kubelize/kube-builder
       targetRevision: dev
       ref: values
