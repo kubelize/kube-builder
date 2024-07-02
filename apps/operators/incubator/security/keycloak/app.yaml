@@ -62,8 +62,7 @@ spec:
           seccompProfile:
             type: RuntimeDefault
         postgresql:
-          enabled: false
-        priorityClassName: system-cluster-critical
+          enabled: true
         production: true
         proxy: edge
         replicaCount: 1
