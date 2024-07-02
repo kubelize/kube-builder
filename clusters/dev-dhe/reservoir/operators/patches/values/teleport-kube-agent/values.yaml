@@ -1,0 +1,72 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: teleport-kube-agent
+spec:
+  source:
+    helm:
+      valuesObject:
+        kubeClusterName: dev-dhe
+        proxyAddr: teleport.kubelize.com:443
+        apps:
+        - name: dev-dhe-wikijs-test
+          uri: http://wikijs-test.wikijs-test.svc.cluster.local
+        - name: dev-dhe-grafana
+          uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
+        - name: dev-dhe-argocd
+          uri: http://argocd-server.argocd.svc.cluster.local
+        - name: dev-dhe-longhorn
+          uri: http://longhorn-frontend.storage.svc.cluster.local
+        - name: dev-dhe-hubble
+          uri: http://hubble-ui.kube-system.svc.cluster.local
+        - name: dev-dhe-web-rcon
+          uri: https://web-rcon-service.web-rcon.svc.cluster.local
+          insecure_skip_verify: true
+          rewrite:
+            headers:
+              - "Connection: Upgrade"
+              - "Upgrade: websocket"
+              - "Host: dev-dhe-web-rcon.teleport.kubelize.com"
+              - "Scheme: wss"
+              - "Filename: /ws"
+        roles: "kube,app,discovery"
+        kubernetesDiscovery:
+        - types: ["app"]
+          namespaces: ["*"]
+          labels:
+            "teleport.dev/enabled": "true"
+        - types: ["app"]
+          namespaces: ["*"]
+          labels:
+            "teleport.dev/enabled": "on"
+        joinTokenSecret:
+          create: false
+        podSecurityPolicy:
+          enabled: false
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 265Mi
+        initSecurityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - all
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 9807
+          seccompProfile:
+            type: RuntimeDefault
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - all
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 9807
+          seccompProfile:
+            type: RuntimeDefault
