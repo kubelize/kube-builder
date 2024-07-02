@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: teleport-kube-agent
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: teleport-agent
+  source:
+    repoURL: https://charts.releases.teleport.dev
+    targetRevision: 16.0.3
+    chart: teleport-kube-agent
+    path: apps/operators/incubator/connectivity/teleport-kube-agent/values
+    helm:
+      valueFiles: []

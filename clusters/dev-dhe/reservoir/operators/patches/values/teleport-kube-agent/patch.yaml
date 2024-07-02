@@ -1,0 +1,9 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: teleport-kube-agent
+spec:
+  source:
+    helm:
+      valueFiles:
+        - prod-mck/values.yaml
