@@ -23,7 +23,9 @@ spec:
                 name: postgres-secret
           env:
             - name: PGDATA
-              value: "/var/lib/postgresql/data/pgdata"      
+              value: "/var/lib/postgresql/data/pgdata"
+            - name: KC_DB_SCHEMA
+              value: "keycloak"   
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               subpath: pgdata
