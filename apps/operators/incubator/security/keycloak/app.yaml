@@ -34,7 +34,7 @@ spec:
           user: postgres
         extraEnvVars:
         - name: KC_HEALTH_ENABLED
-          value: "true"
+          value: "false"
         - name: KC_LOG_LEVEL
           value: info
         image:
