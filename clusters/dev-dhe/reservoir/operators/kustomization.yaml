@@ -17,4 +17,4 @@ patches:
   - target:
       kind: Application
       name: teleport-kube-agent
-    path: patches/values/teleport-kube-agent/patch.yaml
+    path: patches/values/teleport-kube-agent/values.yaml
