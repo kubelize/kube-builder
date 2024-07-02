@@ -25,13 +25,6 @@ spec:
             drop:
             - ALL
           readOnlyRootFilesystem: false
-        externalDatabase:
-          database: keys
-          existingSecret: keycloak-database-credentials
-          existingSecretPasswordKey: postgres-password
-          host: postgres.keycloak-test.svc.cluster.local
-          port: 5432
-          user: postgres
         extraEnvVars:
         - name: KC_HEALTH_ENABLED
           value: "false"
