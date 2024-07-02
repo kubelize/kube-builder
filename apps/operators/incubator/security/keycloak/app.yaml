@@ -68,7 +68,7 @@ spec:
         priorityClassName: system-cluster-critical
         production: true
         proxy: edge
-        replicaCount: 2
+        replicaCount: 3
         topologySpreadConstraints:
         - labelSelector:
             matchLabels:
