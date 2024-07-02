@@ -12,7 +12,6 @@ spec:
     - repoURL: https://charts.releases.teleport.dev
       targetRevision: 16.0.3
       chart: teleport-kube-agent
-      path: apps/operators/incubator/connectivity/teleport-kube-agent
       helm:
         valueFiles: []
     - repoURL: https://kubelize/kube-builder
