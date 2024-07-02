@@ -11,4 +11,4 @@ resources:
   - ../../../../apps/operators/incubator/observability/uptime-kuma/
   - ../../../../apps/operators/incubator/security/sealed-secrets-controller/
   - ../../../../apps/operators/incubator/connectivity/teleport-agent-dev-dhe/
-  # - ../../../../apps/operators/incubator/security/keycloak/
+  - ../../../../apps/operators/incubator/security/keycloak/
