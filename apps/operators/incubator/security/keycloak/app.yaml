@@ -37,8 +37,6 @@ spec:
           value: "true"
         - name: KC_LOG_LEVEL
           value: info
-        - name: KC_DB_SCHEMA
-          value: keycloak
         image:
           pullPolicy: IfNotPresent
         ingress:
