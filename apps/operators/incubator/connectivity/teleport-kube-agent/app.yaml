@@ -16,5 +16,5 @@ spec:
       helm:
         valueFiles: []
     - repoURL: 'https://kubelize/kube-builder
-      targetRevision: main
+      targetRevision: dev
       ref: values
