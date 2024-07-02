@@ -7,4 +7,4 @@ resources:
   - ../../../../apps/projects/incubator/fileshare/nextcloud-dev/
   - ../../../../apps/projects/incubator/gameservers/minecraft/
   - ../../../../apps/projects/incubator/gameservers/web-rcon-dev-dhe/
-  - ../../../../apps/projects/incubator/wikis/jswiki-test/
+  # - ../../../../apps/projects/incubator/wikis/wikijs-test/
