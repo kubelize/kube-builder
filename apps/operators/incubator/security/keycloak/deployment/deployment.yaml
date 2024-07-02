@@ -19,7 +19,7 @@ spec:
           ports:
             - containerPort: 5432
           envFrom:
-            - configMapRef:
+            - secretRef:
                 name: postgres-secret
           env:
             - name: PGDATA
