@@ -26,12 +26,12 @@ spec:
             - ALL
           readOnlyRootFilesystem: false
         externalDatabase:
-          database: keycloak
+          database: keys
           existingSecret: keycloak-database-credentials
           existingSecretPasswordKey: postgres-password
           host: postgres.keycloak-test.svc.cluster.local
           port: 5432
-          user: ps_db
+          user: postgres
         extraEnvVars:
         - name: KC_HEALTH_ENABLED
           value: "true"
