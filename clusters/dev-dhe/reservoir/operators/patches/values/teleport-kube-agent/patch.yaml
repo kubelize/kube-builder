@@ -6,4 +6,4 @@ spec:
   source:
     helm:
       valueFiles:
-        - dev-dhe/values.yaml
+        - values/dev-dhe/values.yaml
