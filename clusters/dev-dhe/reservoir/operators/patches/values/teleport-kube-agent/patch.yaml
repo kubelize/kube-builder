@@ -6,4 +6,4 @@ spec:
   source:
     helm:
       valueFiles:
-        - values/dev-dhe/values.yaml
+        - $values/apps/operators/incubator/connectivity/teleport-kube-agent/values/dev-dhe/values.yaml

@@ -8,10 +8,13 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: teleport-agent
-  source:
-    repoURL: https://charts.releases.teleport.dev
-    targetRevision: 16.0.3
-    chart: teleport-kube-agent
-    path: apps/operators/incubator/connectivity/teleport-kube-agent
-    helm:
-      valueFiles: []
+  sources:
+    - repoURL: https://charts.releases.teleport.dev
+      targetRevision: 16.0.3
+      chart: teleport-kube-agent
+      path: apps/operators/incubator/connectivity/teleport-kube-agent
+      helm:
+        valueFiles: []
+    - repoURL: 'https://kubelize/kube-builder
+      targetRevision: main
+      ref: values
