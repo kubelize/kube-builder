@@ -10,7 +10,7 @@ spec:
     namespace: keycloak-test
   source:
     repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 17.3.*
+    targetRevision: 25.0.*
     chart: keycloak
     helm:
       parameters: []
