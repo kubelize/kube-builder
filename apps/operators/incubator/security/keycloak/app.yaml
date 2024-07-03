@@ -56,8 +56,8 @@ spec:
             type: RuntimeDefault
         postgresql:
           enabled: true
-          # auth:
-          #   existingSecret: keycloak-database-credentials
+          auth:
+            existingSecret: keycloak-database-credentials
         production: true
         proxy: edge
         replicaCount: 1
