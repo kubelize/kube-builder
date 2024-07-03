@@ -9,8 +9,4 @@
             secretKeyRef:
               key: password
               name: keycloak-test-postgresql
-        - name: POSTGRES_POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              key: postgres-password
-              name: keycloak-test-postgresql             
+             
