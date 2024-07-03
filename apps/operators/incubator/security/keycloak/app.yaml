@@ -30,48 +30,18 @@ spec:
           value: "false"
         - name: KC_LOG_LEVEL
           value: info
-        image:
-          pullPolicy: IfNotPresent
-        ingress:
-          annotations:
-            nginx.ingress.kubernetes.io/proxy-body-size: 750m
-            nginx.ingress.kubernetes.io/proxy-buffer-size: 20k
-            nginx.ingress.kubernetes.io/proxy-connect-timeout: "60"
-            nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
-            nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
-          enabled: false
-          hostname: auth-test.bedag.cloud
-          ingressClassName: ci-saas
-          tls: true
-        metrics:
-          enabled: true
+        production: false
+        replicaCount: 1
         pdb:
           create: false
-          minAvailable: 1
-        podLabels:
-          proxy.services.gitops.bedag.ch: enabled
-        podSecurityContext:
-          runAsNonRoot: true
-          seccompProfile:
-            type: RuntimeDefault
+          minAvailable: ""
+          maxUnavailable: ""
         postgresql:
           enabled: true
           auth:
-            existingSecret: "keycloak-database-credentials"
-            passwordSecretKey: postgres-password
-        production: true
-        proxy: edge
-        replicaCount: 1
-        topologySpreadConstraints:
-        - labelSelector:
-            matchLabels:
-              app.kubernetes.io/component: keycloak
-          maxSkew: 1
-          topologyKey: topology.kubernetes.io/region
-          whenUnsatisfiable: ScheduleAnyway
-        - labelSelector:
-            matchLabels:
-              app.kubernetes.io/component: keycloak
-          maxSkew: 1
-          topologyKey: kubernetes.io/hostname
-          whenUnsatisfiable: ScheduleAnyway
+            postgresPassword: "test1"
+            username: bn_keycloak
+            password: "test2"
+            database: bitnami_keycloak
+            existingSecret: ""
+          architecture: standalone
