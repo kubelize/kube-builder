@@ -58,6 +58,7 @@ spec:
           enabled: true
           auth:
             existingSecret: "keycloak-database-credentials"
+            passwordSecretKey: postgres-password
         production: true
         proxy: edge
         replicaCount: 1
