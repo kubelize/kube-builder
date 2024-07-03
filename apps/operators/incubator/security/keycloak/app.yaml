@@ -30,6 +30,8 @@ spec:
           value: "false"
         - name: KC_LOG_LEVEL
           value: info
+        - name: KC_DATABASE_
+          value: keycloak
         image:
           pullPolicy: IfNotPresent
         ingress:
