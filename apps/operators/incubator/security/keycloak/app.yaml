@@ -57,7 +57,7 @@ spec:
         postgresql:
           enabled: true
           auth:
-            existingSecret: "keycloak-test-postgresql"
+            existingSecret: "keycloak-database-credentials"
         production: true
         proxy: edge
         replicaCount: 1
