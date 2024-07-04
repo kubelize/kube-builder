@@ -9,8 +9,8 @@ spec:
         kubeClusterName: dev-dhe
         proxyAddr: teleport.kubelize.com:443
         apps:
-        # - name: dev-dhe-wikijs-test
-        #   uri: http://wikijs-test.wikijs-test.svc.cluster.local
+        - name: jswiki-test
+          uri: http://jswiki-test.jswiki-test.svc.cluster.local
         - name: dev-dhe-grafana
           uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
         - name: dev-dhe-argocd
