@@ -12,5 +12,5 @@ resources:
 patches:
   - target:
       kind: Application
-      name: jswiki-test
+      name: jswiki
     path: config/values/jswiki-test/values.yaml
