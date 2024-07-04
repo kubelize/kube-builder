@@ -2,19 +2,12 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: jswiki-test
-  namespace: argocd
 spec:
-  project: default
   destination:
-    server: https://kubernetes.default.svc
     namespace: jswiki-test
   source:
-    repoURL: https://charts.js.wiki
-    targetRevision: 2.2.21
-    chart: wiki
     helm:
-      parameters: []
-      values: |
+      valuesObject:        
         # Default values for wiki.
         # This is a YAML-formatted file.
         # Declare variables to be passed into your templates.

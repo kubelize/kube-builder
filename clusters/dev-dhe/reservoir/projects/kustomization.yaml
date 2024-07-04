@@ -7,4 +7,10 @@ resources:
   - ../../../../apps/projects/incubator/fileshare/nextcloud-dev/
   - ../../../../apps/projects/incubator/gameservers/minecraft/
   - ../../../../apps/projects/incubator/gameservers/web-rcon-dev-dhe/
-  # - ../../../../apps/projects/incubator/wikis/wikijs-test/
+  - ../../../../apps/projects/incubator/wikis/jswiki/
+
+patches:
+  - target:
+      kind: Application
+      name: jswiki-test
+    path: config/values/jswiki-test/values.yaml
