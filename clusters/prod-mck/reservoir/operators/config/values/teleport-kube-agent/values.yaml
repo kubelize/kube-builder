@@ -1,41 +1,30 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: teleport-agent
-  namespace: argocd
+  name: teleport-kube-agent
 spec:
-  project: default
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: teleport-agent
   source:
-    repoURL: https://charts.releases.teleport.dev
-    targetRevision: 16.0.3
-    chart: teleport-kube-agent
     helm:
-      parameters: []
-      values: |
-        kubeClusterName: dev-dhe
+      valuesObject:
+        kubeClusterName: prod-mck
         proxyAddr: teleport.kubelize.com:443
         apps:
-        - name: dev-dhe-wikijs-test
-          uri: http://wikijs-test.wikijs-test.svc.cluster.local
-        - name: dev-dhe-grafana
+        - name: prod-mck-grafana
           uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
-        - name: dev-dhe-argocd
+        - name: prod-mck-argocd
           uri: http://argocd-server.argocd.svc.cluster.local
-        - name: dev-dhe-longhorn
+        - name: prod-mck-longhorn
           uri: http://longhorn-frontend.storage.svc.cluster.local
-        - name: dev-dhe-hubble
+        - name: prod-mck-hubble
           uri: http://hubble-ui.kube-system.svc.cluster.local
-        - name: dev-dhe-web-rcon
+        - name: prod-mck-web-rcon
           uri: https://web-rcon-service.web-rcon.svc.cluster.local
           insecure_skip_verify: true
           rewrite:
             headers:
               - "Connection: Upgrade"
               - "Upgrade: websocket"
-              - "Host: dev-dhe-web-rcon.teleport.kubelize.com"
+              - "Host: prod-mck-web-rcon.teleport.kubelize.com"
               - "Scheme: wss"
               - "Filename: /ws"
         roles: "kube,app,discovery"

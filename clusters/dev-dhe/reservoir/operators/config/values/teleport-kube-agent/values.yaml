@@ -1,25 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: teleport-agent
-  namespace: argocd
+  name: teleport-kube-agent
 spec:
-  project: default
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: teleport-agent
   source:
-    repoURL: https://charts.releases.teleport.dev
-    targetRevision: 16.0.3
-    chart: teleport-kube-agent
     helm:
-      parameters: []
-      values: |
+      valuesObject:
         kubeClusterName: dev-dhe
         proxyAddr: teleport.kubelize.com:443
         apps:
-        - name: dev-dhe-wikijs-test
-          uri: http://wikijs-test.wikijs-test.svc.cluster.local
+        # - name: dev-dhe-wikijs-test
+        #   uri: http://wikijs-test.wikijs-test.svc.cluster.local
         - name: dev-dhe-grafana
           uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
         - name: dev-dhe-argocd

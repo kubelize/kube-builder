@@ -10,7 +10,7 @@ spec:
     namespace: keycloak-test
   source:
     repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 17.3.*
+    targetRevision: 21.4.5
     chart: keycloak
     helm:
       parameters: []
@@ -25,20 +25,11 @@ spec:
             drop:
             - ALL
           readOnlyRootFilesystem: false
-        externalDatabase:
-          database: keycloak
-          existingSecret: keycloak-database-credentials
-          existingSecretPasswordKey: postgres-password
-          host: postgres.keycloak-test.svc.cluster.local
-          port: 5432
-          user: ps_db
         extraEnvVars:
         - name: KC_HEALTH_ENABLED
-          value: "true"
+          value: "false"
         - name: KC_LOG_LEVEL
           value: info
-        - name: KC_DB_SCHEMA
-          value: keycloak
         image:
           pullPolicy: IfNotPresent
         ingress:
@@ -55,7 +46,7 @@ spec:
         metrics:
           enabled: true
         pdb:
-          create: true
+          create: false
           minAvailable: 1
         podLabels:
           proxy.services.gitops.bedag.ch: enabled
@@ -64,11 +55,12 @@ spec:
           seccompProfile:
             type: RuntimeDefault
         postgresql:
-          enabled: false
-        priorityClassName: system-cluster-critical
+          enabled: true
+          auth:
+            existingSecret: keycloak-database-credentials
         production: true
         proxy: edge
-        replicaCount: 5
+        replicaCount: 1
         topologySpreadConstraints:
         - labelSelector:
             matchLabels:
