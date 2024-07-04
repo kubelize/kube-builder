@@ -4,7 +4,7 @@ metadata:
   name: jswiki-test
 spec:
   destination:
-    namespace: jswiki
+    namespace: kubelize-internal-wiki
   source:
     helm:
       valuesObject:        
