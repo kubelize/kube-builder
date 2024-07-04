@@ -4,7 +4,7 @@ metadata:
   name: jswiki-test
 spec:
   destination:
-    namespace: jswiki-test
+    namespace: jswiki
   source:
     helm:
       valuesObject:        
