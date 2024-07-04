@@ -11,3 +11,9 @@ resources:
   # - ../../../../apps/operators/incubator/observability/uptime-kuma/
   - ../../../../apps/operators/incubator/security/sealed-secrets-controller/
   - ../../../../apps/operators/incubator/connectivity/teleport-kube-agent/
+
+  patches:
+  - target:
+      kind: Application
+      name: teleport-kube-agent
+    path: config/values/teleport-kube-agent/values.yaml
