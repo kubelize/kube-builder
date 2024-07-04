@@ -10,4 +10,4 @@ resources:
   # operators incubator
   # - ../../../../apps/operators/incubator/observability/uptime-kuma/
   - ../../../../apps/operators/incubator/security/sealed-secrets-controller/
-  - ../../../../apps/operators/incubator/connectivity/teleport-agent-prod-mck/
+  - ../../../../apps/operators/incubator/connectivity/teleport-kube-agent/
