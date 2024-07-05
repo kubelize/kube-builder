@@ -7,4 +7,10 @@ resources:
   - ../../../../apps/projects/incubator/fileshare/nextcloud-dev/
   - ../../../../apps/projects/incubator/gameservers/minecraft/
   - ../../../../apps/projects/incubator/gameservers/web-rcon-dev-dhe/
-  # - ../../../../apps/projects/incubator/wikis/wikijs-test/
+  - ../../../../apps/projects/incubator/wikis/wikijs/
+
+patches:
+  - target:
+      kind: Application
+      name: wikijs
+    path: config/values/wikijs-test/values.yaml

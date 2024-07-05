@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wikijs
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: wikijs
+  source:
+    repoURL: https://charts.js.wiki
+    targetRevision: 2.2.21
+    chart: wiki
+    helm:
+      valuesObject: {}

@@ -1,20 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: jswiki-test
-  namespace: argocd
+  name: wikijs-test
 spec:
-  project: default
   destination:
-    server: https://kubernetes.default.svc
-    namespace: jswiki-test
+    namespace: kubelize-internal-wiki
   source:
-    repoURL: https://charts.js.wiki
-    targetRevision: 2.2.21
-    chart: wiki
     helm:
-      parameters: []
-      values: |
+      valuesObject:        
         # Default values for wiki.
         # This is a YAML-formatted file.
         # Declare variables to be passed into your templates.
@@ -28,7 +21,7 @@ spec:
 
         imagePullSecrets: []
         nameOverride: ""
-        fullnameOverride: ""
+        fullnameOverride: "wikijs-test"
 
         serviceAccount:
           # Specifies whether a service account should be created
