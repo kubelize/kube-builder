@@ -9,6 +9,8 @@ spec:
         kubeClusterName: prod-mck
         proxyAddr: teleport.kubelize.com:443
         apps:
+        - name: kubelize-wiki
+          uri: http://wikijs.kubelize-internal-wiki.svc.cluster.local
         - name: prod-mck-grafana
           uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
         - name: prod-mck-argocd
