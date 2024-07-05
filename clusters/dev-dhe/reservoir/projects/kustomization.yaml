@@ -12,5 +12,5 @@ resources:
 patches:
   - target:
       kind: Application
-      name: jswiki
+      name: wikijs
     path: config/values/wikijs-test/values.yaml
