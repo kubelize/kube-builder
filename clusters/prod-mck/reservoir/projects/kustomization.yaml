@@ -15,3 +15,10 @@ resources:
   - ../../../../apps/projects/incubator/fileshare/nextcloud-prod/
   - ../../../../apps/projects/incubator/gameservers/web-rcon-prod-mck/
   - ../../../../apps/projects/incubator/webservers/kubelize-nextra/
+  - ../../../../apps/projects/incubator/wikis/wikijs/
+
+patches:
+- target:
+    kind: Application
+    name: jswiki
+  path: config/values/wikijs/values.yaml

@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: jswiki-test
+  name: wikijs-test
 spec:
   destination:
     namespace: kubelize-internal-wiki
@@ -21,7 +21,7 @@ spec:
 
         imagePullSecrets: []
         nameOverride: ""
-        fullnameOverride: "jswiki-test"
+        fullnameOverride: "wikijs-test"
 
         serviceAccount:
           # Specifies whether a service account should be created
