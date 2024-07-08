@@ -10,7 +10,7 @@ spec:
     namespace: heyya-immobilien-wp
   source:
     repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 20.1.3
+    targetRevision: 22.4.18
     chart: wordpress
     helm:
       parameters: []
