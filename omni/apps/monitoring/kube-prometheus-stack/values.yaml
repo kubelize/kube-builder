@@ -58,7 +58,7 @@ additionalPrometheusRulesMap:
 #      rules:
 #      - record: my_record
 #        expr: 100 * my_record
-  rule-name: alert-configurations
+  rule-name:
     groups:
     - name: node.rules
       interval: 30s
