@@ -12,10 +12,11 @@ spec:
         - name: wikijs-test
           uri: http://wikijs-test.kubelize-internal-wiki.svc.cluster.local
         - name: dev-dhe-grafana
+          uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
           rewrite:
             headers:
-              - "csrf_trusted_origins: 'http://grafana.teleport.kubelize.com'"
-          uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
+              - "Host: dev-dhe-grafana.teleport.kubelize.com"
+              - "csrf_trusted_origins: 'http://dev-dhe-grafana.teleport.kubelize.com'"
         - name: dev-dhe-argocd
           uri: http://argocd-server.argocd.svc.cluster.local
         - name: dev-dhe-longhorn
