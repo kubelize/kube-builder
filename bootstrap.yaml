@@ -1,0 +1,93 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  annotations:
+    argocd.argoproj.io/tracking-id: argocd-argocd:argoproj.io/ApplicationSet:argocd/bootstrap
+  creationTimestamp: "2024-06-21T11:34:50Z"
+  generation: 2
+  name: bootstrap
+  namespace: argocd
+  resourceVersion: "6269570"
+  uid: 9985b66b-4686-4b90-a3e6-b63520b8b07c
+spec:
+  generators:
+  - matrix:
+      generators:
+      - list:
+          elements:
+          - repoPath: omni/apps/*/*
+            repoURL: https://github.com/kubelize/kube-builder.git
+            revision: HEAD
+      - git:
+          directories:
+          - path: '{{ repoPath }}'
+          repoURL: '{{ repoURL }}'
+          revision: '{{ revision }}'
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  template:
+    metadata:
+      name: '{{ path[2] }}-{{ path.basenameNormalized }}'
+      namespace: argocd
+    spec:
+      destination:
+        namespace: '{{ path[2] }}'
+        server: https://kubernetes.default.svc
+      ignoreDifferences:
+      - jsonPointers:
+        - /data/ca.crt
+        - /data/ca.key
+        kind: Secret
+        name: cilium-ca
+        namespace: kube-system
+      - jsonPointers:
+        - /data/ca.crt
+        - /data/tls.crt
+        - /data/tls.key
+        kind: Secret
+        name: hubble-server-certs
+        namespace: kube-system
+      - jsonPointers:
+        - /data/ca.crt
+        - /data/tls.crt
+        - /data/tls.key
+        kind: Secret
+        name: hubble-relay-client-certs
+        namespace: kube-system
+      project: default
+      source:
+        path: '{{ path }}'
+        repoURL: '{{ repoURL }}'
+        targetRevision: '{{ revision }}'
+      syncPolicy:
+        automated:
+          prune: false
+        retry:
+          backoff:
+            duration: 30s
+            factor: 2
+            maxDuration: 5m
+          limit: -1
+        syncOptions:
+        - CreateNamespace=true
+        - ServerSideApply=true
+        - ApplyOutOfSyncOnly=true
+        - RespectIgnoreDifferences=true
+        - SkipDryRunOnMissingResource=true
+status:
+  conditions:
+  - lastTransitionTime: "2024-06-21T11:35:38Z"
+    message: Successfully generated parameters for all Applications
+    reason: ApplicationSetUpToDate
+    status: "False"
+    type: ErrorOccurred
+  - lastTransitionTime: "2024-06-21T11:35:38Z"
+    message: Successfully generated parameters for all Applications
+    reason: ParametersGenerated
+    status: "True"
+    type: ParametersGenerated
+  - lastTransitionTime: "2024-06-21T11:35:38Z"
+    message: ApplicationSet up to date
+    reason: ApplicationSetUpToDate
+    status: "True"
+    type: ResourcesUpToDate
