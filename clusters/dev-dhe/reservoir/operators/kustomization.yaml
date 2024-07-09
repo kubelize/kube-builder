@@ -5,7 +5,7 @@ resources:
   - ../../../../apps/operators/stable/connectivity/cert-manager/
   - ../../../../apps/operators/stable/connectivity/metallb/
   - ../../../../apps/operators/stable/connectivity/ingress-nginx/
-  - ../../../../apps/operators/stable/observability/renovate/
+  - ../../../../apps/operators/stable/gitops/renovate/
 
   # operators incubator
   - ../../../../apps/operators/incubator/observability/uptime-kuma/

@@ -74,3 +74,10 @@ spec:
           maxSkew: 1
           topologyKey: kubernetes.io/hostname
           whenUnsatisfiable: ScheduleAnyway
+        resources:
+          limits:
+            cpu: 3
+            memory: 1Gi
+          requests:
+            cpu: 2
+            memory: 512Mi

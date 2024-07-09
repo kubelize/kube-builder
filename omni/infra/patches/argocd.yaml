@@ -22279,7 +22279,7 @@ cluster:
               - list:
                   elements:
                   - repoPath: omni/apps/*/*
-                    repoURL: https://github.com/malahayatii/homelab.git
+                    repoURL: https://github.com/kubelize/kube-builder.git
                     revision: HEAD
               - git:
                   directories:

@@ -36,10 +36,10 @@ kube-prometheus-stack:
   grafana:
     grafana.ini:
       auth:
-        disable_login_form: true
-        disable_signout_menu: true
+        disable_login_form: false
+        disable_signout_menu: false
       auth.basic:
-        enabled: false
+        enabled: true
       auth.anonymous:
         enabled: true
     # Allow Omni Workload Proxying for this service

@@ -8,7 +8,7 @@ metadata:
 spec:
   tls:
   - hosts:
-    - test.moff.ch
+    - test.kubelize.com
     secretName: nginx-testpage-secret
   ingressClassName: nginx
   rules:
