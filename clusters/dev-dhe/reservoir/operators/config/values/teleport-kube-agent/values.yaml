@@ -9,10 +9,10 @@ spec:
         kubeClusterName: dev-dhe
         proxyAddr: teleport.kubelize.com:443
         apps:
-        - name: dhe-proxmox-ve
+        - name: dhe-pve
           uri: https://10.130.5.80:8006
           insecure_skip_verify: true
-        - name: wikijs-test
+        - name: wiki-test
           uri: http://wikijs-test.kubelize-internal-wiki.svc.cluster.local
         - name: dev-dhe-grafana
           uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
