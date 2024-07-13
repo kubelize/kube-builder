@@ -15,6 +15,12 @@ spec:
         app: rlcraft
     spec:
       initContainers:
+        - name: init-unzip
+          image: kubelize/rlcraft-unzip:0.1.0
+          command: ["sh", "-c", "unzip /tmp/rlcraft_server.zip -d /home/mc/data"]
+          volumeMounts:
+          - name: rlcraft
+            mountPath: /home/mc/data
         - name: init-permissions
           image: busybox
           command: ["sh", "-c", "chown -R 1000:1000 /home/mc/data"]
