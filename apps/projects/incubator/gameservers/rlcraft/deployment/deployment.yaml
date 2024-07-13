@@ -16,9 +16,8 @@ spec:
     spec:
       containers:
         - name: rlcraft
-          image: kubelize/minecraft-rlcraft
-          command: ["sleep infinity"]
           image: kubelize/minecraft-rlcraft:0.0.1
+          command: ["sleep infinity"]
           ports:
             - containerPort: 25565
           volumeMounts:
