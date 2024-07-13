@@ -21,7 +21,7 @@ spec:
               - "Host: dev-dhe-grafana.teleport.kubelize.com"
               - "csrf_trusted_origins: 'http://dev-dhe-grafana.teleport.kubelize.com'"
         - name: uptime-kuma-test
-          uri: http://uptime-kuma.monitoring.svc.cluster.local
+          uri: http://uptime-kuma.monitoring.svc.cluster.local:3001
         - name: dev-dhe-argocd
           uri: http://argocd-server.argocd.svc.cluster.local
         - name: dev-dhe-longhorn
