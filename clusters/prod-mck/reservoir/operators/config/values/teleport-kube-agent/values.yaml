@@ -12,7 +12,7 @@ spec:
         - name: mck-pve
           uri: https://192.168.1.211:8006
           insecure_skip_verify: true
-        - name: kubelize-wiki
+        - name: wiki
           uri: http://wikijs.kubelize-internal-wiki.svc.cluster.local
         - name: prod-mck-grafana
           uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
