@@ -7,7 +7,7 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: uptime-kuma
+    namespace: monitoring
   source:
     repoURL: https://kubelize.github.io/helm-charts
     targetRevision: 0.1.0
