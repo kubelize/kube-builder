@@ -10,7 +10,7 @@ spec:
         proxyAddr: teleport.kubelize.com:443
         apps:
         - name: dhe-proxmox-ve
-          url: https://10.130.5.80:8006
+          uri: https://10.130.5.80:8006
           insecure_skip_verify: true
         - name: wikijs-test
           uri: http://wikijs-test.kubelize-internal-wiki.svc.cluster.local
