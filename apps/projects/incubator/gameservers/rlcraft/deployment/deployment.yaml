@@ -31,6 +31,8 @@ spec:
         - name: rlcraft
           image: kubelize/minecraft-rlcraft:0.1.0
           imagePullPolicy: Always
+          command: ["/usr/bin/java"]
+          args: ["-Xmx4G", "-jar", "minecraft_server.jar", "nogui"]
           ports:
             - containerPort: 25565
               name: gameport
