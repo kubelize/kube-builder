@@ -1,0 +1,13 @@
+# service
+apiVersion: v1
+kind: Service
+metadata:
+  name: rlcraft
+  namespace: rlcraft
+spec:
+  selector:
+      app: rlcraft
+  ports:
+    - protocol: TCP
+      port: 25565
+      targetPort: 25565

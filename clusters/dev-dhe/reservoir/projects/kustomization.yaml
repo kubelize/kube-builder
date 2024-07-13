@@ -8,6 +8,7 @@ resources:
   - ../../../../apps/projects/incubator/gameservers/minecraft/
   - ../../../../apps/projects/incubator/gameservers/web-rcon-dev-dhe/
   - ../../../../apps/projects/incubator/wikis/wikijs/
+  - ../../../../apps/projects/incubator/gameservers/rlcraft/
 
 patches:
   - target:

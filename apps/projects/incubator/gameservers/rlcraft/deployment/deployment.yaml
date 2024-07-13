@@ -1,0 +1,32 @@
+# rickrlcraft deployment using docker image kubelize/minecraft-rlcraft
+# deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rlcraft
+  labels:
+    app: rlcraft
+  namespace: minecraft
+spec:
+  template:
+    metadata:
+      name: rlcraft-pod
+      labels:
+        app: rlcraft
+    spec:
+      containers:
+        - name: rlcraft
+          image: kubelize/minecraft-rlcraft
+          ports:
+            - containerPort: 25565
+          volumeMounts:
+            - mountPath: /home/mc/data
+              name: rlcraft
+      volumes:
+        - name: rlcraft
+          persistentVolumeClaim:
+            claimName: rlcraft
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rlcraft
