@@ -8,7 +8,7 @@ spec:
   selector:
       app: rlcraft
   ports:
-    - protocol: UDP
+    - protocol: TCP
       name: gameport
       port: 25565
       targetPort: 25565

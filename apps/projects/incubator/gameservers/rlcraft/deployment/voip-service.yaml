@@ -8,7 +8,7 @@ spec:
   selector:
       app: rlcraft
   ports:
-    - protocol: TCP
+    - protocol: UDP
       name: voipport
       port: 24454
       targetPort: 24454
