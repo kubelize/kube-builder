@@ -7,7 +7,7 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/kubelize/kube-builder
-      path: apps/projects/incubator/gameservers/rlcraft
+      path: apps/projects/incubator/gameservers/rlcraft/deployment
       targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
