@@ -4,4 +4,3 @@ resources:
   - deployment.yaml
   - service.yaml
   - configmap.yaml
-  - rcon-service.yaml
