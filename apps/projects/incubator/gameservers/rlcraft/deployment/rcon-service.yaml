@@ -9,7 +9,6 @@ spec:
       app: rlcraft
   ports:
     - protocol: TCP
-      name: gameport
-      port: 25565
-      targetPort: 25565
-  type: LoadBalancer
+      name: rconport
+      port: 25575
+      targetPort: 25575
