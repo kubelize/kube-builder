@@ -5,4 +5,3 @@ resources:
   - service.yaml
   - storage.yaml
   - rcon-service.yaml
-  - voip-service.yaml
