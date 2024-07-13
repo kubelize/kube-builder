@@ -10,7 +10,7 @@ metadata:
 spec:
   template:
     metadata:
-      name: rlcraft-pod
+      name: rlcraft
       labels:
         app: rlcraft
     spec:
@@ -26,6 +26,10 @@ spec:
           volumeMounts:
             - mountPath: /home/mc/data
               name: rlcraft
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000  
       volumes:
         - name: rlcraft
           persistentVolumeClaim:
