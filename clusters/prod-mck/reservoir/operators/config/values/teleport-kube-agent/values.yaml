@@ -9,6 +9,9 @@ spec:
         kubeClusterName: prod-mck
         proxyAddr: teleport.kubelize.com:443
         apps:
+        - name: mck-pve
+          uri: https://192.168.1.211:8006
+          insecure_skip_verify: true
         - name: kubelize-wiki
           uri: http://wikijs.kubelize-internal-wiki.svc.cluster.local
         - name: prod-mck-grafana
