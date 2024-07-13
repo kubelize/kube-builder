@@ -17,7 +17,7 @@ spec:
       containers:
         - name: rlcraft
           image: kubelize/minecraft-rlcraft:0.1.0
-          imagePullPolicy: always
+          imagePullPolicy: Always
           ports:
             - containerPort: 25565
               name: gameport
