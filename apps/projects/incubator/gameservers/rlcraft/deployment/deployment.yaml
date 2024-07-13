@@ -14,6 +14,13 @@ spec:
       labels:
         app: rlcraft
     spec:
+      initContainers:
+        - name: init-permissions
+          image: busybox
+          command: ["sh", "-c", "chown -R 1000:1000 /home/mc/data"]
+          volumeMounts:
+          - name: rlcraft
+            mountPath: /home/mc/data
       containers:
         - name: rlcraft
           image: kubelize/minecraft-rlcraft:0.1.0
