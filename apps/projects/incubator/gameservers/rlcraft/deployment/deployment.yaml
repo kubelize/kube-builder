@@ -30,6 +30,7 @@ spec:
       containers:
         - name: rlcraft
           image: kubelize/minecraft-rlcraft:0.1.0
+          command: ["/usr/bin/java -Xmx4G -jar minecraft_server.jar nogui"]
           imagePullPolicy: Always
           ports:
             - containerPort: 25565
