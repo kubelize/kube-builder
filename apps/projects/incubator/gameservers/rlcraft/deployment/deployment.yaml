@@ -23,7 +23,7 @@ spec:
             - containerPort: 25575
               name: rconport
           volumeMounts:
-            - mountPath: /home/mc/data
+            - mountPath: /home/mc
               name: rlcraft
       volumes:
         - name: rlcraft
