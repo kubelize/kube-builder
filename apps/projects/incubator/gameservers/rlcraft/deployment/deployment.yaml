@@ -19,6 +19,7 @@ spec:
           image: kubelize/minecraft-rlcraft:0.0.2
           ports:
             - containerPort: 25565
+            - containerPort: 25575
           volumeMounts:
             - mountPath: /home/mc/data
               name: rlcraft

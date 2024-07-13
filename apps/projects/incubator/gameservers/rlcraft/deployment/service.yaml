@@ -11,3 +11,6 @@ spec:
     - protocol: TCP
       port: 25565
       targetPort: 25565
+    - protocol: TCP
+      port: 25575
+      targetPort: 25575
