@@ -37,6 +37,9 @@ spec:
               name: gameport
             - containerPort: 25575
               name: rconport
+            - containerPort: 24454
+              protocol: UDP
+              name: voipport
           volumeMounts:
             - mountPath: /home/mc/data
               name: rlcraft
