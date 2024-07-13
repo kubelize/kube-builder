@@ -14,7 +14,8 @@ kube-prometheus-stack:
       selector:
         k8s-app: kube-scheduler
   alertmanager:
-    alertmanagerspec:
+    alertmanagerSpec:
+      configSecret: alertmanager-config
       storage:
         volumeClaimTemplate:
           spec:
@@ -36,6 +37,7 @@ kube-prometheus-stack:
   grafana:
     grafana.ini:
       auth:
+        # testing auth configurations currently
         disable_login_form: false
         disable_signout_menu: false
       auth.basic:

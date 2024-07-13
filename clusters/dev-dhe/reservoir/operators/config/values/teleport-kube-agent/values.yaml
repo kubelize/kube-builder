@@ -9,10 +9,17 @@ spec:
         kubeClusterName: dev-dhe
         proxyAddr: teleport.kubelize.com:443
         apps:
+        - name: dhe-proxmox-ve
+          uri: https://10.130.5.80:8006
+          insecure_skip_verify: true
         - name: wikijs-test
           uri: http://wikijs-test.kubelize-internal-wiki.svc.cluster.local
         - name: dev-dhe-grafana
           uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
+          rewrite:
+            headers:
+              - "Host: dev-dhe-grafana.teleport.kubelize.com"
+              - "csrf_trusted_origins: 'http://dev-dhe-grafana.teleport.kubelize.com'"
         - name: dev-dhe-argocd
           uri: http://argocd-server.argocd.svc.cluster.local
         - name: dev-dhe-longhorn
