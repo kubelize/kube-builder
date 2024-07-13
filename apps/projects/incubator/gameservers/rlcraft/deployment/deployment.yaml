@@ -16,7 +16,12 @@ spec:
     spec:
       containers:
         - name: rlcraft
+<<<<<<< HEAD
           image: kubelize/minecraft-rlcraft:0.0.1
+=======
+          image: kubelize/minecraft-rlcraft
+          command: ["sleep infinity"]
+>>>>>>> 1499dc9 (chore: overriding entrypoint for rlcraft)
           ports:
             - containerPort: 25565
           volumeMounts:
