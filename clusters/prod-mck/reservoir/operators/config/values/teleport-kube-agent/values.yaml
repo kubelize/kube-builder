@@ -16,6 +16,8 @@ spec:
           uri: http://wikijs.kubelize-internal-wiki.svc.cluster.local
         - name: prod-mck-grafana
           uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
+        - name: uptime-kuma
+          uri: http://uptime-kuma.monitoring.svc.cluster.local:3001
         - name: prod-mck-argocd
           uri: http://argocd-server.argocd.svc.cluster.local
         - name: prod-mck-longhorn
