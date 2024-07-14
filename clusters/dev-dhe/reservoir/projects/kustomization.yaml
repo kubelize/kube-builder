@@ -5,10 +5,11 @@ resources:
   
   # projects incubator
   - ../../../../apps/projects/incubator/fileshare/nextcloud-dev/
+  - ../../../../apps/projects/incubator/gameservers/minecraft/
   - ../../../../apps/projects/incubator/gameservers/web-rcon-dev-dhe/
   - ../../../../apps/projects/incubator/wikis/wikijs/
   - ../../../../apps/projects/incubator/gameservers/dawncraft/
-  - ../../../../apps/projects/incubator/gameservers/dawncraft-itzg/
+  # - ../../../../apps/projects/incubator/gameservers/dawncraft-itzg/
 
 patches:
   - target:
