@@ -46,8 +46,8 @@ spec:
             - mountPath: /home/mc/data
               name: rlcraft
           securityContext:
-            runAsUser: 0
-            runAsGroup: 0
+            runAsUser: 1000
+            runAsGroup: 1000
       volumes:
         - name: rlcraft
           persistentVolumeClaim:
