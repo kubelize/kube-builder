@@ -13,7 +13,10 @@ spec:
       port: 25565
       targetPort: 25565
     - protocol: UDP
-      name: voipport
+      name: voipport-udp
       port: 24454
       targetPort: 24454
+    - protocol: TCP
+      name: voipport-tcp
+      port: 24454
   type: LoadBalancer
