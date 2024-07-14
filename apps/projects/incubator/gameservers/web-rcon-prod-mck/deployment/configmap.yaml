@@ -7,3 +7,6 @@ data:
     minecraft:
       address: "minecraft-server-minecraft-rcon.minecraft.svc.cluster.local:25575"
       log: "rcon-minecraft.log"
+    dawncraft:
+      address: "dawncraft-rcon.minecraft.svc.cluster.local:25575"
+      log: "rcon-dawncraft.log"
