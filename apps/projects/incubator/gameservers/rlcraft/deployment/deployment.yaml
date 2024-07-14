@@ -31,8 +31,7 @@ spec:
         - name: rlcraft
           image: kubelize/minecraft-rlcraft:0.1.1
           imagePullPolicy: Always
-          command: ["sleep"]
-          args: ["infinity"]
+          command: ["/usr/local/bin/entrypoint.sh"]
           ports:
             - containerPort: 25565
               name: gameport
