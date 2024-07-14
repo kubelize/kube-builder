@@ -29,7 +29,7 @@ spec:
             mountPath: /home/mc/data
       containers:
         - name: rlcraft
-          image: kubelize/minecraft-rlcraft:0.1.1
+          image: kubelize/minecraft-rlcraft:0.1.2
           imagePullPolicy: Always
           command: ["/usr/local/bin/entrypoint.sh"]
           ports:
