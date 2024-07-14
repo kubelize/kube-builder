@@ -151,9 +151,9 @@ spec:
           # This must be overridden, since we can't accept this for the user.
           eula: "TRUE"
           # One of: LATEST, SNAPSHOT, or a specific version (ie: "1.7.9").
-          version: "LATEST"
+          version: "1.18.2"
           # This can be one of "VANILLA", "FORGE", "SPIGOT", "BUKKIT", "PAPER", "FTBA", "SPONGEVANILLA", "CURSEFORGE"
-          type: "CURSEFORGE"
+          type: "AUTO_CURSEFORGE"
           # If type is set to FORGE, this sets the version; this is ignored if forgeInstallerUrl is set
           forgeVersion:
           # If type is set to SPONGEVANILLA, this sets the version
@@ -171,7 +171,7 @@ spec:
           # If type is set to FTBA and a modpack is set, this sets the version to run
           ftbModpackVersionId:
           # If type is set to CURSEFORGE, this sets the server mod to run. Can also provide url to curseforge package.
-          cfServerMod: https://www.curseforge.com/minecraft/modpacks/dawn-craft/download/4900467
+          cfServerMod:
           # Set to true if running Feed The Beast and get an error like "unable to launch forgemodloader"
           ftbLegacyJavaFixer: default
           # One of: peaceful, easy, normal, and hard
@@ -295,11 +295,11 @@ spec:
             # CurseForge API key obtained from developer console
             apiKey:
               key: "CHANGEME!"
-              existingSecret: ""
+              existingSecret: "cf-api-token"
               secretKey: cf-api-key
             # Link to modpack in general or a specific file
             # NOTE: In case of specific file - do not point at server file
-            pageUrl: ""
+            pageUrl: "https://www.curseforge.com/minecraft/modpacks/dawn-craft/files/4900467"
             # Unique id of modpack, can be used instead of url
             slug: ""
             # Id used to specify which exact modpack file needs to be downloaded
