@@ -23,7 +23,7 @@ spec:
             mountPath: /home/mc/data
         - name: init-permissions
           image: busybox
-          command: ["sh", "-c", "chown -R 1000:1000 /home/mc/data"]
+          command: ["sh", "-c", "chown -R 1000:1000 /home/mc/data && chmod +x /home/mc/data/dawncraft/start.sh"]
           volumeMounts:
           - name: dawncraft
             mountPath: /home/mc/data
