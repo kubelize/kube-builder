@@ -41,10 +41,7 @@ spec:
               name: rconport
             - containerPort: 24454
               protocol: UDP
-              name: voipport-udp
-            - containerPort: 24454
-              protocol: TCP
-              name: voipport-tcp
+              name: voipport
           volumeMounts:
             - mountPath: /home/mc/data
               name: rlcraft
