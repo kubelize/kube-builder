@@ -19,4 +19,5 @@ spec:
     - protocol: TCP
       name: voipport-tcp
       port: 24454
+      targetPort: 24454
   type: LoadBalancer
