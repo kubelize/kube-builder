@@ -1,0 +1,19 @@
+# service
+apiVersion: v1
+kind: Service
+metadata:
+  name: dawncraft
+  namespace: minecraft
+spec:
+  selector:
+      app: dawncraft
+  ports:
+    - protocol: TCP
+      name: gameport
+      port: 25565
+      targetPort: 25565
+    - protocol: UDP
+      name: voipport
+      port: 24454
+      targetPort: 24454
+  type: LoadBalancer

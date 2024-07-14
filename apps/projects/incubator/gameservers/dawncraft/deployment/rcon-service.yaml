@@ -1,0 +1,14 @@
+# service
+apiVersion: v1
+kind: Service
+metadata:
+  name: dawncraft-rcon
+  namespace: minecraft
+spec:
+  selector:
+      app: dawncraft
+  ports:
+    - protocol: TCP
+      name: rconport
+      port: 25575
+      targetPort: 25575

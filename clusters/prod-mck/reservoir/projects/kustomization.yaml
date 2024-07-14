@@ -16,6 +16,7 @@ resources:
   - ../../../../apps/projects/incubator/gameservers/web-rcon-prod-mck/
   - ../../../../apps/projects/incubator/webservers/kubelize-nextra/
   - ../../../../apps/projects/incubator/wikis/wikijs/
+  - ../../../../apps/projects/incubator/gameservers/dawncraft/
 
 patches:
 - target:

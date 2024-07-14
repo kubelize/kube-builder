@@ -1,0 +1,56 @@
+# rickdawncraft deployment using docker image kubelize/minecraft-dawncraft
+# deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dawncraft
+  labels:
+    app: dawncraft
+  namespace: minecraft
+spec:
+  template:
+    metadata:
+      name: dawncraft
+      labels:
+        app: dawncraft
+    spec:
+      initContainers:
+        - name: init-unzip
+          image: kubelize/dawncraft-unzip:0.0.2
+          command: ["sh", "-c", "unzip -n /tmp/dawncraft.zip -d /home/mc/data"]
+          volumeMounts:
+          - name: dawncraft
+            mountPath: /home/mc/data
+        - name: init-permissions
+          image: busybox
+          command: ["sh", "-c", "chown -R 1000:1000 /home/mc/data && chmod +x /home/mc/data/dawncraft/start.sh"]
+          volumeMounts:
+          - name: dawncraft
+            mountPath: /home/mc/data
+      containers:
+        - name: dawncraft
+          image: kubelize/minecraft-dawncraft:0.0.1
+          imagePullPolicy: Always
+          command: ["/home/mc/data/dawncraft/start.sh"]
+          ports:
+            - containerPort: 25565
+              name: gameport
+            - containerPort: 25575
+              name: rconport
+            - containerPort: 24454
+              protocol: UDP
+              name: voipport
+          volumeMounts:
+            - mountPath: /home/mc/data
+              name: dawncraft
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+      volumes:
+        - name: dawncraft
+          persistentVolumeClaim:
+            claimName: dawncraft
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dawncraft
