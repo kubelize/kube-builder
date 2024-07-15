@@ -204,7 +204,7 @@ spec:
           # The maximum height in which building is allowed.
           maxBuildHeight: 256
           # The maximum number of milliseconds a single tick may take before the server watchdog stops the server with the message. -1 disables this entirely.
-          maxTickTime: 60000
+          maxTickTime: -1
           # Determines if animals will be able to spawn.
           spawnAnimals: default
           # Determines if monsters will be spawned.
