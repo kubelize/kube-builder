@@ -79,7 +79,7 @@ spec:
           failureThreshold: 20
           successThreshold: 1
           timeoutSeconds: 1
-        startupProbe:
+        startupProbe: {}
           # command:
           #   - mc-health
           # enabled: false
