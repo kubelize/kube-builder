@@ -154,9 +154,9 @@ spec:
           # This must be overridden, since we can't accept this for the user.
           eula: "TRUE"
           # One of: LATEST, SNAPSHOT, or a specific version (ie: "1.7.9").
-          version: "1.18"
+          version: "1.18.2"
           # This can be one of "VANILLA", "FORGE", "SPIGOT", "BUKKIT", "PAPER", "FTBA", "SPONGEVANILLA", "CURSEFORGE"
-          type: "AUTO_CURSEFORGE"
+          type: "CURSEFORGE"
           # If type is set to FORGE, this sets the version; this is ignored if forgeInstallerUrl is set
           forgeVersion:
           # If type is set to SPONGEVANILLA, this sets the version
@@ -174,7 +174,7 @@ spec:
           # If type is set to FTBA and a modpack is set, this sets the version to run
           ftbModpackVersionId:
           # If type is set to CURSEFORGE, this sets the server mod to run. Can also provide url to curseforge package.
-          cfServerMod:
+          cfServerMod: https://cloud.mckensy.xyz/s/dawncraft1/download/dawncraft.zip 
           # Set to true if running Feed The Beast and get an error like "unable to launch forgemodloader"
           ftbLegacyJavaFixer: default
           # One of: peaceful, easy, normal, and hard
@@ -302,7 +302,7 @@ spec:
               secretKey: cf-api-key
             # Link to modpack in general or a specific file
             # NOTE: In case of specific file - do not point at server file
-            pageUrl: "https://www.curseforge.com/minecraft/modpacks/dawn-craft/files/5503524"
+            pageUrl:
             # Unique id of modpack, can be used instead of url
             slug: ""
             # Id used to specify which exact modpack file needs to be downloaded
@@ -311,11 +311,9 @@ spec:
             # Less restrictive way of specifying modpack version, uses substring match
             filenameMatcher: ""
             # List of project slugs or IDs to be excluded from modpack, useful if mod is incorrectly marked as server side
-            excludeMods:
-              - "368398"
+            excludeMods: []
             # List of project slugs or IDs to be included in modpack, useful if mod is incorrectly marked as client side only
-            includeMods:
-              - "460954"
+            includeMods: []
             # Path to file with rules for including and excluding mods. If null - use bundled file, if empty - disable it
             excludeIncludeFile: null
             # Reevaluate exclude and include rules
