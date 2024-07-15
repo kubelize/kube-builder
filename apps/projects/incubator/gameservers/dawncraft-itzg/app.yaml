@@ -26,8 +26,11 @@ spec:
 
         resources:
           requests:
-            memory: 8Gi
+            memory: 6Gi
             cpu: 2000m
+          limits:
+            memory: 8Gi
+            cpu: 3000m
 
         lifecycle:
           postStart: []
@@ -416,7 +419,7 @@ spec:
           dataDir:
             # Set this to false if you don't care to persist state between restarts.
             enabled: true
-            Size: 10Gi
+            Size: 20Gi
             accessModes:
               - ReadWriteOnce
             # existingClaim: nil

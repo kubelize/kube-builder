@@ -8,7 +8,7 @@ resources:
   - ../../../../apps/projects/incubator/gameservers/web-rcon-dev-dhe/
   - ../../../../apps/projects/incubator/wikis/wikijs/
   # - ../../../../apps/projects/incubator/gameservers/dawncraft/
-  # - ../../../../apps/projects/incubator/gameservers/dawncraft-itzg/
+  - ../../../../apps/projects/incubator/gameservers/dawncraft-itzg/
 
 patches:
   - target:
