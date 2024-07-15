@@ -63,28 +63,28 @@ spec:
 
         # Most of these map to environment variables. See Minecraft for details:
         # https://hub.docker.com/r/itzg/minecraft-server/
-        livenessProbe:
-          command:
-            - mc-health
-          initialDelaySeconds: 120
-          periodSeconds: 5
-          failureThreshold: 20
-          successThreshold: 1
-          timeoutSeconds: 1
-        readinessProbe:
-          command:
-            - mc-health
-          initialDelaySeconds: 120
-          periodSeconds: 5
-          failureThreshold: 20
-          successThreshold: 1
-          timeoutSeconds: 1
-        startupProbe:
-          command:
-            - mc-health
-          enabled: false
-          failureThreshold: 30
-          periodSeconds: 10
+        livenessProbe: {}
+          # command:
+          #   - mc-health
+          # initialDelaySeconds: 120
+          # periodSeconds: 5
+          # failureThreshold: 20
+          # successThreshold: 1
+          # timeoutSeconds: 1
+        readinessProbe: {}
+          # command:
+          #   - mc-health
+          # initialDelaySeconds: 120
+          # periodSeconds: 5
+          # failureThreshold: 20
+          # successThreshold: 1
+          # timeoutSeconds: 1
+        startupProbe: {}
+          # command:
+          #   - mc-health
+          # enabled: false
+          # failureThreshold: 30
+          # periodSeconds: 10
 
         # initContainers:
         #   - name: do-something
