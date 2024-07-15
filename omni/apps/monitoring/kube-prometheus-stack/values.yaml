@@ -16,9 +16,9 @@ kube-prometheus-stack:
   alertmanager:
     alertmanagerSpec:
       forceEnableClusterMode: true
-      useExistingSecret: true
-      secrets:
-        - alertmanager-prometheus-kube-prometheus-alertmanager
+      # useExistingSecret: true
+      # secrets:
+      #   - alertmanager-config
       storage:
         volumeClaimTemplate:
           spec:
