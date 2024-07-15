@@ -314,7 +314,8 @@ spec:
             excludeMods:
               - "368398"
             # List of project slugs or IDs to be included in modpack, useful if mod is incorrectly marked as client side only
-            includeMods: []
+            includeMods:
+              - "460954"
             # Path to file with rules for including and excluding mods. If null - use bundled file, if empty - disable it
             excludeIncludeFile: null
             # Reevaluate exclude and include rules
