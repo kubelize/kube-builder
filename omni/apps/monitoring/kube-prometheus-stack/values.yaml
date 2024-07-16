@@ -15,6 +15,10 @@ kube-prometheus-stack:
         k8s-app: kube-scheduler
   alertmanager:
     alertmanagerSpec:
+      forceEnableClusterMode: true
+      useExistingSecret: true
+      secrets:
+        - alertmanager-config
       configSecret: alertmanager-config
       storage:
         volumeClaimTemplate:
