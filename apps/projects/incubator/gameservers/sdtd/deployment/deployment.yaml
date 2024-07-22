@@ -36,7 +36,13 @@ spec:
               protocol: TCP
               name: telnet
           volumeMounts:
-            - mountPath: /home/sdtdserver/
+            - mountPath: /home/sdtdserver/.local/share/7DaysToDie/ 
+              name: sdtdserver-data
+            - mountPath: /home/sdtdserver/lgsm/config-lgsm/sdtdserver 
+              name: sdtdserver-data
+            - mountPath: /home/sdtdserver/serverfiles/ 
+              name: sdtdserver-data
+            - mountPath: /home/sdtdserver/lgsm/backup/
               name: sdtdserver-data
           securityContext:
             runAsUser: 1000
