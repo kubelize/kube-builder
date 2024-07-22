@@ -9,7 +9,7 @@ resources:
   - ../../../../apps/projects/incubator/wikis/wikijs/
   # - ../../../../apps/projects/incubator/gameservers/dawncraft/
   # - ../../../../apps/projects/incubator/gameservers/dawncraft-itzg/
-  - ../../../../apps/projects/incubator/gameservers/sdtd/
+  # - ../../../../apps/projects/incubator/gameservers/sdtd/
 
 patches:
   - target:
