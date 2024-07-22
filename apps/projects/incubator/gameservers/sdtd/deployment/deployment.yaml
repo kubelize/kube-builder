@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: sdtd-server
-          image: vinanrra/7dtd-server:latest
+          image: kubelize/sdtd-server:0.0.1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 26900
@@ -36,13 +36,7 @@ spec:
               protocol: TCP
               name: telnet
           volumeMounts:
-            - mountPath: /home/sdtdserver/.local/share/7DaysToDie/ 
-              name: sdtdserver-data
-            - mountPath: /home/sdtdserver/lgsm/config-lgsm/sdtdserver 
-              name: sdtdserver-data
-            - mountPath: /home/sdtdserver/serverfiles/ 
-              name: sdtdserver-data
-            - mountPath: /home/sdtdserver/lgsm/backup/
+            - mountPath: /home/steam/Steam
               name: sdtdserver-data
           securityContext:
             runAsUser: 1000
