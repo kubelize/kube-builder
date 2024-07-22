@@ -44,7 +44,7 @@ spec:
       volumes:
         - name: sdtdserver-data
           persistentVolumeClaim:
-            claimName: stdtserver-data
+            claimName: sdtdserver-data
   replicas: 1
   selector:
     matchLabels:
