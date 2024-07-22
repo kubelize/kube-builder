@@ -15,7 +15,7 @@ spec:
       containers:
         - name: sdtd-server
           image: vinanrra/7dtd-server:latest
-          command: ["sleep infinity"]
+          command: ["/usr/bin/sleep infinity"]
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 26900
