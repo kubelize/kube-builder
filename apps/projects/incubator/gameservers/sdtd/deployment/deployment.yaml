@@ -13,7 +13,7 @@ spec:
         app: sdtd-server
     spec:
       containers:
-        - name: sdtd-srv
+        - name: sdtd-server
           image: vinanrra/7dtd-server:latest
           imagePullPolicy: IfNotPresent
           ports:
@@ -36,7 +36,7 @@ spec:
               protocol: TCP
               name: telnet
           volumeMounts:
-            - mountPath: /home/sdtdserver
+            - mountPath: /home/sdtdserver/
               name: sdtdserver-data
           securityContext:
             runAsUser: 1000
