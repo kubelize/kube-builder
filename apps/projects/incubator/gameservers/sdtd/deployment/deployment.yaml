@@ -12,17 +12,9 @@ spec:
       labels:
         app: sdtd-server
     spec:
-      initContainers:
-        - name: init-permissions
-          image: busybox
-          command: ["sh", "-c", "chown -R 1000:1000 /home/sdtdserver/"]
-          volumeMounts:
-          - name: sdtdserver-data
-            mountPath: /home/sdtdserver
       containers:
         - name: sdtd-server
           image: vinanrra/7dtd-server:latest
-          command: ["/usr/bin/sleep", "infinity"]
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 26900
