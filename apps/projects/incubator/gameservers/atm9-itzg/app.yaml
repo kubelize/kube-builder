@@ -334,7 +334,7 @@ spec:
             # can be used, but the password is secure.
             withGeneratedPassword: false
             port: 25575
-            password: "CHANGEME!"
+            password: ""
             existingSecret: minecraft-rcon-password
             secretKey: rcon-password
             serviceType: ClusterIP
