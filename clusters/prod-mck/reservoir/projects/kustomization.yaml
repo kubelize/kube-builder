@@ -17,6 +17,7 @@ resources:
   - ../../../../apps/projects/incubator/webservers/kubelize-nextra/
   - ../../../../apps/projects/incubator/wikis/wikijs/
   - ../../../../apps/projects/incubator/gameservers/dawncraft/
+  - ../../../../apps/projects/incubator/gameservers/atm9-itzg/
 
 patches:
 - target:
