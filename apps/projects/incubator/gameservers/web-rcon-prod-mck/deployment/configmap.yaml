@@ -10,3 +10,6 @@ data:
     dawncraft:
       address: "dawncraft-rcon.minecraft.svc.cluster.local:25575"
       log: "rcon-dawncraft.log"
+    atm9:
+      address: "atm9-itzg-minecraft-rcon.minecraft.svc.cluster.local:25575"
+      log: "rcon-atm9.log"
