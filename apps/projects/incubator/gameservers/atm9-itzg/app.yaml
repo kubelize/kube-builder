@@ -14,7 +14,7 @@ spec:
     chart: minecraft
     helm:
       parameters: []
-      values: 
+      valuesObject: 
         # ref: https://hub.docker.com/r/itzg/minecraft-server/
         image:
           repository: itzg/minecraft-server
