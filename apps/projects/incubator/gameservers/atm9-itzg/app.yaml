@@ -180,9 +180,9 @@ spec:
           # One of: peaceful, easy, normal, and hard
           difficulty: hard
           # A comma-separated list of player names to whitelist.
-          whitelist: McK, moffoso
+          whitelist: McKency, moffoso
           # A comma-separated list of player names who should be admins.
-          ops: McK, moffoso
+          ops: McKency, moffoso
           # A server icon URL for server listings. Auto-scaled and transcoded.
           icon:
           # Max connected players.
