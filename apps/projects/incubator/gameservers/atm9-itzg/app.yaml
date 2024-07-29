@@ -332,9 +332,9 @@ spec:
             # By default, the container will generate a random password at startup
             # to ensure internal RCON tooling, including a backup container,
             # can be used, but the password is secure.
-            withGeneratedPassword: true
+            withGeneratedPassword: false
             port: 25575
-            password: ""
+            password: "CHANGEME!"
             existingSecret: minecraft-rcon-password
             secretKey: rcon-password
             serviceType: ClusterIP
