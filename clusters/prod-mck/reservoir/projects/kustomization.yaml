@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   # projects stable
   # - ../../../../apps/projects/stable/gameservers/palworld/
-  - ../../../../apps/projects/stable/gameservers/minecraft/
+  # - ../../../../apps/projects/stable/gameservers/minecraft/
   
   # projects incubator
   # - ../../../../apps/projects/incubator/webservers/rei-nginx/

@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: atm9-itzg
-  namespace: argocd
+  namespace: minecraft
 spec:
   project: default
   destination:
