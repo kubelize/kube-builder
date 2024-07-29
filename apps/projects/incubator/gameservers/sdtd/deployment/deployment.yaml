@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sdtd-server
+  labels:
+    app: sdtd-server
+  namespace: sdtd-server
+spec:
+  template:
+    metadata:
+      name: sdtd-server
+      labels:
+        app: sdtd-server
+    spec:
+      containers:
+        - name: sdtd-server
+          image: kubelize/sdtd-server:0.0.1
+          command: ["/usr/bin/sleep", "infinity"]
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 26900
+              protocol: TCP
+              name: gameport1tcp
+            - containerPort: 26900
+              protocol: UDP
+              name: gameport1udp
+            - containerPort: 26901
+              protocol: UDP
+              name: gameport2udp
+            - containerPort: 26902
+              protocol: UDP
+              name: gameport3udp
+            - containerPort: 8080
+              protocol: TCP
+              name: webadmin
+            - containerPort: 8081
+              protocol: TCP
+              name: telnet
+          volumeMounts:
+            - mountPath: /home/steam/Steam
+              name: sdtdserver-data
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+      volumes:
+        - name: sdtdserver-data
+          persistentVolumeClaim:
+            claimName: sdtdserver-data
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sdtd-server

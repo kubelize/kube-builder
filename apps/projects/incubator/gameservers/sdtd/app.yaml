@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sdtd-server
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/kubelize/kube-builder
+      path: apps/projects/incubator/gameservers/sdtd/deployment
+      targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: sdtd-server

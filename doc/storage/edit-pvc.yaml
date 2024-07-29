@@ -20,8 +20,8 @@ spec:
         command: ["/bin/sleep", "infinity"]  # Keeps the container running
         volumeMounts:
         - name: pvc-volume
-          mountPath: /data  # Mount point for the PVC
+          mountPath: /home/sdtdserver # Mount point for the PVC
       volumes:
       - name: pvc-volume
         persistentVolumeClaim:
-          claimName: conan-exiles-data # Name of your existing PVC
+          claimName: sdtdserver-data # Name of your existing PVC
