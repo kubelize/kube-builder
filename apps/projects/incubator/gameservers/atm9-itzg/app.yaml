@@ -297,12 +297,12 @@ spec:
           autoCurseForge:
             # CurseForge API key obtained from developer console
             apiKey:
-              key: "ca9c5af5-2d63-4158-8785-d4525d880a9f"
+              key: "CHANGEME!"
               existingSecret: "cf-api-token"
               secretKey: cf-api-key
             # Link to modpack in general or a specific file
             # NOTE: In case of specific file - do not point at server file
-            pageUrl: https://www.curseforge.com/minecraft/modpacks/all-the-mods-9
+            pageUrl: https://www.curseforge.com/minecraft/modpacks/all-the-mods-9/download/5564373
             # Unique id of modpack, can be used instead of url
             slug: ""
             # Id used to specify which exact modpack file needs to be downloaded
