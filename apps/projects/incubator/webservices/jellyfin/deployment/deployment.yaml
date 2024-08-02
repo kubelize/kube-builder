@@ -19,7 +19,7 @@ spec:
           command: ["sh", "-c", "mkdir /media && chown -R 1000:1000 /media && mkdir /config && chown -R 1000:1000 /config"]
       containers:
         - name: jellyfin
-          image: linuxserver/jellyfing
+          image: linuxserver/jellyfin
           ports:
             - containerPort: 8096
           volumeMounts:
