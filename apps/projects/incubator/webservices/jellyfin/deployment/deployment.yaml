@@ -21,6 +21,11 @@ spec:
           volumeMounts:
             - mountPath: "/media"
               name: shared-storage
+            - mountPath: "/config"
+              name: jellyfin-config
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
       volumes:
         - name: shared-storage
           persistentVolumeClaim:
@@ -41,6 +46,10 @@ spec:
       labels:
         app: qbittorrent
     spec:
+      initContainers:
+        - name: init-permissions
+          image: busybox
+          command: ["sh", "-c", "chown -R 1000:1000 /media"]
       containers:
         - name: qbittorrent
           image: linuxserver/qbittorrent
@@ -49,6 +58,9 @@ spec:
           volumeMounts:
             - mountPath: "/media"
               name: shared-storage
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
       volumes:
         - name: shared-storage
           persistentVolumeClaim:
