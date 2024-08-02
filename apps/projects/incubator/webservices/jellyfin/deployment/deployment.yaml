@@ -27,9 +27,9 @@ spec:
               name: shared-storage
             - mountPath: "/config"
               name: jellyfin-config
-          # securityContext:
-          #   runAsUser: 1000
-          #   runAsGroup: 1000
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
       volumes:
         - name: shared-storage
           persistentVolumeClaim:
