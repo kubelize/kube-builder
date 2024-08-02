@@ -18,7 +18,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: jellyfin
+    app: qbittorrent
   ports:
     - protocol: TCP
       port: 8080
