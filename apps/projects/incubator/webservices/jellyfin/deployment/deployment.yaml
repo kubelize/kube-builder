@@ -13,10 +13,6 @@ spec:
       labels:
         app: jellyfin
     spec:
-      # initContainers:
-      #   - name: init-permissions
-      #     image: busybox
-      #     command: ["sh", "-c", "mkdir /media && chown -R 1000:1000 /media && mkdir /config && chown -R 1000:1000 /config"]
       containers:
         - name: jellyfin
           image: linuxserver/jellyfin
@@ -27,9 +23,6 @@ spec:
               name: shared-storage
             - mountPath: "/config"
               name: jellyfin-config
-          # securityContext:
-          #   runAsUser: 1000
-          #   runAsGroup: 1000
       volumes:
         - name: shared-storage
           persistentVolumeClaim:
@@ -56,7 +49,7 @@ spec:
       initContainers:
         - name: init-permissions
           image: busybox
-          command: ["sh", "-c", "mkdir media && chown -R 911:911 /media"]
+          command: ["sh", "-c", "mkdir media && chown -R abc:abc /media"]
       containers:
         - name: qbittorrent
           image: linuxserver/qbittorrent
