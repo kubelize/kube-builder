@@ -13,6 +13,10 @@ spec:
       labels:
         app: jellyfin
     spec:
+      initContainers:
+        - name: init-permissions
+          image: busybox
+          command: ["sh", "-c", "chown -R 1000:1000 /config && chown -R 1000:1000 /media"]
       containers:
         - name: jellyfin
           image: jellyfin/jellyfin
@@ -52,7 +56,7 @@ spec:
       initContainers:
         - name: init-permissions
           image: busybox
-          command: ["sh", "-c", "chown -R 1000:1000 /media"]
+          command: ["sh", "-c", "mkdir media && chown -R 1000:1000 /media"]
       containers:
         - name: qbittorrent
           image: linuxserver/qbittorrent
