@@ -49,7 +49,7 @@ spec:
       initContainers:
         - name: init-permissions
           image: busybox
-          command: ["sh", "-c", "mkdir media && chown -R abc:abc media"]
+          command: ["sh", "-c", "mkdir media && chown -R 911:911 media"]
       containers:
         - name: qbittorrent
           image: linuxserver/qbittorrent
