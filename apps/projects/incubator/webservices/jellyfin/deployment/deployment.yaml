@@ -18,6 +18,13 @@ spec:
           image: jellyfin/jellyfin
           ports:
             - containerPort: 8096
+          volumeMounts:
+            - mountPath: "/media"
+              name: shared-storage
+      volumes:
+        - name: shared-storage
+          persistentVolumeClaim:
+            claimName: shared-storage
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -39,3 +46,10 @@ spec:
           image: linuxserver/qbittorrent
           ports:
             - containerPort: 8080
+          volumeMounts:
+            - mountPath: "/media"
+              name: shared-storage
+      volumes:
+        - name: shared-storage
+          persistentVolumeClaim:
+            claimName: shared-storage
