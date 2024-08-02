@@ -13,10 +13,10 @@ spec:
       labels:
         app: jellyfin
     spec:
-      # initContainers:
-      #   - name: init-permissions
-      #     image: busybox
-      #     command: ["sh", "-c", "mkdir config && mkdir config/log && chown -R 1000:1000 /config && mkdir media && chown -R 1000:1000 /media"]
+      initContainers:
+        - name: init-permissions
+          image: busybox
+          command: ["sh", "-c", "chmod -R 1000:1000 /"]
       containers:
         - name: jellyfin
           image: jellyfin/jellyfin
