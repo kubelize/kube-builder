@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jellyfin
+  namespace: jellyfin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jellyfin
+  template:
+    metadata:
+      labels:
+        app: jellyfin
+    spec:
+      containers:
+        - name: jellyfin
+          image: linuxserver/jellyfin
+          ports:
+            - containerPort: 8096
+          volumeMounts:
+            - mountPath: "/media"
+              name: shared-storage
+            - mountPath: "/config"
+              name: jellyfin-config
+      volumes:
+        - name: shared-storage
+          persistentVolumeClaim:
+            claimName: shared-storage
+        - name: jellyfin-config
+          persistentVolumeClaim:
+            claimName: jellyfin-config
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qbittorrent
+  namespace: jellyfin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qbittorrent
+  template:
+    metadata:
+      labels:
+        app: qbittorrent
+    spec:
+      initContainers:
+        - name: init-permissions
+          image: busybox
+          command: ["sh", "-c", "mkdir media && chown -R 911:911 media"]
+      containers:
+        - name: qbittorrent
+          image: linuxserver/qbittorrent
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - mountPath: "/media"
+              name: shared-storage
+      volumes:
+        - name: shared-storage
+          persistentVolumeClaim:
+            claimName: shared-storage

@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jellyfin
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/kubelize/kube-builder
+      path: apps/projects/incubator/webservices/jellyfin/deployment
+      targetRevision: dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: jellyfin
