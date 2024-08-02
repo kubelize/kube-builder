@@ -16,7 +16,7 @@ spec:
       initContainers:
         - name: init-permissions
           image: busybox
-          command: ["sh", "-c", "chown -R 1000:1000 /"]
+          command: ["sh", "-c", "chown -R 1000:1000 /media && mkdir /config && chown -R 1000:1000 /config"]
       containers:
         - name: jellyfin
           image: jellyfin/jellyfin
