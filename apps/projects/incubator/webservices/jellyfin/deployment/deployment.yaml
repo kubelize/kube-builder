@@ -30,6 +30,9 @@ spec:
         - name: shared-storage
           persistentVolumeClaim:
             claimName: shared-storage
+        - name: jellyfin-config
+          persistentVolumeClaim:
+            claimName: jellyfin-config
 ---
 apiVersion: apps/v1
 kind: Deployment
