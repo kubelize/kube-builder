@@ -46,13 +46,10 @@ spec:
       labels:
         app: qbittorrent
     spec:
-      initContainers:
-        - name: init-permissions
-          image: busybox
-          command: ["sh", "-c", "mkdir media && chown -R 911:911 /media"]
       containers:
         - name: qbittorrent
           image: linuxserver/qbittorrent
+          command: ["chown -R abc:abc /media"]
           ports:
             - containerPort: 8080
           volumeMounts:
