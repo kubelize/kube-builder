@@ -10,7 +10,7 @@ resources:
   # - ../../../../apps/projects/incubator/gameservers/dawncraft/
   # - ../../../../apps/projects/incubator/gameservers/dawncraft-itzg/
   - ../../../../apps/projects/incubator/gameservers/atm9-itzg/
-  - ../../../../apps/projects/incubator/gameservers/sdtd/
+  # - ../../../../apps/projects/incubator/gameservers/sdtd/
   - ../../../../apps/projects/incubator/webservices/jellyfin/
 
 patches:
