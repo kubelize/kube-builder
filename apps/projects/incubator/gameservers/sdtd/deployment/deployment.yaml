@@ -12,7 +12,7 @@ spec:
       labels:
         app: sdtd-server
     spec:
-      initContiner:
+      initContainer:
         - name: init-permissions
           image: busybox
           command: ["sh", "-c", "chown -R 1000:1000 /home/steam/Steam"]
