@@ -15,7 +15,7 @@ spec:
       containers:
         - name: sdtd-server
           image: kubelize/sdtd-server:0.0.1
-          command: ["/usr/bin/sleep", "infinity"]
+          # command: ["/usr/bin/sleep", "infinity"]
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 26900
