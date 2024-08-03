@@ -12,6 +12,10 @@ spec:
       labels:
         app: sdtd-server
     spec:
+      initContiner:
+        - name: init-permissions
+          image: busybox
+          command: ["sh", "-c", "chown -R 1000:1000 /home/steam/Steam"]
       containers:
         - name: sdtd-server
           image: kubelize/sdtd-server:0.0.1
