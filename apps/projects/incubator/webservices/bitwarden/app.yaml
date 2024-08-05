@@ -10,7 +10,7 @@ spec:
     namespace: bitwarden
   source:
     repoURL: https://charts.bitwarden.com/
-    targetRevision: 2024.5.0
+    targetRevision: 2024.7.1
     chart: self-host
     helm:
       parameters: []
