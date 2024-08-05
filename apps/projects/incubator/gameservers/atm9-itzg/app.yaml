@@ -10,7 +10,7 @@ spec:
     namespace: minecraft
   source:
     repoURL: https://itzg.github.io/minecraft-server-charts/
-    targetRevision: 4.19.0
+    targetRevision: 4.20.0
     chart: minecraft
     helm:
       parameters: []
