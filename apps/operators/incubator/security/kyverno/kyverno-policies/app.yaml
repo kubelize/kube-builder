@@ -15,7 +15,7 @@ spec:
     helm:
       parameters: []
       valuesObject:
-        podSecurityStandard: restricted
+        podSecurityStandard: baseline
         validationFailureAction: audit
         validationFailureActionOverrides:
           all:
