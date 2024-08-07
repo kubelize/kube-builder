@@ -19,7 +19,7 @@ spec:
         validationFailureAction: audit
         validationFailureActionOverrides:
           all:
-            - action: enforce
-              namespaceSelector:
-                matchLabels:
-                  kyverno-policies-mode: enforce
+          - action: enforce
+            namespaceSelector:
+              matchLabels:
+                kyverno-policies-mode: enforce
