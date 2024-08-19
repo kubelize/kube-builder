@@ -7,7 +7,7 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/kubelize/kube-builder
-      path: clusters/dev-dhe/reservoir
+      path: clusters/dev-dhe
       targetRevision: dev
   destination:
     server: https://kubernetes.default.svc
