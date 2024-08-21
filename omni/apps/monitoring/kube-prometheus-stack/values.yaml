@@ -30,6 +30,7 @@ kube-prometheus-stack:
                 storage: 10Gi
   prometheus:
     prometheusSpec:
+      retention: 30d
       storageSpec:
         volumeClaimTemplate:
           spec:
@@ -42,10 +43,10 @@ kube-prometheus-stack:
     grafana.ini:
       auth:
         # testing auth configurations currently
-        disable_login_form: false
-        disable_signout_menu: false
+        disable_login_form: true
+        disable_signout_menu: true
       auth.basic:
-        enabled: true
+        enabled: false
       auth.anonymous:
         enabled: true
     # Allow Omni Workload Proxying for this service
