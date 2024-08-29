@@ -10,7 +10,6 @@ resources:
   - ../../../apps/operators/incubator/security/sealed-secrets-controller/
   - ../../../apps/operators/incubator/connectivity/teleport-kube-agent/
   - ../../../apps/operators/incubator/observability/uptime-kuma/
-  - ../../../apps/projects/incubator/webservices/jellyfin/
 
 patches:
   - target:
