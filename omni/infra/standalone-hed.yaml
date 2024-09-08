@@ -1,0 +1,51 @@
+kind: Cluster
+name: standalone-hed
+talos:
+  version: v1.7.4
+kubernetes:
+  version: 1.30.0
+# features:
+#   enableWorkloadProxy: true
+patches:
+  - name: cni
+    file: patches/cni.yaml
+  - name: storage
+    file: patches/storage.yaml
+
+---
+kind: ControlPlane
+machineClass:
+  name: hed-controlplanes
+  size: 1
+patches:
+  - name: cilium
+    file: patches/cilium.yaml
+  - name: argocd
+    file: patches/argocd.yaml
+  - name: monitoring
+    file: patches/monitoring.yaml
+---
+kind: ControlPlane
+machineClass:
+  name: hed-untainted-controlplanes
+  size: 2
+patches:
+  - name: cilium
+    file: patches/cilium.yaml
+  - name: argocd
+    file: patches/argocd.yaml
+  - name: monitoring
+    file: patches/monitoring.yaml
+  - name: untainted
+    file: patches/untainted.yaml
+  - name: disks
+    file: patches/disks.yaml
+---
+kind: Workers
+name: workers
+machineClass:
+  name: hed-workers
+  size: 1
+patches:
+  - name: disks
+    file: patches/disks.yaml
