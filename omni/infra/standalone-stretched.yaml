@@ -1,0 +1,37 @@
+kind: Cluster
+name: test-stretched
+talos:
+  version: v1.7.6
+kubernetes:
+  version: 1.30.0
+# features:
+#   enableWorkloadProxy: true
+patches:
+  - name: cni
+    file: patches/cni.yaml
+  - name: storage
+    file: patches/storage.yaml
+  - name: hybrid
+    file: patches/hybrid.yaml
+
+---
+kind: ControlPlane
+machineClass:
+  name: stretched-cp
+  size: 3
+patches:
+  - name: cilium
+    file: patches/cilium.yaml
+  - name: argocd
+    file: patches/argocd.yaml
+  - name: monitoring
+    file: patches/monitoring.yaml
+---
+kind: Workers
+name: stretched-wk
+machineClass:
+  name: stretched-wk
+  size: 2
+patches:
+  - name: disks
+    file: patches/disks.yaml
