@@ -36,8 +36,8 @@ cilium:
       enabled: true
     ui:
       enabled: true
-      service:
-        annotations:
-          # Enable Omni Workload Proxying for this service
-          omni-kube-service-exposer.sidero.dev/port: "50080"
-          omni-kube-service-exposer.sidero.dev/label: Hubble
+      # service:
+      #   annotations:
+      #     # Enable Omni Workload Proxying for this service
+      #     omni-kube-service-exposer.sidero.dev/port: "50080"
+      #     omni-kube-service-exposer.sidero.dev/label: Hubble

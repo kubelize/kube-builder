@@ -1,7 +1,7 @@
 kind: Cluster
-name: standalone-hed
+name: test-stretched
 talos:
-  version: v1.7.4
+  version: v1.7.6
 kubernetes:
   version: 1.30.0
 # features:
@@ -11,12 +11,14 @@ patches:
     file: patches/cni.yaml
   - name: storage
     file: patches/storage.yaml
+  - name: hybrid
+    file: patches/hybrid.yaml
 
 ---
 kind: ControlPlane
 machineClass:
-  name: hed-controlplanes
-  size: 1
+  name: stretched-cp
+  size: 3
 patches:
   - name: cilium
     file: patches/cilium.yaml
@@ -24,28 +26,12 @@ patches:
     file: patches/argocd.yaml
   - name: monitoring
     file: patches/monitoring.yaml
----
-kind: ControlPlane
-machineClass:
-  name: hed-untainted-controlplanes
-  size: 2
-patches:
-  - name: cilium
-    file: patches/cilium.yaml
-  - name: argocd
-    file: patches/argocd.yaml
-  - name: monitoring
-    file: patches/monitoring.yaml
-  - name: untainted
-    file: patches/untainted.yaml
-  - name: disks
-    file: patches/disks.yaml
 ---
 kind: Workers
-name: workers
+name: stretched-wk
 machineClass:
-  name: hed-workers
-  size: 1
+  name: stretched-wk
+  size: 2
 patches:
   - name: disks
     file: patches/disks.yaml
