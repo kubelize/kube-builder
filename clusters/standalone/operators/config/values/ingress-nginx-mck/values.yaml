@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ingress-nginx-mck
+spec:
+  source:
+    helm:
+      fullnameOverride: ingress-nginx-mck
+      valuesObject:
+        controller:
+          allowSnippetAnnotations: true
+        service:
+          labels:
+            kubelize.com/bgp-ip-pool: mck
