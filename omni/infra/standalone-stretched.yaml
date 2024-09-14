@@ -1,5 +1,5 @@
 kind: Cluster
-name: test-stretched
+name: standalone
 talos:
   version: v1.7.6
 kubernetes:
