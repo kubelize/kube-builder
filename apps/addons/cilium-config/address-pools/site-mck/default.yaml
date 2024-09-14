@@ -1,0 +1,13 @@
+apiVersion: "cilium.io/v2alpha1"
+kind: CiliumLoadBalancerIPPool
+metadata:
+  name: site-mck
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "-6"
+spec:
+  cidrs:
+  - cidr: "192.168.1.232/29"
+  serviceSelector:
+    matchLabels:
+      kubelize.com/bgp-ip-pool: mck

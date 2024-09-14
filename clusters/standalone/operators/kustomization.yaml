@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
   # operators stable
   - ../../../apps/operators/stable/connectivity/cert-manager/
-  - ../../../apps/operators/stable/connectivity/metallb/
   - ../../../apps/operators/stable/connectivity/ingress-nginx/
 
   # operators incubator
