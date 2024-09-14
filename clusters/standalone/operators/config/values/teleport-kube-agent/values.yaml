@@ -6,7 +6,7 @@ spec:
   source:
     helm:
       valuesObject:
-        kubeClusterName: prod-mck
+        kubeClusterName: standalone
         proxyAddr: teleport.kubelize.com:443
         apps:
         # - name: mck-pve
