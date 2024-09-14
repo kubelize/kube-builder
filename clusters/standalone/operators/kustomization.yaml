@@ -3,7 +3,8 @@ kind: Kustomization
 resources:
   # operators stable
   - ../../../apps/operators/stable/connectivity/cert-manager/
-  - ../../../apps/operators/stable/connectivity/ingress-nginx/
+  - ../../../apps/operators/stable/connectivity/ingress-nginx-dhe/
+  - ../../../apps/operators/stable/connectivity/ingress-nginx-mck/
 
   # operators incubator
   - ../../../apps/operators/incubator/security/sealed-secrets-controller/
@@ -17,9 +18,9 @@ patches:
     path: config/values/teleport-kube-agent/values.yaml
   - target:
       kind: Application
-      name: ingress-nginx
+      name: ingress-nginx-dhe
     path: config/values/ingress-nginx-dhe/values.yaml
   - target:
       kind: Application
-      name: ingress-nginx
+      name: ingress-nginx-mck
     path: config/values/ingress-nginx-mck/values.yaml
