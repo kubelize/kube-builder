@@ -1,0 +1,13 @@
+apiVersion: "cilium.io/v2alpha1"
+kind: CiliumLoadBalancerIPPool
+metadata:
+  name: site-dhe
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "-6"
+spec:
+  cidrs:
+  - cidr: "10.130.5.240/28"
+  serviceSelector:
+    matchLabels:
+      kubelize.com/bgp-ip-pool: dhe
