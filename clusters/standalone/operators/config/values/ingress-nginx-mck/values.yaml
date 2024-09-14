@@ -5,10 +5,11 @@ metadata:
 spec:
   source:
     helm:
-      fullnameOverride: ingress-nginx-mck
       valuesObject:
-        controller:
-          allowSnippetAnnotations: true
-        service:
-          labels:
-            kubelize.com/bgp-ip-pool: mck
+        fullnameOverride: ingress-nginx-mck
+        valuesObject:
+          controller:
+            allowSnippetAnnotations: true
+          service:
+            labels:
+              kubelize.com/bgp-ip-pool: mck
