@@ -9,6 +9,6 @@ spec:
         fullnameOverride: ingress-nginx-dhe
         controller:
           allowSnippetAnnotations: true
-        service:
-          labels:
-            kubelize.com/bgp-ip-pool: dhe
+          service:
+            labels:
+              kubelize.com/bgp-ip-pool: dhe
