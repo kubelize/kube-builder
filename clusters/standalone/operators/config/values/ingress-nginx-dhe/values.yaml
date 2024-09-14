@@ -7,8 +7,9 @@ spec:
     helm:
       valuesObject:
         fullnameOverride: ingress-nginx-dhe
-        controller:
-          allowSnippetAnnotations: true
-        service:
-          labels:
-            kubelize.com/bgp-ip-pool: dhe
+        valuesObject:
+          controller:
+            allowSnippetAnnotations: true
+          service:
+            labels:
+              kubelize.com/bgp-ip-pool: dhe
