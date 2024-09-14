@@ -9,6 +9,6 @@ spec:
         fullnameOverride: ingress-nginx-mck
         controller:
           allowSnippetAnnotations: true
-        service:
-          labels:
-            kubelize.com/bgp-ip-pool: mck
+          service:
+            labels:
+              kubelize.com/bgp-ip-pool: mck
