@@ -12,3 +12,5 @@ spec:
           service:
             labels:
               kubelize.com/bgp-ip-pool: mck
+          ingressClassResource:
+            name: nginx-mck

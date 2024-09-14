@@ -12,3 +12,5 @@ spec:
           service:
             labels:
               kubelize.com/bgp-ip-pool: dhe
+          ingressClassResource:
+            name: nginx-dhe
