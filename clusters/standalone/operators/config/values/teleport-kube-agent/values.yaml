@@ -52,6 +52,9 @@ spec:
           namespaces: ["*"]
           labels:
             "teleport.dev/enabled": "on"
+        highAvailability:
+          replicaCount: 2
+          requireAntiAffinity: true           
         joinTokenSecret:
           create: false
         podSecurityPolicy:
