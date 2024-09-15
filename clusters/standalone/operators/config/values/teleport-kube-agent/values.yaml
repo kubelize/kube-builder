@@ -29,7 +29,6 @@ spec:
               - "Upgrade: websocket"
               - "Host: longhorn.teleport.kubelize.com"
               - "Scheme: wss"
-              - "Filename: /ws"
         - name: hubble
           uri: http://hubble-ui.kube-system.svc.cluster.local
         - name: web-rcon
