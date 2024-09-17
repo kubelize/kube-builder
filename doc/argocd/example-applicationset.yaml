@@ -1,0 +1,46 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: bedag-observability-stack
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+    - matrix:
+        generators:
+          - clusters:
+              selector:
+              matchLabels:
+                observability-enabled: "true"
+            values:
+              cluster: '{{name}}'
+              environment: '{{index .metadata.labels "environment"}}'
+              segment: '{{index .metadata.labels "segment"}}'
+          - list:
+              elements:
+                - app: loki
+                - app: prometheus
+                - app: mimir
+                - app: alloy
+  template:                                                                                                             
+    metadata:
+      name: '{{cluster}}-{{app}}'
+    spec:
+      project: '{{cluster}}'
+      source:
+        repoURL: 'https://git.mgmtbi.ch/bedag/applicationset-example.git'
+        targetRevision: HEAD
+        path: 'apps/{{app}}'
+        helm:
+          valueFiles:
+            - 'values/globals.yaml'
+            - 'values/segments/{{segment}}.yaml'
+            - 'values/environments/{{environment}}.yaml'
+            - 'values/clusters/{{cluster}}.yaml'
+      destination:
+        name: '{{name}}'
+        namespace: 'observability-system'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
