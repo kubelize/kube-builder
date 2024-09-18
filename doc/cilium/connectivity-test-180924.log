@@ -1,0 +1,49 @@
+📋 Test Report [cilium-test]
+❌ 15/47 tests failed (30/545 actions), 33 tests skipped, 0 scenarios skipped:
+Test [no-unexpected-packet-drops]:
+  ❌ no-unexpected-packet-drops/no-unexpected-packet-drops/kubelize-omni-standalone/talos-u3v-5z0
+  ❌ no-unexpected-packet-drops/no-unexpected-packet-drops/kubelize-omni-standalone/talos-430-o8e
+  ❌ no-unexpected-packet-drops/no-unexpected-packet-drops/kubelize-omni-standalone/talos-4gk-vzo
+  ❌ no-unexpected-packet-drops/no-unexpected-packet-drops/kubelize-omni-standalone/talos-ibr-up9
+  ❌ no-unexpected-packet-drops/no-unexpected-packet-drops/kubelize-omni-standalone/talos-zg6-q6y
+Test [no-policies]:
+  ❌ no-policies/pod-to-pod/curl-ipv4-1: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node-9975f89cd-v5cr5 (10.244.1.23:8080)
+  ❌ no-policies/pod-to-service/curl-5: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node (echo-same-node.cilium-test:8080)
+  ❌ no-policies/pod-to-hostport/curl-1: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node-9975f89cd-v5cr5 (192.168.1.37:4000)
+  ❌ no-policies/pod-to-hostport/curl-2: cilium-test/client-856666cb56-jr2n7 (10.244.1.196) -> cilium-test/echo-other-node-65965cdd64-bnz8m (10.130.5.124:4000)
+  ❌ no-policies/pod-to-hostport/curl-4: cilium-test/client2-b6f5f8c45-4gd98 (10.244.1.95) -> cilium-test/echo-other-node-65965cdd64-bnz8m (10.130.5.124:4000)
+  ❌ no-policies/host-to-pod/curl-ipv4-1: cilium-test/host-netns-cz2pm (10.130.5.124) -> cilium-test/echo-same-node-9975f89cd-v5cr5 (10.244.1.23:8080)
+Test [no-policies-extra]:
+  ❌ no-policies-extra/pod-to-remote-nodeport/curl-20: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node (echo-same-node.cilium-test:8080)
+  ❌ no-policies-extra/pod-to-remote-nodeport/curl-21: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node (echo-same-node.cilium-test:8080)
+  ❌ no-policies-extra/pod-to-remote-nodeport/curl-22: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node (echo-same-node.cilium-test:8080)
+  ❌ no-policies-extra/pod-to-remote-nodeport/curl-23: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node (echo-same-node.cilium-test:8080)
+  ❌ no-policies-extra/pod-to-local-nodeport/curl-5: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node (echo-same-node.cilium-test:8080)
+Test [allow-all-except-world]:
+  ❌ allow-all-except-world/pod-to-pod/curl-ipv4-4: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node-9975f89cd-v5cr5 (10.244.1.23:8080)
+  ❌ allow-all-except-world/pod-to-service/curl-5: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node (echo-same-node.cilium-test:8080)
+Test [allow-all-with-metrics-check]:
+  ❌ allow-all-with-metrics-check/pod-to-pod/curl-ipv4-5: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node-9975f89cd-v5cr5 (10.244.1.23:8080)
+Test [host-entity-ingress]:
+  ❌ host-entity-ingress/host-to-pod/curl-ipv4-1: cilium-test/host-netns-cz2pm (10.130.5.124) -> cilium-test/echo-same-node-9975f89cd-v5cr5 (10.244.1.23:8080)
+Test [client-egress]:
+  ❌ client-egress/pod-to-pod/curl-ipv4-5: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node-9975f89cd-v5cr5 (10.244.1.23:8080)
+Test [client-egress-knp]:
+  ❌ client-egress-knp/pod-to-pod/curl-ipv4-5: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node-9975f89cd-v5cr5 (10.244.1.23:8080)
+Test [client-egress-expression]:
+  ❌ client-egress-expression/pod-to-pod/curl-ipv4-5: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node-9975f89cd-v5cr5 (10.244.1.23:8080)
+Test [client-egress-expression-knp]:
+  ❌ client-egress-expression-knp/pod-to-pod/curl-ipv4-5: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node-9975f89cd-v5cr5 (10.244.1.23:8080)
+Test [client-with-service-account-egress-to-echo]:
+  ❌ client-with-service-account-egress-to-echo/pod-to-pod/curl-ipv4-3: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node-9975f89cd-v5cr5 (10.244.1.23:8080)
+Test [client-egress-to-echo-service-account]:
+  ❌ client-egress-to-echo-service-account/pod-to-pod/curl-ipv4-3: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node-9975f89cd-v5cr5 (10.244.1.23:8080)
+Test [client-ingress-from-other-client-icmp-deny]:
+  ❌ client-ingress-from-other-client-icmp-deny/pod-to-pod/curl-ipv4-1: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node-9975f89cd-v5cr5 (10.244.1.23:8080)
+Test [pod-to-pod-encryption]:
+  ❌ pod-to-pod-encryption/pod-to-pod-encryption/curl-ipv4: cilium-test/client3-7c4bfdfdf4-6ksgg (10.244.4.69) -> cilium-test/echo-same-node-9975f89cd-v5cr5 (10.244.1.23:8080)
+Test [node-to-node-encryption]:
+  ❌ node-to-node-encryption/node-to-node-encryption/ping-ipv4: cilium-test/client-856666cb56-jr2n7 (10.244.1.196) -> cilium-test/host-netns-cz2pm (10.130.5.124:0)
+  ❌ node-to-node-encryption/node-to-node-encryption/ping-ipv4: cilium-test/host-netns-t78tn (192.168.1.37) -> cilium-test/host-netns-cz2pm (10.130.5.124:0)
+
+[cilium-test] 15 tests failed
