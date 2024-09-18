@@ -14,6 +14,8 @@ spec:
         #   insecure_skip_verify: true
         - name: wiki
           uri: http://wikijs.kubelize-internal-wiki.svc.cluster.local
+        - name: alertmanager
+          uri: http://alertmanager-operated.monitoring.svc.cluster.local:9093
         - name: grafana
           uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
         - name: prometheus
