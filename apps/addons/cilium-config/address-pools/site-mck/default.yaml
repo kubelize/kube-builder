@@ -6,8 +6,9 @@ metadata:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "-6"
 spec:
-  cidrs:
-  - cidr: "192.168.1.232/29"
+  blocks:
+    - start: 192.168.1.230
+      stop: 192.168.1.240
   serviceSelector:
     matchLabels:
       kubelize.com/bgp-ip-pool: mck
