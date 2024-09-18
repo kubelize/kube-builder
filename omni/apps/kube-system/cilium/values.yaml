@@ -2,6 +2,10 @@ cilium:
   kubeProxyReplacement: true
   ipam:
     mode: kubernetes
+  podSecurityContext:
+    # -- AppArmorProfile options for the `cilium-agent` and init containers
+    appArmorProfile:
+      type: "Unconfined"
   securityContext:
     capabilities:
       ciliumAgent:
