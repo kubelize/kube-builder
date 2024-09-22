@@ -7,7 +7,7 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/kubelize/kube-builder
-      path: clusters/prod-mck
+      path: clusters/home-mck
       targetRevision: main
   destination:
     server: https://kubernetes.default.svc
