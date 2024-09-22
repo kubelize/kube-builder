@@ -1,9 +1,9 @@
 kind: Cluster
-name: dev-dhe
+name: home-mck
 talos:
   version: v1.7.4
 kubernetes:
-  version: 1.30.0
+  version: 1.30.2
 # features:
 #   enableWorkloadProxy: true
 patches:
@@ -11,12 +11,11 @@ patches:
     file: patches/cni.yaml
   - name: storage
     file: patches/storage.yaml
-
 ---
 kind: ControlPlane
 machineClass:
-  name: dhe-control-planes
-  size: 3
+  name: mck-control-planes
+  size: 2
 patches:
   - name: cilium
     file: patches/cilium.yaml
@@ -28,8 +27,8 @@ patches:
 kind: Workers
 name: workers
 machineClass:
-  name: dhe-workers
-  size: 3
+  name: mck-workers
+  size: 2
 patches:
   - name: disks
     file: patches/disks.yaml
