@@ -10,6 +10,7 @@ resources:
   - ../../../apps/operators/incubator/security/sealed-secrets-controller/
   - ../../../apps/operators/incubator/connectivity/teleport-kube-agent/
   - ../../../apps/operators/incubator/gitops/fluxcd/
+  - ../../../apps/operators/incubator/gitops/tofu-controller/
 
 patches:
   - target:
