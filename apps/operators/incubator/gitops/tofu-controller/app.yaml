@@ -10,6 +10,15 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: flux-system
+  syncPolicy:
+    automated:
+      prune: false
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+      - ApplyOutOfSyncOnly=true
+      - RespectIgnoreDifferences=true
+      - SkipDryRunOnMissingResource=true
   source:
     repoURL: https://flux-iac.github.io/tofu-controller/
     targetRevision: "0.16.0-rc.4"
