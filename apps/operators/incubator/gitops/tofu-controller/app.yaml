@@ -42,8 +42,8 @@ spec:
           readOnlyRootFilesystem: true
           runAsNonRoot: true
           runAsUser: 65532
-        nodeSelector:
-          nodepool: services
+        # nodeSelector:
+        #   nodepool: services
         runner:
           image:
             repository: ghcr.io/flux-iac/tofu-controller
