@@ -6,8 +6,8 @@ metadata:
   labels:
     name: tf-controller
 spec:
-  destination:
   project: default
+  destination:
     server: https://kubernetes.default.svc
     namespace: flux-system
   source:
@@ -39,6 +39,6 @@ spec:
           image:
             repository: ghcr.io/flux-iac/tofu-controller
         metrics:
-          enabled: true
+          enabled: false
         allowBreakTheGlass: true
 
