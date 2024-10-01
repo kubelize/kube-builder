@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tf-controller
+  namespace: argocd
+  labels:
+    name: tf-controller
+spec:
+  destination:
+    namespace: flux-system
+  source:
+    repoURL: https://flux-iac.github.io/tofu-controller/
+    targetRevision: "0.16.0-rc.4"
+    chart: tf-controller
+    helm:
+      parameters: []
+      valuesObject:
+        image:
+          repository: ghcr.io/flux-iac/tofu-controller
+        awsPackage:
+          install: false
+        podSecurityContext:
+          seccompProfile:
+            type: RuntimeDefault
+          fsGroup: 1337
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - ALL
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 65532
+        nodeSelector:
+          nodepool: services
+        runner:
+          image:
+            repository: ghcr.io/flux-iac/tofu-controller
+        metrics:
+          enabled: true
+        allowBreakTheGlass: true
+
