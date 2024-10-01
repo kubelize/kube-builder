@@ -7,6 +7,9 @@ metadata:
     name: tf-controller
 spec:
   destination:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
     namespace: flux-system
   source:
     repoURL: https://flux-iac.github.io/tofu-controller/
