@@ -21,9 +21,9 @@ spec:
         - name: home-dhe-prometheus
           uri: http://monitoring-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
         - name: home-dhe-alertmanager
-        - name: uptime-kuma
-          uri: http://uptime-kuma.monitoring.svc.cluster.local:3001
           uri: http://alertmanager-operated.monitoring.svc.cluster.local:9093
+        - name: home-dhe-uptime-kuma
+          uri: http://uptime-kuma.monitoring.svc.cluster.local:3001
         - name: home-dhe-argocd
           uri: http://argocd-server.argocd.svc.cluster.local
         - name: home-dhe-longhorn

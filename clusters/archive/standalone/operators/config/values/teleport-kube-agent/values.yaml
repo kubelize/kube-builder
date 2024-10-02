@@ -20,7 +20,7 @@ spec:
           uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
         - name: prometheus
           uri: http://monitoring-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
-        - name: uptime-kuma
+        - name: home-mck-uptime-kuma
           uri: http://uptime-kuma.monitoring.svc.cluster.local:3001
         - name: argocd
           uri: http://argocd-server.argocd.svc.cluster.local
