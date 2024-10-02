@@ -49,5 +49,7 @@ spec:
             repository: ghcr.io/flux-iac/tf-runner
         metrics:
           enabled: false
+        allowedNamespaces:
+        - flux-reserved
         allowBreakTheGlass: true
 
