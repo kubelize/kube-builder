@@ -5,6 +5,7 @@ resources:
   - ../../../apps/operators/stable/connectivity/cert-manager/
   - ../../../apps/operators/stable/connectivity/ingress-nginx/
   - ../../../apps/operators/stable/gitops/renovate/
+  - ../../../apps/operators/stable/connectivity/metallb/
 
   # operators incubator
   - ../../../apps/operators/incubator/security/sealed-secrets-controller/

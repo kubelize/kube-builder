@@ -7,5 +7,4 @@ metadata:
   namespace: metallb-system
 spec:
   ipAddressPools:
-    - dhe
-    - mck
+    - default
