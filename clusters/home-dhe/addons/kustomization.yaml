@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
   # - ../../../apps/addons/cilium-config/address-pools/site-dhe
   # - ../../../apps/addons/cilium-config/l2advertisements
-  - ../../../apps/addons/metallb-config/l2advertisements/default.yaml
-  - ../../../apps/addons/metallb-config/address-pools/site-dhe
+  - ../../../apps/addons/metallb-config/l2advertisements/
+  - ../../../apps/addons/metallb-config/address-pools/site-dhe/
   - ../../../apps/addons/issuers/
