@@ -18,6 +18,12 @@ spec:
             headers:
               - "Host: dev-dhe-grafana.teleport.kubelize.com"
               - "csrf_trusted_origins: 'http://dev-dhe-grafana.teleport.kubelize.com'"
+        - name: home-dhe-prometheus
+          uri: http://monitoring-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
+        - name: home-dhe-alertmanager
+        - name: uptime-kuma
+          uri: http://uptime-kuma.monitoring.svc.cluster.local:3001
+          uri: http://alertmanager-operated.monitoring.svc.cluster.local:9093
         - name: home-dhe-argocd
           uri: http://argocd-server.argocd.svc.cluster.local
         - name: home-dhe-longhorn
@@ -31,7 +37,7 @@ spec:
             headers:
               - "Connection: Upgrade"
               - "Upgrade: websocket"
-              - "Host: dev-dhe-web-rcon.teleport.kubelize.com"
+              - "Host: home-dhe-web-rcon.teleport.kubelize.com"
               - "Scheme: wss"
               - "Filename: /ws"
         roles: "kube,app,discovery"
