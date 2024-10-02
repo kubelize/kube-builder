@@ -9,7 +9,7 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: flux-system
+    namespace: flux-reserved
   syncPolicy:
     automated:
       prune: false
