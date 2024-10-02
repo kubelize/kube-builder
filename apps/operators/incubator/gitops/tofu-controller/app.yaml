@@ -46,7 +46,7 @@ spec:
         #   nodepool: services
         runner:
           image:
-            repository: ghcr.io/flux-iac/tofu-controller
+            repository: ghcr.io/flux-iac/tf-runner
         metrics:
           enabled: false
         allowBreakTheGlass: true
