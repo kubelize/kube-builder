@@ -47,6 +47,9 @@ spec:
         runner:
           image:
             repository: ghcr.io/flux-iac/tf-runner
+          env:
+          - name: TF_LOG
+            value: "DEBUG"
         metrics:
           enabled: false
         allowedNamespaces:
