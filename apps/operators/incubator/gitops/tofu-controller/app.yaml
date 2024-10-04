@@ -9,7 +9,7 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: flux-reserved
+    namespace: flux-system
   syncPolicy:
     automated:
       prune: false
@@ -47,12 +47,9 @@ spec:
         runner:
           image:
             repository: ghcr.io/flux-iac/tf-runner
-          env:
-          - name: TF_LOG
-            value: "DEBUG"
         metrics:
           enabled: false
         allowedNamespaces:
-        - flux-reserved
+        - flux-system
         allowBreakTheGlass: true
 
