@@ -6,10 +6,10 @@ resources:
   - ../../../apps/operators/stable/connectivity/ingress-nginx/
   - ../../../apps/operators/stable/gitops/renovate/
   - ../../../apps/operators/stable/connectivity/metallb/
+  - ../../../apps/operators/stable/connectivity/teleport-kube-agent/
 
   # operators incubator
   - ../../../apps/operators/incubator/security/sealed-secrets-controller/
-  - ../../../apps/operators/incubator/connectivity/teleport-kube-agent/
   - ../../../apps/operators/incubator/gitops/fluxcd/
   - ../../../apps/operators/incubator/gitops/tofu-controller/
 

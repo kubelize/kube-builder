@@ -4,10 +4,10 @@ resources:
   # operators stable
   - ../../../apps/operators/stable/connectivity/cert-manager/
   - ../../../apps/operators/stable/connectivity/ingress-nginx/
+  - ../../../apps/operators/stable/connectivity/teleport-kube-agent/
 
   # operators incubator
   - ../../../apps/operators/incubator/security/sealed-secrets-controller/
-  - ../../../apps/operators/incubator/connectivity/teleport-kube-agent/
   - ../../../apps/operators/incubator/observability/uptime-kuma/
 
 patches:
