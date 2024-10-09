@@ -16,7 +16,7 @@ resources:
   # addons
   - ../../../apps/addons/metallb-config/address-pools/site-dhe/
   - ../../../apps/addons/metallb-config/l2advertisements/
-  - ../../../apps/addons/alertmanager-config/alertmanager-home-dhe.yaml
+  - ../../../apps/addons/alertmanager-config/home-dhe/
 
 patches:
   - target:
