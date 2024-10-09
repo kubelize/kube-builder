@@ -1,0 +1,16 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: teleport-kube-agent-join-token
+  namespace: teleport-kube-agent
+spec:
+  encryptedData:
+    auth-token: AgBSe6gH7l1rW8RbswuCnk8xuenxDiTbcs3U52FNNR0lqnbOg3P7Kek2Xp8FORT8kg0nbt7UhUximGIZvIBhskA5Z1XYHdC3Eh8OzYafl3WVYbrk9wWZSD9QdYTnvl3oBP+RNzqnmYU4hVvNaNAcNcpeb8ubBmCDXRjlyHjm6mCmZ8HvjpFGC4vU+DDzuudOifgW/y7WiELaXIiV0X1wkf8O71yzkBWpeCY+32bKm2Z0jAC1WGQEYjoKq0Ll+avlubDdZ6O5hIWJwhNhhN8z1UDTHqNDjHP8EBFEH16uHwRCn5A0jkD+HBzJS7h3/GKsH3oAVvqlNDFqJB1jatn5rRq3nW0wcusBFJn4ghkCrgwWaSpGqZFmYdmtSpUGSa4jX+9XDcAdTUUExGxBsCLQa4j84g/tYoBomX0QnM31o9DvSqT8NrJajGMHbtF7dulrfsLIfBoHb9OhMpyzwsUU8a1zpf+bJ8IdQ5k1w1QRPR8AkE8YAUlmCZs8yKQt2ngryaLWfjU1kkdM+V510CoA6tKdxxMM9PXww13ZCdthLrkSQ40zCM5t0c2W/LOlubtDH9Rdz1IwSxmsdR/ucPqAyZ/mqyoj2X2WW0DQCl4NMyjYS+ipQ1SqKwJ1MDzsq2YA05kjGGeBifX61+niqEzFFmGCS++MwHOlKEzxGdmYR3vkUTBIlpsmCZOwvpCmklsO7tSYN8S/aKANKXf5nMvmvuORMWDtZ2MYeQR8eUE9Seu5fA==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: teleport-kube-agent-join-token
+      namespace: teleport-kube-agent
+    type: Opaque

@@ -17,6 +17,7 @@ resources:
   - ../../../apps/addons/metallb-config/address-pools/site-dhe/
   - ../../../apps/addons/metallb-config/l2advertisements/
   - ../../../apps/addons/alertmanager-config/home-dhe/
+  - ../../../apps/addons/teleport-kube-agent/join-token/home-dhe/
 
 patches:
   - target:
