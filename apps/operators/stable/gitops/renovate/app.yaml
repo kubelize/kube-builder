@@ -11,7 +11,7 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: renovate
-  source:
+  sources:
     - repoURL: https://github.com/kubelize/kube-builder
       targetRevision: dev
       path: apps/operators/stable/gitops/renovate/deploy
