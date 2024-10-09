@@ -4,7 +4,8 @@ metadata:
   name: teleport-kube-agent
 spec:
   sources:
-    - helm:
+    - repoURL: https://charts.releases.teleport.dev
+      helm:
         valuesObject:
           kubeClusterName: home-dhe
           proxyAddr: teleport.kubelize.com:443
