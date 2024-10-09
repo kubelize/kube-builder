@@ -14,8 +14,8 @@ resources:
   - ../../../apps/operators/incubator/gitops/tofu-controller/
 
   # addons
-  - ../../../apps/addons/metallb-config/address-pools/site-dhe
-  - ../../../apps/addons/metallb-config/l2advertisement
+  - ../../../apps/addons/metallb-config/address-pools/site-dhe/
+  - ../../../apps/addons/metallb-config/l2advertisements/
   - ../../../apps/addons/alertmanager-config/alertmanager-home-dhe.yaml
 
 patches:
