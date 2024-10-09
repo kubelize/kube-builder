@@ -1,0 +1,1 @@
+kubectl create secret generic alertmanager-config --from-file=/home/dan/Git/kubelize/kube-builder/apps/addons/alertmanager-config/alertmanager-home-dhe.yaml --dry-run -o yaml
