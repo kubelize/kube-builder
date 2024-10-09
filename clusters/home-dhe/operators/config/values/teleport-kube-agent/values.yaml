@@ -4,11 +4,7 @@ metadata:
   name: teleport-kube-agent
 spec:
   sources:
-    - repoURL: https://github.com/kubelize/kube-builder
-      targetRevision: dev
-      path: apps/operators/stable/connectivity/teleport-kube-agent/deploy
-    - repoURL: https://charts.releases.teleport.dev
-      helm:
+    - helm:
         valuesObject:
           kubeClusterName: home-dhe
           proxyAddr: teleport.kubelize.com:443
