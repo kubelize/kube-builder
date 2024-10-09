@@ -15,5 +15,3 @@ spec:
     - repoURL: https://charts.releases.teleport.dev
       targetRevision: 16.2.0
       chart: teleport-kube-agent
-      helm:
-        valuesObject: {}

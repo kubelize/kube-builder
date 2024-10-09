@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: teleport-kube-agent
+  namespace: argocd
 spec:
   sources:
     - repoURL: https://charts.releases.teleport.dev
