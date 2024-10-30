@@ -12,8 +12,8 @@ resources:
   - ../../../apps/operators/incubator/observability/uptime-kuma/
 
   # addons
-  - ../../../apps/addons/metallb-config/address-pools/site-mck/
-  - ../../../apps/addons/metallb-config/l2advertisements/
+  # - ../../../apps/addons/metallb-config/address-pools/site-mck/
+  # - ../../../apps/addons/metallb-config/l2advertisements/
   - ../../../apps/addons/cilium-config/address-pools/site-mck/
   - ../../../apps/addons/cilium-config/l2advertisements/
   # - ../../../apps/addons/alertmanager-config/home-mck/
