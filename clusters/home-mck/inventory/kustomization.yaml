@@ -5,17 +5,17 @@ resources:
   - ../../../apps/operators/stable/connectivity/cert-manager/
   - ../../../apps/operators/stable/connectivity/ingress-nginx/
   - ../../../apps/operators/stable/connectivity/teleport-kube-agent/
-  # - ../../../apps/operators/stable/connectivity/metallb/
+  - ../../../apps/operators/stable/connectivity/metallb/
 
   # operators incubator
   - ../../../apps/operators/incubator/security/sealed-secrets-controller/
   - ../../../apps/operators/incubator/observability/uptime-kuma/
 
   # addons
-  # - ../../../apps/addons/metallb-config/address-pools/site-mck/
-  # - ../../../apps/addons/metallb-config/l2advertisements/
-  - ../../../apps/addons/cilium-config/address-pools/site-mck/
-  - ../../../apps/addons/cilium-config/l2advertisements/
+  - ../../../apps/addons/metallb-config/address-pools/site-mck/
+  - ../../../apps/addons/metallb-config/l2advertisements/
+  # - ../../../apps/addons/cilium-config/address-pools/site-mck/
+  # - ../../../apps/addons/cilium-config/l2advertisements/
   - ../../../apps/addons/alertmanager-config/home-mck/
   - ../../../apps/addons/teleport-kube-agent/join-token/home-mck/
 
