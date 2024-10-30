@@ -5,7 +5,7 @@ resources:
   - ../../../apps/operators/stable/connectivity/cert-manager/
   - ../../../apps/operators/stable/connectivity/ingress-nginx/
   - ../../../apps/operators/stable/gitops/renovate/
-  - ../../../apps/operators/stable/connectivity/metallb/
+  # - ../../../apps/operators/stable/connectivity/metallb/
   - ../../../apps/operators/stable/connectivity/teleport-kube-agent/
 
   # operators incubator
@@ -14,8 +14,10 @@ resources:
   - ../../../apps/operators/incubator/gitops/tofu-controller/
 
   # addons
-  - ../../../apps/addons/metallb-config/address-pools/site-dhe/
-  - ../../../apps/addons/metallb-config/l2advertisements/
+  # - ../../../apps/addons/metallb-config/address-pools/site-dhe/
+  # - ../../../apps/addons/metallb-config/l2advertisements/
+  - ../../../apps/addons/cilium-config/address-pools/site-dhe/
+  - ../../../apps/addons/cilium-config/l2advertisements/
   - ../../../apps/addons/alertmanager-config/home-dhe/
   - ../../../apps/addons/teleport-kube-agent/join-token/home-dhe/
 
