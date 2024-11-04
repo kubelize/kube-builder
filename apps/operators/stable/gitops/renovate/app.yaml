@@ -16,7 +16,7 @@ spec:
       targetRevision: dev
       path: apps/operators/stable/gitops/renovate/deploy
     - repoURL: https://renovatebot.github.io/helm-charts/
-      targetRevision: 37.401.6
+      targetRevision: 38.142.5
       chart: renovate
       helm:
         parameters: []
