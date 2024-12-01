@@ -4,22 +4,22 @@ metadata:
   name: cluster-apps-bootstrap
 spec:
   generators:
-    - clusters:
+    - cluster:
         selector:
           matchLabels:
             environment: home  # Match both home-dhe and home-mck clusters
   template:
     metadata:
-      name: bootstrap-{{ cluster.name }}  # Create a unique application for each cluster
+      name: bootstrap-{{ name }}  # 'name' will be either home-dhe or home-mck based on the cluster
       namespace: argocd
     spec:
       project: default
       source:
-        repoURL: 'https://github.com/kubelize/kube-builder'  # Shared Git repository
-        targetRevision: dev
-        path: 'clusters/{{ cluster.name }}'  # Path is dynamic, based on cluster name
+        repoURL: '{{ repoURL }}'  # Use values from the generator
+        targetRevision: '{{ targetRevision }}'
+        path: 'clusters/{{ name }}'  # 'name' will dynamically insert home-dhe or home-mck
       destination:
-        server: https://kubernetes.default.svc  # In-cluster for each ArgoCD instance
+        server: '{{ server }}'  # Uses the server URL of the cluster from the generator
         namespace: argocd
       syncPolicy:
         automated:
