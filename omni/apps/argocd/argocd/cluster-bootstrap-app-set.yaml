@@ -4,17 +4,10 @@ metadata:
   name: cluster-apps-bootstrap
 spec:
   generators:
-    - list:
-        elements:
-          # Define different elements for each cluster
-          - cluster: home-dhe
-            repoURL: https://github.com/kubelize/kube-builder
-            path: clusters/home-dhe
-            targetRevision: dev
-          - cluster: home-mck
-            repoURL: https://github.com/kubelize/kube-builder
-            path: clusters/home-mck
-            targetRevision: dev
+    - cluster:
+        selector:
+          matchLabels:
+            environment: home
   template:
     metadata:
       name: bootstrap-{{ cluster }}
