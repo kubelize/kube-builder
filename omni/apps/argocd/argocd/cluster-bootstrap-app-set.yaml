@@ -7,19 +7,19 @@ spec:
     - clusters:
         selector:
           matchLabels:
-            environment: home
+            environment: home  # Match both home-dhe and home-mck clusters
   template:
     metadata:
-      name: bootstrap-{{ cluster }}
+      name: bootstrap-{{ cluster.name }}  # Create a unique application for each cluster
       namespace: argocd
     spec:
       project: default
       source:
-        repoURL: '{{ repoURL }}'
-        targetRevision: '{{ targetRevision }}'
-        path: '{{ path }}'
+        repoURL: 'https://github.com/kubelize/kube-builder'  # Shared Git repository
+        targetRevision: dev
+        path: 'clusters/{{ cluster.name }}'  # Path is dynamic, based on cluster name
       destination:
-        server: https://kubernetes.default.svc
+        server: https://kubernetes.default.svc  # In-cluster for each ArgoCD instance
         namespace: argocd
       syncPolicy:
         automated:
