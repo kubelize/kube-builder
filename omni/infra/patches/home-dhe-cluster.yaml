@@ -1,13 +1,17 @@
-apiVersion: v1
-kind: Secret
-metadata:
-  name: home-dhe
-  namespace: argocd
-  labels:
-    argocd.argoproj.io/secret-type: cluster
-    environment: home
-type: Opaque
-data:
-  server: aHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3Zj # "https://kubernetes.default.svc"
-  name: aG9tZS1kaGU=  # "home-dhe"
+cluster:
+  inlineManifests:
+    - name: cluster-secret
+      contents: |
+        apiVersion: v1
+        kind: Secret
+        metadata:
+          name: home-dhe-metadata
+          namespace: argocd
+          labels:
+            argocd.argoproj.io/secret-type: cluster
+            environment: home
+        type: Opaque
+        data:
+          server: aHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3Zj # "https://kubernetes.default.svc"
+          name: aG9tZS1kaGU=  # "home-dhe"
 
