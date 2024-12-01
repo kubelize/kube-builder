@@ -4,7 +4,7 @@ metadata:
   name: cluster-apps-bootstrap
 spec:
   generators:
-    - cluster:
+    - clusters:
         selector:
           matchLabels:
             environment: home
