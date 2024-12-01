@@ -7,7 +7,7 @@ spec:
     - clusters:
         selector:
           matchLabels:
-            name: home-dhe  # Match both home-dhe and home-mck clusters
+            environment: home  # Match both home-dhe and home-mck clusters
   template:
     metadata:
       name: bootstrap-{{ cluster.name }}  # Create a unique application for each cluster
