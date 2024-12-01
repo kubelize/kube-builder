@@ -1,3 +1,6 @@
+# Fetch the public key from the sealed-secrets controller
+kubeseal --fetch-cert --controller-namespace=sealed-secrets > /home/dan/Git/kubelize/kube-builder/apps/addons/sealed-secrets/home-dhe/pub-home-dhe-sealed-secrets.pem
+
 # alertmanager config
 kubeseal --format=yaml \
   --cert=/home/dan/Git/kubelize/kube-builder/apps/addons/sealed-secrets/home-dhe/pub-home-dhe-sealed-secrets.pem \
