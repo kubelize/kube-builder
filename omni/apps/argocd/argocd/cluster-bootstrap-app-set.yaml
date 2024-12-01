@@ -7,19 +7,19 @@ spec:
     - clusters:
         selector:
           matchLabels:
-            environment: home  # Match both home-dhe and home-mck clusters
+            environment: home  # This matches both clusters
   template:
     metadata:
-      name: bootstrap-{{ name }}  # 'name' will be either home-dhe or home-mck based on the cluster
+      name: bootstrap-{{ cluster.name }}  # Use the cluster's name to differentiate
       namespace: argocd
     spec:
       project: default
       source:
-        repoURL: '{{ repoURL }}'  # Use values from the generator
-        targetRevision: '{{ targetRevision }}'
-        path: 'clusters/{{ name }}'  # 'name' will dynamically insert home-dhe or home-mck
+        repoURL: 'https://github.com/kubelize/kube-builder'
+        targetRevision: dev
+        path: 'clusters/{{ cluster.name }}'  # Dynamically set the path based on the cluster name
       destination:
-        server: '{{ server }}'  # Uses the server URL of the cluster from the generator
+        server: https://kubernetes.default.svc
         namespace: argocd
       syncPolicy:
         automated:
