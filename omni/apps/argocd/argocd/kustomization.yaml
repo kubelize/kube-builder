@@ -9,6 +9,5 @@ resources:
   - cluster-bootstrap-app-set.yaml
 
 patches:
-  - path: config.yaml
   - path: params.yaml
   - path: service.yaml

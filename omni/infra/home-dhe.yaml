@@ -21,6 +21,8 @@ patches:
     file: patches/cilium.yaml
   - name: argocd
     file: patches/argocd.yaml
+  - name: cluster-secret
+    file: patches/home-dhe-cluster.yaml
   - name: monitoring
     file: patches/monitoring.yaml
 ---
