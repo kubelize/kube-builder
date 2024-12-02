@@ -1,7 +1,0 @@
-data:
-  application.resourceTrackingMethod: annotation
-  clusters: |
-    - name: home-dhe
-      server: https://kubernetes.default.svc
-      labels:
-        environment: home
