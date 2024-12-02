@@ -4,7 +4,7 @@
 
 ### Infrastructure as Code Kubernetes Clusters
 
-_managed with ArgoCD, Renovate, and SideroLabs Omni_
+_managed with ArgoCD, Renovate and SideroLabs Omni_
 
 </div>
 
