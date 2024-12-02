@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/kubelize/kube-builder/dev/docs/src/assets/logo.png" align="center" width="144px" height="144px"/>
+<img src="https://raw.githubusercontent.com/kubelize/kube-builder/refs/heads/dev/docs/src/assets/logo.png" align="center" width="144px" height="144px"/>
 
 ### Kubelize IaC Kubernetes Clusters
 
