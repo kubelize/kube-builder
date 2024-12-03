@@ -10,6 +10,8 @@ resources:
   # operators incubator
   - ../../../apps/operators/incubator/security/sealed-secrets-controller/
   - ../../../apps/operators/incubator/observability/uptime-kuma/
+  - ../../../apps/operators/incubator/gitops/fluxcd/
+  - ../../../apps/operators/incubator/gitops/tofu-controller/
 
   # addons
   # - ../../../apps/addons/metallb-config/address-pools/site-mck/
