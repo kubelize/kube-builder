@@ -1,9 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: patch
+  name: teleport-kube-agent
 spec:
   sources:
+    - repoURL: https://github.com/kubelize/kube-builder
+      targetRevision: dev
+      path: apps/operators/stable/connectivity/teleport-kube-agent/deploy
+    - repoURL: https://charts.releases.teleport.dev
+      targetRevision: 16.2.0
+      chart: teleport-kube-agent
       helm:
         valuesObject:
           kubeClusterName: home-dhe
