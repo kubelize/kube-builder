@@ -7,7 +7,7 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/kubelize/kube-projects
-      path: 01_environments/home-dhe/inventory
+      path: environments/home-dhe/inventory
       targetRevision: dev
   destination:
     server: https://kubernetes.default.svc
