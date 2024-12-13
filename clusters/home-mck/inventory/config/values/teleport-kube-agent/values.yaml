@@ -24,7 +24,7 @@ spec:
             uri: http://monitoring-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
           - name: home-mck-alertmanager
             uri: http://alertmanager-operated.monitoring.svc.cluster.local:9093
-          - name: uptime-kuma
+          - name: home-mck-uptime-kuma
             uri: http://uptime-kuma.monitoring.svc.cluster.local:3001
           - name: home-mck-argocd
             uri: http://argocd-server.argocd.svc.cluster.local
