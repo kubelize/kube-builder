@@ -16,7 +16,7 @@ spec:
           proxyAddr: teleport.kubelize.com:443
           apps:
           - name: home-dhe-pihole
-            uri: http://pihole-web.pihole.svc.cluster.local:80
+            uri: http://pihole-web.pihole.svc.cluster.local:80/admin
           - name: dhe-pve
             uri: https://10.130.5.120:8006
             insecure_skip_verify: true
