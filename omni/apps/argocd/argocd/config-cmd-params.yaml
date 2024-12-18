@@ -6,3 +6,4 @@ data:
   # Use Omni Workload Proxying HTTP-only
   server.insecure: "true"
   server.disable.auth: "true"
+  controller.diff.server.side: "true"
