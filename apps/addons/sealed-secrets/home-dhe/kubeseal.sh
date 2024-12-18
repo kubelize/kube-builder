@@ -10,11 +10,11 @@ kubeseal --format=yaml \
 # teleport-kube-agent join token
 kubeseal --format=yaml \
   --cert=/home/dan/Git/kubelize/kube-builder/apps/addons/sealed-secrets/home-dhe/pub-home-dhe-sealed-secrets.pem \
-  --secret-file apps/addons/teleport-kube-agent/join-token/home-dhe/secret.yaml \
+  --secret-file /home/dan/Git/kubelize/kube-builder/apps/addons/teleport-kube-agent/join-token/home-dhe/secret.yaml \
   --sealed-secret-file /home/dan/Git/kubelize/kube-builder/apps/addons/teleport-kube-agent/join-token/home-dhe/teleport-kube-agent-join-token.yaml
 
 # renovate bot token
 kubeseal --format=yaml \
   --cert=/home/dan/Git/kubelize/kube-builder/apps/addons/sealed-secrets/home-dhe/pub-home-dhe-sealed-secrets.pem \
-  --secret-file apps/operators/stable/gitops/renovate/deploy/secret.yaml \
+  --secret-file /home/dan/Git/kubelize/kube-builder/apps/operators/stable/gitops/renovate/deploy/secret.yaml \
   --sealed-secret-file /home/dan/Git/kubelize/kube-builder/apps/operators/stable/gitops/renovate/deploy/renovate-env.yaml
