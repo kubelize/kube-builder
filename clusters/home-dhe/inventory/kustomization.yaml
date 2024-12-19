@@ -25,3 +25,7 @@ patches:
       kind: Application
       name: teleport-kube-agent
     path: config/values/teleport-kube-agent/values.yaml
+  - target:
+      kind: Application
+      name: ingress-nginx
+    path: config/values/ingress-nginx/values.yaml
