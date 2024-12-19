@@ -15,8 +15,6 @@ spec:
           kubeClusterName: home-dhe
           proxyAddr: teleport.kubelize.com:443
           apps:
-          - name: dhe-router
-            uri: http://10.130.5.1
           - name: home-dhe-pihole
             uri: http://pihole-web.pihole.svc.cluster.local:80/admin
           - name: dhe-pve
