@@ -32,7 +32,7 @@ spec:
               - servers: 1
                 size: 10Gi
                 name: etcd-backup
-                volumesPerServer: 2
+                volumesPerServer: 1
             configuration:
               name: etcd-backup-config-env
             configSecret:
