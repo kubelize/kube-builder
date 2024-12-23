@@ -18,3 +18,9 @@ kubeseal --format=yaml \
   --cert=/home/dan/Git/kubelize/kube-builder/apps/addons/sealed-secrets/home-dhe/pub-home-dhe-sealed-secrets.pem \
   --secret-file /home/dan/Git/kubelize/kube-builder/apps/operators/stable/gitops/renovate/deploy/secret.yaml \
   --sealed-secret-file /home/dan/Git/kubelize/kube-builder/apps/operators/stable/gitops/renovate/deploy/renovate-env.yaml
+
+# etcd-backup minio tenant
+kubeseal --format=yaml \
+  --cert=/home/dan/Git/kubelize/kube-builder/apps/addons/sealed-secrets/home-dhe/pub-home-dhe-sealed-secrets.pem \
+  --secret-file /home/dan/Git/kubelize/kube-builder/apps/addons/storage/minio-tenants/etcd-backups/secret.yaml \
+  --sealed-secret-file /home/dan/Git/kubelize/kube-builder/apps/addons/storage/minio-tenants/etcd-backups/env-config.yaml

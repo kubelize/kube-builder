@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: minio
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: minio-system
+  sources:
+    - repoURL: https://github.com/kubelize/kube-builder
+      targetRevision: dev
+      path: apps/operators/incubator/storage/minio/deploy
+    - repoURL: https://operator.min.io
+      targetRevision: 6.0.1
+      chart: tenant
+      helm:
+        parameters: []
+        valuesObject:
+          tenant:
+            name: etcd-backup
+            pools:
+              - servers: 1
+            configSecret:
+              existingSecret: true
+              name: etcd-backup-config-env
