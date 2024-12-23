@@ -29,6 +29,7 @@ spec:
             name: etcd-backup
             pools:
               - servers: 1
+            configuration:
+              name: etcd-backup-config-env
             configSecret:
               existingSecret: true
-              name: etcd-backup-config-env
