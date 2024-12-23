@@ -29,6 +29,7 @@ spec:
             name: etcd-backup
             pools:
               - servers: 1
+                size: 10Gi
             configuration:
               name: etcd-backup-config-env
             configSecret:
