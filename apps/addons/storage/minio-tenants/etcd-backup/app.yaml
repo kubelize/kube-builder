@@ -18,7 +18,7 @@ spec:
   sources:
     - repoURL: https://github.com/kubelize/kube-builder
       targetRevision: dev
-      path: apps/addons/storage/etcd-backup/deploy
+      path: apps/addons/storage/minio-tenants/etcd-backup/deploy
     - repoURL: https://operator.min.io
       targetRevision: 6.0.1
       chart: tenant
