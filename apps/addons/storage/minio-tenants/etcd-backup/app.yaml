@@ -25,7 +25,7 @@ spec:
       helm:
         parameters: []
         valuesObject:
-          secrets: {}
+          secrets: null
           tenant:
             name: etcd-backup
             pools:
