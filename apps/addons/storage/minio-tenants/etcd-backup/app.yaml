@@ -25,6 +25,7 @@ spec:
       helm:
         parameters: []
         valuesObject:
+          secrets: {}
           tenant:
             name: etcd-backup
             pools:
@@ -34,5 +35,3 @@ spec:
               name: etcd-backup-config-env
             configSecret:
               existingSecret: true
-              accessKey: {}
-              secretKey: {}
