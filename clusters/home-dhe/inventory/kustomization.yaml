@@ -20,7 +20,7 @@ resources:
   - ../../../apps/addons/cilium-config/l2advertisements/
   - ../../../apps/addons/alertmanager-config/home-dhe/
   - ../../../apps/addons/teleport-kube-agent/join-token/home-dhe/
-  - ../../../apps/addons/storage/minio-tenants/etcd-backups/
+  - ../../../apps/addons/storage/minio-tenants/etcd-backup/
 
 patches:
   - target:
