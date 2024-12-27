@@ -15,6 +15,8 @@ spec:
           kubeClusterName: prod-mck
           proxyAddr: teleport.kubelize.com:443
           apps:
+          - name: home-mck-pihole
+            uri: http://pihole-web.pihole.svc.cluster.local:80/admin
           - name: mck-pve
             uri: https://192.168.1.211:8006
             insecure_skip_verify: true
