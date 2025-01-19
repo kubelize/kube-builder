@@ -11,10 +11,10 @@ spec:
           api:
             enabled: true
             ingressClassName: nginx
-            host: etcd-backup.mckensy.xyz
+            host: etcd-backup.kubelize.com
             path: /
             pathType: Prefix
             tls:
               - hosts:
-                  - etcd-backup.mckensy.xyz
+                  - etcd-backup.kubelize.com
                 secretName: etcd-backup-tls
