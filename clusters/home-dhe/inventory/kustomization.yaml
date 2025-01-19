@@ -20,8 +20,6 @@ resources:
   - ../../../apps/addons/cilium-config/l2advertisements/
   - ../../../apps/addons/alertmanager-config/home-dhe/
   - ../../../apps/addons/teleport-kube-agent/join-token/home-dhe/
-  - ../../../apps/addons/storage/minio-tenants/etcd-backup/
-  - ../../../apps/addons/storage/minio-tenants/etcd-backup/home-dhe/
 
 patches:
   - target:
@@ -32,7 +30,3 @@ patches:
       kind: Application
       name: ingress-nginx
     path: config/values/ingress-nginx/values.yaml
-  - target:
-      kind: Application
-      name: etcd-backup
-    path: config/values/etcd-backup/values.yaml
