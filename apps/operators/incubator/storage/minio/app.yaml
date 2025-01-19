@@ -19,6 +19,3 @@ spec:
     repoURL: https://operator.min.io
     targetRevision: 6.0.1
     chart: operator
-    helm:
-      parameters: []
-      valuesObject: []
