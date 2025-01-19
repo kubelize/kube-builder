@@ -15,7 +15,7 @@ spec:
           kubeClusterName: prod-mck
           proxyAddr: teleport.kubelize.com:443
           apps:
-          - name: home-mck-etcd-backup-s3
+          - name: home-mck-etcd-backup
             uri: https://etcd-backup-console.minio-system.svc.cluster.local:9443
             insecure_skip_verify: true
           - name: home-mck-pihole
