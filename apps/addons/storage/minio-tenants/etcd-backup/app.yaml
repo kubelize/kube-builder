@@ -15,25 +15,22 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: minio-system
-  sources:
-    - repoURL: https://github.com/kubelize/kube-builder
-      targetRevision: dev
-      path: apps/addons/storage/minio-tenants/etcd-backup/deploy
-    - repoURL: https://operator.min.io
-      targetRevision: 6.0.1
-      chart: tenant
-      helm:
-        parameters: []
-        valuesObject:
-          secrets: null
-          tenant:
-            name: etcd-backup
-            pools:
-              - servers: 1
-                size: 10Gi
-                name: etcd-backup
-                volumesPerServer: 1
-            configuration:
-              name: etcd-backup-config-env
-            configSecret:
-              existingSecret: true
+  source:
+    repoURL: https://operator.min.io
+    targetRevision: 6.0.1
+    chart: tenant
+    helm:
+      parameters: []
+      valuesObject:
+        secrets: null
+        tenant:
+          name: etcd-backup
+          pools:
+            - servers: 1
+              size: 10Gi
+              name: etcd-backup
+              volumesPerServer: 1
+          configuration:
+            name: etcd-backup-config-env
+          configSecret:
+            existingSecret: true
