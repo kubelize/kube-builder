@@ -12,7 +12,6 @@ resources:
   - ../../../apps/operators/incubator/security/sealed-secrets-controller/
   - ../../../apps/operators/incubator/gitops/fluxcd/
   - ../../../apps/operators/incubator/gitops/tofu-controller/
-  - ../../../apps/operators/incubator/storage/minio/
 
   # addons
   - ../../../apps/addons/gitops/projects-bootstrap/home-dhe/
