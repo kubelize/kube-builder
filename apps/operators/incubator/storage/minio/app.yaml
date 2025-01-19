@@ -15,13 +15,10 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: minio-system
-  sources:
-    - repoURL: https://github.com/kubelize/kube-builder
-      targetRevision: dev
-      path: apps/operators/incubator/storage/minio/deploy
-    - repoURL: https://operator.min.io
-      targetRevision: 6.0.1
-      chart: operator
-      helm:
-        parameters: []
-        valuesObject: []
+  source:
+    repoURL: https://operator.min.io
+    targetRevision: 6.0.1
+    chart: operator
+    helm:
+      parameters: []
+      valuesObject: []
