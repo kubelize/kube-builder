@@ -21,6 +21,7 @@ resources:
   - ../../../apps/addons/alertmanager-config/home-dhe/
   - ../../../apps/addons/teleport-kube-agent/join-token/home-dhe/
   - ../../../apps/addons/storage/minio-tenants/etcd-backup/
+  - ../../../apps/addons/storage/minio-tenants/etcd-backup/home-dhe/
 
 patches:
   - target:

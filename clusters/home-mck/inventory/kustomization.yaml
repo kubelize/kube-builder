@@ -19,6 +19,7 @@ resources:
   - ../../../apps/addons/alertmanager-config/home-mck/
   - ../../../apps/addons/teleport-kube-agent/join-token/home-mck/
   - ../../../apps/addons/storage/minio-tenants/etcd-backup/
+  - ../../../apps/addons/storage/minio-tenants/etcd-backup/home-mck/
 
 
 patches:
