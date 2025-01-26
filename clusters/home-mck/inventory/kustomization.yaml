@@ -17,6 +17,7 @@ resources:
   - ../../../apps/addons/cilium-config/l2advertisements/
   - ../../../apps/addons/alertmanager-config/home-mck/
   - ../../../apps/addons/teleport-kube-agent/join-token/home-mck/
+  - ../../../apps/addons/storage/minio-tenants/etcd-backup/
 
 
 patches:
