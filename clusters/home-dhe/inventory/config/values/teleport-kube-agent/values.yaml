@@ -15,6 +15,9 @@ spec:
           kubeClusterName: home-dhe
           proxyAddr: teleport.kubelize.com:443
           apps:
+          - name: home-mck-etcd-backup-s3
+            uri: https://etcd-backup-console.minio-system.svc.cluster.local:9443
+            insecure_skip_verify: true
           - name: home-dhe-pihole
             uri: http://pihole-web.pihole.svc.cluster.local:80/admin
           - name: dhe-pve
