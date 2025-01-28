@@ -1,0 +1,16 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: etcd-backup-config-env
+  namespace: minio-system
+spec:
+  encryptedData:
+    config.env: AgAn8OP9456jNsBC2BI6woG8QLfyBpAoxDDY1r8aYEuxnp4+e81TAZPEwl0SVQQf6k4t/lKB1udvzJakBFWWDuJHe7fzqT2gr9MFbuyuMQfpGzfea+G86AZam9Qj1UJWJ5QZ7VTJNzQF+Xq1fzZN9R02EMsQjcVB1a/Z7cqDuPT5884EfKSpYLHw8Kxea7avFyRXwPPCnAzMYl2PUBlxEKtXsnO+WToS7f6UzanllHCTmY5Sfxyd5dq9P2bxvBX4XtwQxSvMQw32x5y9m85GlnliyJ5IQq2qGreuCo1VCgsARqYo+8OoXzQoU+KsFoZIg82K8xTup5vVNWWlO0np5tQ6Q0+4Xumj9kPgyEItO7VjZ5kIGxiPZJe1+ikZzcZhmRBpALO1cX1WGvfeNH5nPJHezjmV5tAxGErXwcAP7DVUfKKenyFF2ZcFEXbII/D0iYZW8252V2S93io6tofKuLYrwROuWrVo00WktTGEBo8MfohV6TX978eIFPD8Y5xzNkVH3BxACJL3jM9QbxHacj5WDCKCcMrdjDoh5hO5QyIrrxJyWnDe7sUPBOcRsT6XlyiuCr6sZ7cSXnW5sYsu0a3Q5r+uzKGnX1AZcjhfk0n5/8upvy8IeBgSIcBL4Y+4uPNjmv+wcc1Zs39jiIO0CLKCgDvNQGNN+dxxg3gzloGv8tns1kGgNMIBS9O5L9cs4INd2Qtmmzz/mZIocqnsMBnFVTCfjlEQLu6VAmT3J7B5VScxTHeyr2VgehJZ4/CdpccgAhAAh2avPvlYC3yi+UQ7dcOKXZ2qRmy87q7Uqj47
+  template:
+    metadata:
+      creationTimestamp: null
+      name: etcd-backup-config-env
+      namespace: minio-system
+    type: Opaque
