@@ -16,10 +16,10 @@ spec:
           proxyAddr: teleport.kubelize.com:443
           apps:
           - name: home-dhe-longhorn-backup
-            uri: https://longhorn-backup-console.minio-system.svc.cluster.local:9443
+            uri: https://longhorn-backup-console.longhorn-backup.svc.cluster.local:9443
             insecure_skip_verify: true
           - name: home-dhe-etcd-backup
-            uri: https://etcd-backup-console.minio-system.svc.cluster.local:9443
+            uri: https://etcd-backup-console.etcd-backup.svc.cluster.local:9443
             insecure_skip_verify: true
           - name: home-dhe-pihole
             uri: http://pihole-web.pihole.svc.cluster.local:80/admin
