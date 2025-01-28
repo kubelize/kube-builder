@@ -15,6 +15,9 @@ spec:
           kubeClusterName: prod-mck
           proxyAddr: teleport.kubelize.com:443
           apps:
+          - name: home-mck-longhorn-backup
+            uri: https://longhorn-backup-console.minio-system.svc.cluster.local:9443
+            insecure_skip_verify: true
           - name: home-mck-etcd-backup
             uri: https://etcd-backup-console.minio-system.svc.cluster.local:9443
             insecure_skip_verify: true

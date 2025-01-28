@@ -21,6 +21,8 @@ resources:
   - ../../../apps/addons/teleport-kube-agent/join-token/home-dhe/
   - ../../../apps/addons/storage/minio-tenants/etcd-backup/
   - ../../../apps/addons/storage/minio-tenants/etcd-backup/home-dhe/
+  - ../../../apps/addons/storage/minio-tenants/longhorn-backup/
+  - ../../../apps/addons/storage/minio-tenants/longhorn-backup/home-dhe/
 
 patches:
   - target:
@@ -31,3 +33,7 @@ patches:
       kind: Application
       name: ingress-nginx
     path: config/values/ingress-nginx/values.yaml
+  - target:
+      kind: Application
+      name: longhorn-backup
+    path: config/values/longhorn-backup/values.yaml

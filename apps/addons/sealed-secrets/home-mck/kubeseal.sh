@@ -24,3 +24,9 @@ kubeseal --format=yaml \
   --cert=/home/dan/Git/kubelize/kube-builder/apps/addons/sealed-secrets/home-mck/pub-home-mck-sealed-secrets.pem \
   --secret-file /home/dan/Git/kubelize/kube-builder/apps/addons/storage/minio-tenants/etcd-backup/secret.yaml \
   --sealed-secret-file /home/dan/Git/kubelize/kube-builder/apps/addons/storage/minio-tenants/etcd-backup/home-mck/env-config.yaml
+
+# longhorn-backup
+kubeseal --format=yaml \
+  --cert=/Users/dan/Git/kubelize/kube-builder/apps/addons/sealed-secrets/home-mck/pub-home-mck-sealed-secrets.pem \
+  --secret-file /Users/dan/Git/kubelize/kube-builder/apps/addons/storage/minio-tenants/longhorn-backup/home-mck/secret.yaml \
+  --sealed-secret-file /Users/dan/Git/kubelize/kube-builder/apps/addons/storage/minio-tenants/longhorn-backup/home-mck/env-config.yaml

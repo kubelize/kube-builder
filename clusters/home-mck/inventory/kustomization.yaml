@@ -20,6 +20,8 @@ resources:
   - ../../../apps/addons/teleport-kube-agent/join-token/home-mck/
   - ../../../apps/addons/storage/minio-tenants/etcd-backup/
   - ../../../apps/addons/storage/minio-tenants/etcd-backup/home-mck/
+  - ../../../apps/addons/storage/minio-tenants/longhorn-backup/
+  - ../../../apps/addons/storage/minio-tenants/longhorn-backup/home-mck/
 
 
 patches:
@@ -35,3 +37,7 @@ patches:
       kind: Application
       name: etcd-backup
     path: config/values/etcd-backup/values.yaml
+  - target:
+      kind: Application
+      name: longhorn-backup
+    path: config/values/longhorn-backup/values.yaml
