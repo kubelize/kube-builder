@@ -10,6 +10,8 @@ spec:
           api:
             enabled: true
             ingressClassName: nginx
+            annotations:
+              cert-manager.io/cluster-issuer: letsencrypt-prod-nginx
             host: longhorn-backup.kubelize.com
             path: /
             pathType: Prefix
