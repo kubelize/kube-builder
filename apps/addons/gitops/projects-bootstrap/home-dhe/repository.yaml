@@ -7,4 +7,4 @@ spec:
   interval: 30s
   url: https://github.com/kubelize/kube-secrets
   ref:
-    branch: dev
+    branch: main
