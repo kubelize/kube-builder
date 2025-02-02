@@ -5,8 +5,8 @@ resources:
   - ../../../apps/operators/stable/connectivity/cert-manager/
   - ../../../apps/operators/stable/connectivity/ingress-nginx/
   - ../../../apps/operators/stable/connectivity/teleport-kube-agent/
-  - ../../../apps/operators/incubator/gitops/fluxcd/
-  - ../../../apps/operators/incubator/gitops/tofu-controller/
+  - ../../../apps/operators/stable/gitops/fluxcd/
+  - ../../../apps/operators/stable/gitops/tofu-controller/
 
   # operators incubator
   - ../../../apps/operators/incubator/security/sealed-secrets-controller/
