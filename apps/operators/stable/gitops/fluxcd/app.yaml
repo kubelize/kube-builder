@@ -7,7 +7,7 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/kubelize/kube-builder
-      path: apps/operators/incubator/gitops/fluxcd/deployment
+      path: apps/operators/stable/gitops/fluxcd/deployment
       targetRevision: dev
   destination:
     server: https://kubernetes.default.svc
