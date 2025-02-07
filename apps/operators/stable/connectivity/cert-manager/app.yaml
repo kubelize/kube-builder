@@ -13,7 +13,7 @@ spec:
       targetRevision: dev
       path: apps/operators/stable/connectivity/cert-manager/deploy
     - repoURL: https://charts.jetstack.io
-      targetRevision: v1.15.0
+      targetRevision: v1.17.0
       chart: cert-manager
       helm:
         parameters: []
