@@ -8,7 +8,7 @@ spec:
       targetRevision: dev
       path: apps/operators/stable/connectivity/teleport-kube-agent/deploy
     - repoURL: https://charts.releases.teleport.dev
-      targetRevision: 16.4.10
+      targetRevision: 16.4.15
       chart: teleport-kube-agent
       helm:
         valuesObject:
