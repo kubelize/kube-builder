@@ -1,26 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: teleport-kube-agent
+  name: patch
 spec:
-  sources:
-    - repoURL: https://github.com/kubelize/kube-builder
-      targetRevision: dev
-      path: apps/operators/stable/connectivity/teleport-kube-agent/deploy
-    - repoURL: https://charts.releases.teleport.dev
-      targetRevision: 16.4.15
-      chart: teleport-kube-agent
-      helm:
-        valuesObject:
-          kubeClusterName: prod-mck
-          proxyAddr: teleport.kubelize.com:443
-          apps:
-          - name: home-mck-longhorn-backup
-            uri: https://longhorn-backup-console.longhorn-backup.svc.cluster.local:9443
-            insecure_skip_verify: true
-          - name: home-mck-etcd-backup
-            uri: https://etcd-backup-console.etcd-backup.svc.cluster.local:9443
-            insecure_skip_verify: true
+  source:
+    helm:
+      valuesObject:
+        kubeClusterName: prod-mck
+        apps:
+          # - name: home-mck-longhorn-backup
+          #   uri: https://longhorn-backup-console.longhorn-backup.svc.cluster.local:9443
+          #   insecure_skip_verify: true
+          # - name: home-mck-etcd-backup
+          #   uri: https://etcd-backup-console.etcd-backup.svc.cluster.local:9443
+          #   insecure_skip_verify: true
           - name: home-mck-pihole
             uri: http://pihole-web.pihole.svc.cluster.local:80/admin
           - name: mck-pve
@@ -50,44 +43,3 @@ spec:
                 - "Host: home-mck-web-rcon.teleport.kubelize.com"
                 - "Scheme: wss"
                 - "Filename: /ws"
-          roles: "kube,app,discovery"
-          kubernetesDiscovery:
-          - types: ["app"]
-            namespaces: ["*"]
-            labels:
-              "teleport.dev/enabled": "true"
-          - types: ["app"]
-            namespaces: ["*"]
-            labels:
-              "teleport.dev/enabled": "on"
-          joinTokenSecret:
-            create: false
-          podSecurityPolicy:
-            enabled: false
-          resources:
-            requests:
-              cpu: 100m
-              memory: 128Mi
-            limits:
-              cpu: 200m
-              memory: 265Mi
-          initSecurityContext:
-            allowPrivilegeEscalation: false
-            capabilities:
-              drop:
-                - all
-            readOnlyRootFilesystem: true
-            runAsNonRoot: true
-            runAsUser: 9807
-            seccompProfile:
-              type: RuntimeDefault
-          securityContext:
-            allowPrivilegeEscalation: false
-            capabilities:
-              drop:
-                - all
-            readOnlyRootFilesystem: true
-            runAsNonRoot: true
-            runAsUser: 9807
-            seccompProfile:
-              type: RuntimeDefault
