@@ -19,7 +19,7 @@ kube-prometheus-stack:
       useExistingSecret: true
       secrets:
         - alertmanager-config
-      configSecret: alertmanager-config
+      # configSecret: alertmanager-config
       storage:
         volumeClaimTemplate:
           spec:
