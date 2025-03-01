@@ -1,0 +1,3 @@
+longhorn:
+  persistence:
+    defaultClassReplicaCount: 2
