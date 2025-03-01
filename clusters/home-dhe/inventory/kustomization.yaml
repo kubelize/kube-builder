@@ -8,6 +8,7 @@ resources:
   - ../../../apps/operators/stable/connectivity/teleport-kube-agent/
   - ../../../apps/operators/stable/gitops/fluxcd/
   - ../../../apps/operators/stable/gitops/tofu-controller/
+  - ../../,,/apps/operators/stable/observability/uptime-kuma/
 
   # operators incubator
   - ../../../apps/operators/incubator/storage/minio/
