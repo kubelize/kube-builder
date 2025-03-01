@@ -9,8 +9,9 @@ kubernetes:
 patches:
   - name: cni
     file: patches/cni.yaml
-  - name: storage
-    file: patches/storage.yaml
+  # Required by Longhorn
+  # - name: storage
+  #   file: patches/storage.yaml
 ---
 kind: ControlPlane
 machineClass:
@@ -30,7 +31,8 @@ kind: Workers
 name: workers
 machineClass:
   name: dhe-workers
-  size: 2
-patches:
-  - name: disks
-    file: patches/disks.yaml
+  size: 3
+# Required by Longhorn
+# patches:
+#   - name: disks
+#     file: patches/disks.yaml
