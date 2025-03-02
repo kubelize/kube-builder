@@ -11,7 +11,7 @@ resources:
   - ../../../apps/operators/stable/observability/uptime-kuma/
 
   # operators incubator
-  - ../../../apps/operators/incubator/storage/minio/
+  # - ../../../apps/operators/incubator/storage/minio/
 
   # addons
   - ../../../apps/addons/gitops/projects-bootstrap/home-dhe/
@@ -31,7 +31,3 @@ patches:
       kind: Application
       name: ingress-nginx
     path: config/values/ingress-nginx/values.yaml
-  - target:
-      kind: Application
-      name: longhorn-backup
-    path: config/values/longhorn-backup/values.yaml
