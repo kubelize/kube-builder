@@ -21,4 +21,6 @@ spec:
     chart: cert-manager
     helm:
       parameters: []
-      valuesObject: {}
+      valuesObject:
+        crds:
+          enabled: true
