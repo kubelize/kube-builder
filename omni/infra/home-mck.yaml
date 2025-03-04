@@ -16,7 +16,7 @@ patches:
 kind: ControlPlane
 machineClass:
   name: mck-control-planes
-  size: 2
+  size: 3
 patches:
   - name: cilium
     file: patches/cilium.yaml
@@ -31,7 +31,7 @@ kind: Workers
 name: workers
 machineClass:
   name: mck-workers
-  size: 2
+  size: 3
 # Required by Longhorn
 # patches:
 #   - name: disks
