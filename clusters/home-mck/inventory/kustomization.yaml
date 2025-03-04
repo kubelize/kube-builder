@@ -14,6 +14,7 @@ resources:
   - ../../../apps/addons/gitops/projects-bootstrap/home-mck/
   - ../../../apps/addons/cilium-config/address-pools/site-mck/
   - ../../../apps/addons/cilium-config/l2advertisements/
+  - ../../../apps/addons/storage/csi-proxmox/
 
 
 patches:
