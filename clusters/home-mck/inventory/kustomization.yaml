@@ -9,14 +9,11 @@ resources:
   - ../../../apps/operators/stable/gitops/tofu-controller/
 
   # operators incubator
-  - ../../../apps/operators/incubator/storage/minio/
 
   # addons
   - ../../../apps/addons/gitops/projects-bootstrap/home-mck/
   - ../../../apps/addons/cilium-config/address-pools/site-mck/
   - ../../../apps/addons/cilium-config/l2advertisements/
-  # - ../../../apps/addons/storage/minio-tenants/etcd-backup/
-  # - ../../../apps/addons/storage/minio-tenants/longhorn-backup/
 
 
 patches:
@@ -28,11 +25,3 @@ patches:
       kind: Application
       name: ingress-nginx
     path: config/values/ingress-nginx/values.yaml
-  - target:
-      kind: Application
-      name: etcd-backup
-    path: config/values/etcd-backup/values.yaml
-  - target:
-      kind: Application
-      name: longhorn-backup
-    path: config/values/longhorn-backup/values.yaml
