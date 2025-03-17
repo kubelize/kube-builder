@@ -9,7 +9,7 @@ spec:
           - list:
               elements:
                 - repoURL: https://github.com/kubelize/kube-builder.git
-                  revision: HEAD
+                  revision: main
                   repoPath: omni/apps/*/*
           - git:
               repoURL: '{{ repoURL }}'

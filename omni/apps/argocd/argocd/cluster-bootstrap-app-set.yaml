@@ -16,7 +16,7 @@ spec:
       project: default
       source:
         repoURL: https://github.com/kubelize/kube-builder
-        targetRevision: dev
+        targetRevision: main
         path: 'clusters/{{ name }}'  # 'name' will dynamically insert home-dhe or home-mck
       destination:
         server: '{{ server }}'  # Uses the server URL of the cluster from the generator
