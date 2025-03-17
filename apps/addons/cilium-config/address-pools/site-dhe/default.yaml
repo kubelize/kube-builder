@@ -9,6 +9,6 @@ spec:
   blocks:
     - start: 10.130.5.230
       stop: 10.130.5.250
-  serviceSelector:
-    matchLabels:
-      kubelize.com/bgp-ip-pool: dhe
+  # serviceSelector:
+  #   matchLabels:
+  #     kubelize.com/bgp-ip-pool: dhe

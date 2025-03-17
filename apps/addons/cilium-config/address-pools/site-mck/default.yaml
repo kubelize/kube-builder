@@ -9,6 +9,6 @@ spec:
   blocks:
     - start: 192.168.1.230
       stop: 192.168.1.240
-  serviceSelector:
-    matchLabels:
-      kubelize.com/bgp-ip-pool: mck
+  # serviceSelector:
+  #   matchLabels:
+  #     kubelize.com/bgp-ip-pool: mck

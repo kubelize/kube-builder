@@ -1,0 +1,65 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: teleport-kube-agent
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: teleport-kube-agent
+  source:
+    repoURL: https://charts.releases.teleport.dev
+    targetRevision: 16.4.15
+    chart: teleport-kube-agent
+    helm:
+      valuesObject:
+        proxyAddr: teleport.kubelize.com:443
+        roles: "kube,app,discovery"
+        kubernetesDiscovery:
+          - types: ["app"]
+            namespaces: ["*"]
+            labels:
+              "teleport.dev/enabled": "true"
+          - types: ["app"]
+            namespaces: ["*"]
+            labels:
+              "teleport.dev/enabled": "on"
+        joinTokenSecret:
+          create: false
+        podSecurityPolicy:
+          enabled: false
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 265Mi
+        initSecurityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - all
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 9807
+          seccompProfile:
+            type: RuntimeDefault
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - all
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 9807
+          seccompProfile:
+            type: RuntimeDefault

@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: longhorn-backup
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: longhorn-backup
+  source:
+    repoURL: https://operator.min.io
+    targetRevision: 7.0.0
+    chart: tenant
+    helm:
+      parameters: []
+      valuesObject:
+        secrets: null
+        tenant:
+          name: longhorn-backup
+          pools:
+            - servers: 1
+              size: 100Gi
+              name: longhorn-backup
+              volumesPerServer: 1
+          configuration:
+            name: longhorn-backup-config-env
+          configSecret:
+            existingSecret: true

@@ -1,0 +1,95 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: endor
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: endor
+  name: deathstar
+  labels:
+    app.kubernetes.io/name: deathstar
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    name: http
+  selector:
+    org: empire
+    class: deathstar
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: endor
+  name: deathstar
+  labels:
+    app.kubernetes.io/name: deathstar
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      org: empire
+      class: deathstar
+  template:
+    metadata:
+      labels:
+        org: empire
+        class: deathstar
+        app.kubernetes.io/name: deathstar
+    spec:
+      containers:
+      - name: deathstar
+        image: quay.io/cilium/starwars:v2.1@sha256:833d915ec68fca3ce83668fc5dae97c455b2134d8f23ef96586f55b894cfb1e8
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: endor
+  name: tiefighter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      org: empire
+      class: tiefighter
+      app.kubernetes.io/name: tiefighter
+  template:
+    metadata:
+      labels:
+        org: empire
+        class: tiefighter
+        app.kubernetes.io/name: tiefighter
+    spec:
+      containers:
+        - name: starship
+          image: docker.io/tgraf/netperf
+          command: ["/bin/sh"]
+          args: ["-c", "while true; do curl -s -XPOST deathstar.endor.svc.cluster.local/v1/request-landing; curl -s https://disney.com; curl -s https://swapi.dev/api/starships; sleep 1; done"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: endor
+  name: xwing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      org: alliance
+      class: xwing
+      app.kubernetes.io/name: xwing
+  template:
+    metadata:
+      labels:
+        org: alliance
+        class: xwing
+        app.kubernetes.io/name: xwing
+    spec:
+      containers:
+        - name: starship
+          image: docker.io/tgraf/netperf
+          command: ["/bin/sh"]
+          args: ["-c", "while true; do curl -s --connect-timeout 2 -XPOST deathstar.endor.svc.cluster.local/v1/request-landing; curl -s --connect-timeout 2 -XPOST deathstar.endor.svc.cluster.local/v1/; curl -s --connect-timeout 2 https://disney.com; curl -s --connect-timeout 2 https://swapi.dev/api/starships; sleep 1; done"]

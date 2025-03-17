@@ -28,6 +28,10 @@ cilium:
     hostRoot: /sys/fs/cgroup
     autoMount:
       enabled: false
+  externalIPs:
+    enabled: true
+  l2announcements:
+    enabled: true
   # Enable Cilium Ingress Controller
   ingressController:
     enabled: false

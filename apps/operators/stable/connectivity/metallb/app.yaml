@@ -8,9 +8,12 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: metallb-system
-  source:
-    repoURL: https://metallb.github.io/metallb
-    targetRevision: 0.14.5
-    chart: metallb
-    helm:
-      parameters: []
+  sources:
+    - repoURL: https://github.com/kubelize/kube-builder
+      targetRevision: dev
+      path: apps/operators/stable/connectivity/metallb/deploy
+    - repoURL: https://metallb.github.io/metallb
+      targetRevision: 0.14.9
+      chart: metallb
+      helm:
+        parameters: []

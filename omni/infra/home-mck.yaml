@@ -1,26 +1,29 @@
 kind: Cluster
 name: home-mck
 talos:
-  version: v1.7.4
+  version: v1.8.4
 kubernetes:
-  version: 1.30.2
+  version: 1.30.9
 # features:
 #   enableWorkloadProxy: true
 patches:
   - name: cni
     file: patches/cni.yaml
-  - name: storage
-    file: patches/storage.yaml
+  # Required by Longhorn
+  # - name: storage
+  #   file: patches/storage.yaml
 ---
 kind: ControlPlane
 machineClass:
   name: mck-control-planes
-  size: 2
+  size: 3
 patches:
   - name: cilium
     file: patches/cilium.yaml
   - name: argocd
     file: patches/argocd.yaml
+  - name: cluster-secret
+    file: patches/home-mck-cluster.yaml
   - name: monitoring
     file: patches/monitoring.yaml
 ---
@@ -28,7 +31,8 @@ kind: Workers
 name: workers
 machineClass:
   name: mck-workers
-  size: 2
-patches:
-  - name: disks
-    file: patches/disks.yaml
+  size: 3
+# Required by Longhorn
+# patches:
+#   - name: disks
+#     file: patches/disks.yaml

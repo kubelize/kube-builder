@@ -23,6 +23,7 @@ kube-prometheus-stack:
       storage:
         volumeClaimTemplate:
           spec:
+            storageClassName: proxmox
             accessModes:
               - ReadWriteOnce
             resources:
@@ -34,6 +35,7 @@ kube-prometheus-stack:
       storageSpec:
         volumeClaimTemplate:
           spec:
+            storageClassName: proxmox
             accessModes:
               - ReadWriteOnce
             resources:

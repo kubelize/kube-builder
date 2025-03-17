@@ -1,3 +1,4 @@
+# Required by Longhorn
 machine:
   kubelet:
     extraMounts:

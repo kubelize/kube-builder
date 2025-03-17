@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: patch
+spec:
+  source:
+    helm:
+      valuesObject:
+        controller:
+          service:
+            annotations:
+              "lbipam.cilium.io/ips": "10.130.5.230"

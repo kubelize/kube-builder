@@ -3,7 +3,7 @@ kind: IPAddressPool
 metadata:
   annotations:
      argocd.argoproj.io/sync-wave: "1"
-  name: mck
+  name: default
   namespace: metallb-system
 spec:
   addresses:

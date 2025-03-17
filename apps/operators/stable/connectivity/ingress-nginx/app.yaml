@@ -4,14 +4,25 @@ metadata:
   name: ingress-nginx
   namespace: argocd
 spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
   project: default
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress-nginx
   source:
     repoURL: https://kubernetes.github.io/ingress-nginx
-    targetRevision: 4.10.1
+    targetRevision: 4.12.0
     chart: ingress-nginx
     helm:
       parameters: []
-      valuesObject: {}
+      valuesObject:
+        controller:
+          allowSnippetAnnotations: true
+          config:
+            annotations-risk-level: "Critical"

@@ -1,0 +1,29 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  # operators stable
+  - ../../../apps/operators/stable/connectivity/cert-manager/
+  - ../../../apps/operators/stable/connectivity/ingress-nginx/
+  - ../../../apps/operators/stable/connectivity/teleport-kube-agent/
+  - ../../../apps/operators/stable/gitops/fluxcd/
+  - ../../../apps/operators/stable/gitops/tofu-controller/
+  - ../../../apps/operators/stable/observability/uptime-kuma/
+
+  # operators incubator
+
+  # addons
+  - ../../../apps/addons/gitops/projects-bootstrap/home-mck/
+  - ../../../apps/addons/cilium-config/address-pools/site-mck/
+  - ../../../apps/addons/cilium-config/l2advertisements/
+  - ../../../apps/addons/storage/csi-proxmox/pve-mck/
+
+
+patches:
+  - target:
+      kind: Application
+      name: teleport-kube-agent
+    path: config/values/teleport-kube-agent/values.yaml
+  - target:
+      kind: Application
+      name: ingress-nginx
+    path: config/values/ingress-nginx/values.yaml

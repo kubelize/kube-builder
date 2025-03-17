@@ -1,0 +1,49 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: patch
+spec:
+  source:
+    helm:
+      valuesObject:
+        kubeClusterName: home-dhe
+        apps:
+          # - name: home-dhe-longhorn-backup
+          #   uri: https://longhorn-backup-console.longhorn-backup.svc.cluster.local:9443
+          #   insecure_skip_verify: true
+          # - name: home-dhe-etcd-backup
+          #   uri: https://etcd-backup-console.etcd-backup.svc.cluster.local:9443
+          #   insecure_skip_verify: true
+          - name: home-dhe-pihole
+            uri: http://pihole-web.pihole.svc.cluster.local:80/admin
+          - name: dhe-pve
+            uri: https://10.130.5.120:8006
+            insecure_skip_verify: true
+          - name: home-dhe-grafana
+            uri: http://monitoring-kube-prometheus-stack-grafana.monitoring.svc.cluster.local
+            rewrite:
+              headers:
+                - "Host: dev-dhe-grafana.teleport.kubelize.com"
+                - "csrf_trusted_origins: 'http://dev-dhe-grafana.teleport.kubelize.com'"
+          - name: home-dhe-prometheus
+            uri: http://monitoring-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
+          - name: home-dhe-alertmanager
+            uri: http://alertmanager-operated.monitoring.svc.cluster.local:9093
+          - name: home-dhe-uptime-kuma
+            uri: http://uptime-kuma.monitoring.svc.cluster.local:3001
+          - name: home-dhe-argocd
+            uri: http://argocd-server.argocd.svc.cluster.local
+          - name: home-dhe-longhorn
+            uri: http://longhorn-frontend.longhorn-system.svc.cluster.local
+          - name: home-dhe-hubble
+            uri: http://hubble-ui.kube-system.svc.cluster.local
+          - name: home-dhe-web-rcon
+            uri: https://web-rcon-service.web-rcon.svc.cluster.local
+            insecure_skip_verify: true
+            rewrite:
+              headers:
+                - "Connection: Upgrade"
+                - "Upgrade: websocket"
+                - "Host: home-dhe-web-rcon.teleport.kubelize.com"
+                - "Scheme: wss"
+                - "Filename: /ws"

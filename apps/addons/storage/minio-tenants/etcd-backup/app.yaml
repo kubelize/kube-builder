@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: etcd-backup
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: etcd-backup
+  source:
+    repoURL: https://operator.min.io
+    targetRevision: 7.0.0
+    chart: tenant
+    helm:
+      parameters: []
+      valuesObject:
+        secrets: null
+        tenant:
+          name: etcd-backup
+          pools:
+            - servers: 1
+              size: 100Gi
+              name: etcd-backup
+              volumesPerServer: 1
+          configuration:
+            name: etcd-backup-config-env
+          configSecret:
+            existingSecret: true

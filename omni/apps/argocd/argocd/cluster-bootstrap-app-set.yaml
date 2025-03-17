@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-apps-bootstrap
+spec:
+  generators:
+    - clusters:
+        selector:
+          matchLabels:
+            environment: home  # Match both home-dhe and home-mck clusters
+  template:
+    metadata:
+      name: bootstrap-{{ name }}  # 'name' will be either home-dhe or home-mck based on the cluster
+      namespace: argocd
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/kubelize/kube-builder
+        targetRevision: dev
+        path: 'clusters/{{ name }}'  # 'name' will dynamically insert home-dhe or home-mck
+      destination:
+        server: '{{ server }}'  # Uses the server URL of the cluster from the generator
+        namespace: argocd
+      syncPolicy:
+        automated:
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
+          - ServerSideApply=true
