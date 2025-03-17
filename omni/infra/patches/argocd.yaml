@@ -22280,7 +22280,7 @@ cluster:
                   elements:
                   - repoPath: omni/apps/*/*
                     repoURL: https://github.com/kubelize/kube-builder.git
-                    revision: HEAD
+                    revision: main
               - git:
                   directories:
                   - path: '{{ repoPath }}'
