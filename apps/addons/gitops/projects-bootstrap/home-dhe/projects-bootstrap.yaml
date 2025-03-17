@@ -8,7 +8,7 @@ spec:
   sources:
     - repoURL: https://github.com/kubelize/kube-projects
       path: environments/home-dhe/inventory
-      targetRevision: dev
+      targetRevision: main
   destination:
     server: https://kubernetes.default.svc
     namespace: flux-system
