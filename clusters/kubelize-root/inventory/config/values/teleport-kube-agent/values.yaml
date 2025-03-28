@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: patch
+spec:
+  source:
+    helm:
+      valuesObject:
+        kubeClusterName: kubelize-root
+        apps:
+          - name: kubelize-root-argocd
+            uri: http://argocd-server.argocd.svc.cluster.local
