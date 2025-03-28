@@ -58,9 +58,9 @@ spec:
                 disable_login_form: true
                 disable_signout_menu: true
               auth.basic:
-                enabled: true
+                enabled: false
               auth.anonymous:
-                enabled: true
+                enabled: false
             # Allow Omni Workload Proxying for this service
               security:
                 allow_embedding: true
