@@ -10,5 +10,11 @@ spec:
         apps:
           - name: kubelize-root-argocd
             uri: http://argocd-server.argocd.svc.cluster.local
+          - name: kubelize-root-grafana
+            uri: http://kube-prometheus-stack-grafana.observability-system.svc.cluster.local
+          - name: kubelize-root-prometheus
+            uri: http://kube-prometheus-prometheus.observability-system.svc.cluster.local
+          - name: kubelize-root-alertmanager
+            uri: http://alertmanager-operated.observability-system.svc.cluster.local
           - name: uptime-kuma
             uri: http://uptime-kuma.uptime-kuma.svc.cluster.local:3001

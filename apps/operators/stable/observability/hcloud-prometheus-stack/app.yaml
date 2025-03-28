@@ -1,0 +1,66 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kube-prometheus-stack
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observability-system
+  source:
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 69.2.0
+    chart: kube-prometheus-stack
+    helm:
+      parameters: []
+      valuesObject:
+        kube-prometheus-stack:
+          alertmanager:
+            alertmanagerSpec:
+              forceEnableClusterMode: true
+              useExistingSecret: true
+              secrets:
+                - alertmanager-config
+              configSecret: alertmanager-config
+              storage:
+                volumeClaimTemplate:
+                  spec:
+                    storageClassName: hcloud-volumes
+                    accessModes:
+                      - ReadWriteOnce
+                    resources:
+                      requests:
+                        storage: 10Gi
+          prometheus:
+            prometheusSpec:
+              retention: 30d
+              storageSpec:
+                volumeClaimTemplate:
+                  spec:
+                    storageClassName: hcloud-volumes
+                    accessModes:
+                      - ReadWriteOnce
+                    resources:
+                      requests:
+                        storage: 100Gi
+          grafana:
+            grafana.ini:
+              auth:
+                # testing auth configurations currently
+                disable_login_form: true
+                disable_signout_menu: true
+              auth.basic:
+                enabled: true
+              auth.anonymous:
+                enabled: true
+            # Allow Omni Workload Proxying for this service
+              security:
+                allow_embedding: true

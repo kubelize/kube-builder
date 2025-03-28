@@ -6,7 +6,7 @@ spec:
   source:
     helm:
       valuesObject:
-        kubeClusterName: prod-mck
+        kubeClusterName: home-mck
         apps:
           # - name: home-mck-longhorn-backup
           #   uri: https://longhorn-backup-console.longhorn-backup.svc.cluster.local:9443
