@@ -10,3 +10,5 @@ spec:
         apps:
           - name: kubelize-root-argocd
             uri: http://argocd-server.argocd.svc.cluster.local
+          - name: uptime-kuma
+            uri: http://uptime-kuma.uptime-kuma.svc.cluster.local:3001
