@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 
   - ../../../apps/operators/stable/connectivity/teleport-kube-agent/
+  - ../../../apps/operators/stable/observability/uptime-kuma/
 
 patches:
   - target:
