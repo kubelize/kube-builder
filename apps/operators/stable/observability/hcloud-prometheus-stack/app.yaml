@@ -22,45 +22,42 @@ spec:
     helm:
       parameters: []
       valuesObject:
-        kube-prometheus-stack:
-          alertmanager:
-            alertmanagerSpec:
-              forceEnableClusterMode: true
-              useExistingSecret: true
-              secrets:
-                - alertmanager-config
-              configSecret: alertmanager-config
-              storage:
-                volumeClaimTemplate:
-                  spec:
-                    storageClassName: hcloud-volumes
-                    accessModes:
-                      - ReadWriteOnce
-                    resources:
-                      requests:
-                        storage: 1Gi
-          prometheus:
-            prometheusSpec:
-              retention: 30d
-              storageSpec:
-                volumeClaimTemplate:
-                  spec:
-                    storageClassName: hcloud-volumes
-                    accessModes:
-                      - ReadWriteOnce
-                    resources:
-                      requests:
-                        storage: 100Gi
-          grafana:
-            grafana.ini:
-              auth:
-                # testing auth configurations currently
-                disable_login_form: true
-                disable_signout_menu: true
-              auth.basic:
-                enabled: true
-              auth.anonymous:
-                enabled: true
-            # Allow Omni Workload Proxying for this service
-              security:
-                allow_embedding: true
+        alertmanager:
+          alertmanagerSpec:
+            forceEnableClusterMode: true
+            useExistingSecret: true
+            secrets:
+              - alertmanager-config
+            configSecret: alertmanager-config
+            storage:
+              volumeClaimTemplate:
+                spec:
+                  storageClassName: hcloud-volumes
+                  accessModes:
+                    - ReadWriteOnce
+                  resources:
+                    requests:
+                      storage: 1Gi
+        prometheus:
+          prometheusSpec:
+            retention: 30d
+            storageSpec:
+              volumeClaimTemplate:
+                spec:
+                  storageClassName: hcloud-volumes
+                  accessModes:
+                    - ReadWriteOnce
+                  resources:
+                    requests:
+                      storage: 100Gi
+        grafana:
+          grafana.ini:
+            auth:
+              disable_login_form: true
+              disable_signout_menu: true
+            auth.basic:
+              enabled: true
+            auth.anonymous:
+              enabled: true
+          security:
+            allow_embedding: true
