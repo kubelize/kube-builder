@@ -15,6 +15,6 @@ spec:
           - name: kubelize-root-prometheus
             uri: http://kube-prometheus-stack-prometheus.observability-system.svc.cluster.local
           - name: kubelize-root-alertmanager
-            uri: http://kube-prometheus-stack-alertmanager.observability-system.svc.cluster.local
+            uri: http://alertmanager-operated.observability-system.svc.cluster.local
           - name: uptime-kuma
             uri: http://uptime-kuma.uptime-kuma.svc.cluster.local:3001
