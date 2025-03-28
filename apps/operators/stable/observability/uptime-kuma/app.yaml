@@ -21,7 +21,7 @@ spec:
     chart: uptime-kuma
     helm:
       parameters: []
-      values: |
+      valuesObject:
         # Default values for uptime-kuma.
         # This is a YAML-formatted file.
         # Declare variables to be passed into your templates.
@@ -82,13 +82,6 @@ spec:
           #  - secretName: chart-example-tls
           #    hosts:
           #      - chart-example.local
-
-        storage:
-          name: "uptime-kuma"
-          accessMode: ""
-          storageClassName: "proxmox"
-          capacity: "10Gi"
-          annotations: {}
 
         resources: {}
           # We usually recommend not to specify default resources and to leave this as a conscious
