@@ -27,3 +27,7 @@ patches:
       kind: Application
       name: ingress-nginx
     path: config/values/ingress-nginx/values.yaml
+  - target:
+      kind: Application
+      name: uptime-kuma
+    path: config/values/uptime-kuma/values.yaml
