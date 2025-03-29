@@ -10,6 +10,7 @@ resources:
 
   # addons
   - ../../../apps/addons/gitops/projects-bootstrap/kubelize-root/
+  - ../../../apps/addons/traefik/
 
 patches:
   - target:
