@@ -22,4 +22,5 @@ patches:
     path: config/values/uptime-kuma/values.yaml
   - target:
       kind: Application
+      name: traefik
     path: config/values/traefik/values.yaml
