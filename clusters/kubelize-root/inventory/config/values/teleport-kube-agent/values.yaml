@@ -18,3 +18,5 @@ spec:
             uri: http://alertmanager-operated.observability-system.svc.cluster.local:9093
           - name: uptime-kuma
             uri: http://uptime-kuma.uptime-kuma.svc.cluster.local:3001
+          - name: traefik
+            uri: http://traefik-dashboard.traefik.svc.cluster.local:8080
