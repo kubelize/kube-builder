@@ -5,6 +5,8 @@ resources:
   - ../../../apps/operators/stable/observability/hcloud-prometheus-stack/
   - ../../../apps/operators/stable/connectivity/teleport-kube-agent/
   - ../../../apps/operators/stable/observability/uptime-kuma/
+  - ../../../apps/operators/stable/connectivity/traefik/
+  - ../../../apps/operators/stable/gitops/fluxcd/
 
 patches:
   - target:
