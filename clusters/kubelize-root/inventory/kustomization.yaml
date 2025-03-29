@@ -20,3 +20,6 @@ patches:
       kind: Application
       name: uptime-kuma
     path: config/values/uptime-kuma/values.yaml
+  - target:
+      kind: Application
+    path: config/values/traefik/values.yaml
