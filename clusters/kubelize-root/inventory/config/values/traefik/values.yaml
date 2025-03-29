@@ -13,12 +13,18 @@ spec:
             load-balancer.hetzner.cloud/network-zone: "eu-central"
             load-balancer.hetzner.cloud/location: "nbg1"
         ports:
-          minecraft:
-            port: 25565
+          b02-prod:
+            port: 33333
             protocol: TCP
             expose:
               default: true
-            exposedPort: 25565
+            exposedPort: 33333
+          b02-test:
+            port: 33334
+            protocol: TCP
+            expose:
+              default: true
+            exposedPort: 33334
         ingressRoute:
           dashboard:
             enabled: true
