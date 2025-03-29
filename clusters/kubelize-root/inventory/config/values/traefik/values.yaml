@@ -21,4 +21,4 @@ spec:
             exposedPort: 25565
         ingressRoute:
           dashboard:
-            enabled: false
+            enabled: true
