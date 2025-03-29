@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: kube-secrets
+  namespace: flux-system
+spec:
+  interval: 30s
+  url: https://github.com/kubelize/kube-secrets
+  ref:
+    branch: main
