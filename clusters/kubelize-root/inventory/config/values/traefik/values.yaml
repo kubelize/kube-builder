@@ -19,3 +19,6 @@ spec:
             expose:
               default: true
             exposedPort: 25565
+        ingressRoute:
+          dashboard:
+            enabled: false
