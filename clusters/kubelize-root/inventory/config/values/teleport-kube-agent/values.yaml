@@ -19,4 +19,4 @@ spec:
           - name: uptime-kuma
             uri: http://uptime-kuma.uptime-kuma.svc.cluster.local:3001
           - name: traefik
-            uri: http://traefik-dashboard.traefik.svc.cluster.local:8080
+            uri: http://traefik-dashboard.traefik.svc.cluster.local:8080/dashboard/
