@@ -28,18 +28,5 @@ spec:
             enabled: false
             maxUnavailable: 1
             minAvailable: 2
-        service:
-          type: LoadBalancer
-          annotations:
-            service.beta.kubernetes.io/hetzner-load-balancer-type: "lb11"
-            load-balancer.hetzner.cloud/network-zone: "eu-central"
-            load-balancer.hetzner.cloud/location: "nbg1"
-        ports:
-          minecraft:
-            port: 25565
-            protocol: TCP
-            expose:
-              default: true
-            exposedPort: 25565
 
 
