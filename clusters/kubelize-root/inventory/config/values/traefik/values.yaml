@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: patch
+spec:
+  source:
+    helm:
+      valuesObject:
+        service:
+          type: LoadBalancer
+          annotations:
+            service.beta.kubernetes.io/hetzner-load-balancer-type: "lb11"
+            load-balancer.hetzner.cloud/network-zone: "eu-central"
+            load-balancer.hetzner.cloud/location: "nbg1"
+        ports:
+          minecraft:
+            port: 25565
+            protocol: TCP
+            expose:
+              default: true
+            exposedPort: 25565

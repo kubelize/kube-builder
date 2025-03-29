@@ -1,0 +1,45 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: traefik
+  source:
+    repoURL: https://traefik.github.io/charts
+    targetRevision: 34.4.1
+    chart: traefik
+    helm:
+      valuesObject:
+        deployment:
+          enabled: true
+          replicas: 3
+          podDisruptionBudget:
+            enabled: false
+            maxUnavailable: 1
+            minAvailable: 2
+        service:
+          type: LoadBalancer
+          annotations:
+            service.beta.kubernetes.io/hetzner-load-balancer-type: "lb11"
+            load-balancer.hetzner.cloud/network-zone: "eu-central"
+            load-balancer.hetzner.cloud/location: "nbg1"
+        ports:
+          minecraft:
+            port: 25565
+            protocol: TCP
+            expose:
+              default: true
+            exposedPort: 25565
+
+
