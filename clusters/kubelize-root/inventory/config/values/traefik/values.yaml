@@ -31,6 +31,12 @@ spec:
             expose:
               default: true
             exposedPort: 33334
+          b01a-prod:
+            port: 42069
+            protocol: TCP
+            expose:
+              default: true
+            exposedPort: 42069
         ingressRoute:
           dashboard:
             enabled: true
