@@ -13,12 +13,6 @@ spec:
             load-balancer.hetzner.cloud/network-zone: "eu-central"
             load-balancer.hetzner.cloud/location: "nbg1"
         ports:
-          b01-prod:
-            port: 2283
-            protocol: TCP
-            expose:
-              default: true
-            exposedPort: 2283
           b02-prod:
             port: 33333
             protocol: TCP
