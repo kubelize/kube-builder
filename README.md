@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/kubelize/kube-builder/refs/heads/dev/docs/src/assets/logo.png" align="center" width="177px" height="212px"/>
+<img src="https://raw.githubusercontent.com/kubelize/kube-builder/refs/heads/dev/src/assets/logo.png" align="center" width="177px" height="212px"/>
 
 ### Infrastructure as Code Kubernetes Clusters
 
