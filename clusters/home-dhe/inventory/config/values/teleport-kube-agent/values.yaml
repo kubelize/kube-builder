@@ -7,6 +7,9 @@ spec:
     helm:
       valuesObject:
         kubeClusterName: home-dhe
+        highAvailability:
+          replicaCount: 2
+          requireAntiAffinity: true
         apps:
           - name: dhe-pve
             uri: https://10.130.5.120:8006
