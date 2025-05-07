@@ -26,8 +26,6 @@ spec:
             uri: http://alertmanager-operated.monitoring.svc.cluster.local:9093
           - name: home-dhe-argocd
             uri: http://argocd-server.argocd.svc.cluster.local
-          - name: home-dhe-longhorn
-            uri: http://longhorn-frontend.longhorn-system.svc.cluster.local
           - name: home-dhe-hubble
             uri: http://hubble-ui.kube-system.svc.cluster.local
           - name: home-dhe-web-rcon
