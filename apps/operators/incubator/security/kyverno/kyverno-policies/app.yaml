@@ -10,7 +10,7 @@ spec:
     namespace: kyverno-system
   source:
     repoURL: https://kyverno.github.io/kyverno/
-    targetRevision: 3.3.3
+    targetRevision: 3.4.1
     chart: kyverno-policies
     helm:
       parameters: []

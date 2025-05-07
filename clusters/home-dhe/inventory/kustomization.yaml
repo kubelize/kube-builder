@@ -8,6 +8,7 @@ resources:
   - ../../../apps/operators/stable/connectivity/teleport-kube-agent/
   - ../../../apps/operators/stable/gitops/fluxcd/
   - ../../../apps/operators/stable/gitops/tofu-controller/
+  - ../../../apps/operators/incubator/security/kyverno/
 
   # addons
   - ../../../apps/addons/gitops/projects-bootstrap/home-dhe/
