@@ -8,14 +8,6 @@ spec:
       valuesObject:
         kubeClusterName: home-dhe
         apps:
-          # - name: home-dhe-longhorn-backup
-          #   uri: https://longhorn-backup-console.longhorn-backup.svc.cluster.local:9443
-          #   insecure_skip_verify: true
-          # - name: home-dhe-etcd-backup
-          #   uri: https://etcd-backup-console.etcd-backup.svc.cluster.local:9443
-          #   insecure_skip_verify: true
-          - name: home-dhe-pihole
-            uri: http://pihole-web.pihole.svc.cluster.local:80/admin
           - name: dhe-pve
             uri: https://10.130.5.120:8006
             insecure_skip_verify: true
@@ -29,8 +21,6 @@ spec:
             uri: http://monitoring-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
           - name: home-dhe-alertmanager
             uri: http://alertmanager-operated.monitoring.svc.cluster.local:9093
-          - name: home-dhe-uptime-kuma
-            uri: http://uptime-kuma.monitoring.svc.cluster.local:3001
           - name: home-dhe-argocd
             uri: http://argocd-server.argocd.svc.cluster.local
           - name: home-dhe-longhorn

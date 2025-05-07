@@ -14,8 +14,6 @@ spec:
           # - name: home-mck-etcd-backup
           #   uri: https://etcd-backup-console.etcd-backup.svc.cluster.local:9443
           #   insecure_skip_verify: true
-          - name: home-mck-pihole
-            uri: http://pihole-web.pihole.svc.cluster.local:80/admin
           - name: mck-pve
             uri: https://192.168.1.211:8006
             insecure_skip_verify: true
@@ -25,12 +23,8 @@ spec:
             uri: http://monitoring-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
           - name: home-mck-alertmanager
             uri: http://alertmanager-operated.monitoring.svc.cluster.local:9093
-          - name: home-mck-uptime-kuma
-            uri: http://uptime-kuma.monitoring.svc.cluster.local:3001
           - name: home-mck-argocd
             uri: http://argocd-server.argocd.svc.cluster.local
-          - name: home-mck-longhorn
-            uri: http://longhorn-frontend.storage.svc.cluster.local
           - name: home-mck-hubble
             uri: http://hubble-ui.kube-system.svc.cluster.local
           - name: home-mck-web-rcon
