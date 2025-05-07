@@ -4,6 +4,13 @@ metadata:
   name: kyverno-policies
   namespace: argocd
 spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
   project: default
   destination:
     server: https://kubernetes.default.svc
