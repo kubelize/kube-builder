@@ -1,0 +1,20 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: force-control-plane-scheduling
+spec:
+  rules:
+    - name: add-node-selector-and-toleration
+      match:
+        resources:
+          kinds: ["Pod"]
+          namespaces: ["argocd"]
+      mutate:
+        patchStrategicMerge:
+          spec:
+            nodeSelector:
+              node-role.kubernetes.io/control-plane: ""
+            tolerations:
+              - key: "node-role.kubernetes.io/control-plane"
+                operator: "Exists"
+                effect: "NoSchedule"
