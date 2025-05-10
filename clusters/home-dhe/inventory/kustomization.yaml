@@ -16,6 +16,7 @@ resources:
   - ../../../apps/addons/cilium/l2advertisements/
   - ../../../apps/addons/storage/csi-proxmox/pve-dhe/
   - ../../../apps/addons/issuers/
+  - ../../../apps/addons/kyverno-policies/core/
 
 patches:
   - target:

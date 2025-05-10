@@ -7,14 +7,14 @@ resources:
   - ../../../apps/operators/stable/connectivity/teleport-kube-agent/
   - ../../../apps/operators/stable/gitops/fluxcd/
   - ../../../apps/operators/stable/gitops/tofu-controller/
-
-  # operators incubator
+  - ../../../apps/operators/incubator/security/kyverno/
 
   # addons
   - ../../../apps/addons/gitops/projects-bootstrap/home-mck/
   - ../../../apps/addons/cilium/address-pools/site-mck/
   - ../../../apps/addons/cilium/l2advertisements/
   - ../../../apps/addons/storage/csi-proxmox/pve-mck/
+  - ../../../apps/addons/kyverno-policies/core/
 
 
 patches:
