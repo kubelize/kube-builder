@@ -5,6 +5,7 @@ metadata:
 spec:
   rules:
     - name: add-node-selector-and-toleration
+      skipBackgroundRequests: true
       match:
         resources:
           kinds: ["Pod"]

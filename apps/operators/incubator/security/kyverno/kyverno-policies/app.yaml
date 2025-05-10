@@ -23,10 +23,10 @@ spec:
       parameters: []
       valuesObject:
         podSecurityStandard: baseline
-        validationFailureAction: audit
+        validationFailureAction: Audit
         validationFailureActionOverrides:
           all:
-          - action: enforce
+          - action: Enforce
             namespaceSelector:
               matchLabels:
                 kyverno-policies-mode: enforce
