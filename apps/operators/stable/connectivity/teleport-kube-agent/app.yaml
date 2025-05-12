@@ -17,7 +17,7 @@ spec:
     namespace: teleport-kube-agent
   source:
     repoURL: https://charts.releases.teleport.dev
-    targetRevision: 16.4.15
+    targetRevision: 17.4.9
     chart: teleport-kube-agent
     helm:
       valuesObject:
