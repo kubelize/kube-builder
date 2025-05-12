@@ -17,7 +17,7 @@ spec:
     namespace: ingress-nginx
   source:
     repoURL: https://kubernetes.github.io/ingress-nginx
-    targetRevision: 4.12.0
+    targetRevision: 4.12.2
     chart: ingress-nginx
     helm:
       parameters: []
