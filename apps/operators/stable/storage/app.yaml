@@ -10,7 +10,7 @@ spec:
     namespace: longhorn-system
   source:
     repoURL: https://charts.longhorn.io
-    targetRevision: 1.8.0
+    targetRevision: 1.8.1
     chart: longhorn
     helm:
       parameters: []
