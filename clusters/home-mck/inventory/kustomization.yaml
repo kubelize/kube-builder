@@ -5,12 +5,12 @@ resources:
   - ../../../apps/operators/stable/connectivity/cert-manager/
   - ../../../apps/operators/stable/connectivity/ingress-nginx/
   - ../../../apps/operators/stable/connectivity/teleport-kube-agent/
-  - ../../../apps/operators/stable/gitops/fluxcd/
+  #- ../../../apps/operators/stable/gitops/fluxcd/
   - ../../../apps/operators/stable/gitops/tofu-controller/
   - ../../../apps/operators/incubator/security/kyverno/
 
   # addons
-  - ../../../apps/addons/gitops/projects-bootstrap/home-mck/
+  #- ../../../apps/addons/gitops/projects-bootstrap/home-mck/
   - ../../../apps/addons/cilium/address-pools/site-mck/
   - ../../../apps/addons/cilium/l2advertisements/
   - ../../../apps/addons/storage/csi-proxmox/pve-mck/
@@ -26,7 +26,7 @@ patches:
       kind: Application
       name: ingress-nginx
     path: config/values/ingress-nginx/values.yaml
-  - target:
-      kind: Application
-      name: uptime-kuma
-    path: config/values/uptime-kuma/values.yaml
+#  - target:
+#      kind: Application
+#      name: uptime-kuma
+#    path: config/values/uptime-kuma/values.yaml
